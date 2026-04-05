@@ -18,8 +18,8 @@ export default function Home() {
               <Link href="/agency-demo">
                 <Button size="lg" className="w-full sm:w-auto text-base sm:text-lg touch-target">Agency Demo</Button>
               </Link>
-              <Link href="/beta">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto text-base sm:text-lg bg-white text-gaming touch-target">Brand Access</Button>
+              <Link href="/batch-campaign">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto text-base sm:text-lg bg-white text-gaming touch-target">Launch Campaign</Button>
               </Link>
             </div>
           </div>
