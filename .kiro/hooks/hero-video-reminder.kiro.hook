@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Hero Video Reminder",
+  "description": "Reminds Joel to replace the placeholder hero video with a commissioned 30-second APAC gaming loop if it hasn't been updated after 1 week",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Remind the user: The homepage hero video at app/page.tsx is still using a placeholder from Coverr. You need to commission or source a 30-second looping video showing: Vietnamese café gamers on mobile, Thai esports viewing parties, Indonesian friends gaming on PC, Australian streamers — diverse, inclusive, energetic APAC gaming scenes. Drop the file at public/hero-video.mp4 and update the source tag in app/page.tsx. Then git push to deploy."
+  }
+}
