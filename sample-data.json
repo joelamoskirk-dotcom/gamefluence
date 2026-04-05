@@ -1,0 +1,47 @@
+{
+  "campaigns": [
+    {
+      "id": "camp_001",
+      "title": "Mystic Realms: Chronicles Launch",
+      "gameTitle": "Mystic Realms: Chronicles",
+      "studio": "Epic Fantasy Games",
+      "status": "active",
+      "budget": 150000,
+      "spent": 89500,
+      "startDate": "2024-01-15",
+      "endDate": "2024-02-15",
+      "creatorCount": 25,
+      "platforms": [
+        "youtube",
+        "twitch",
+        "tiktok"
+      ],
+      "metrics": {
+        "reach": 2500000,
+        "engagement": 180000,
+        "conversions": 12500,
+        "ctr": 3.2,
+        "cpm": 8.5
+      }
+    }
+  ],
+  "creators": [
+    {
+      "id": "creator_001",
+      "name": "GameMaster Pro",
+      "tier": "gold",
+      "totalFollowers": 259000,
+      "avgEngagement": 8.2,
+      "rating": 4.8,
+      "completedCampaigns": 23
+    }
+  ],
+  "analytics": {
+    "totalCampaigns": 47,
+    "totalReach": 8500000,
+    "totalEngagement": 650000,
+    "totalConversions": 45000,
+    "avgCTR": 3.8
+  },
+  "timestamp": "2026-03-15T15:59:36.979Z"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Stripe MCP Auto-Approve",
+  "version": "1.0.0",
+  "description": "Auto-approves stripe-test MCP tool calls without manual confirmation prompts",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": ["mcp_stripe_test_create_test_customer", "mcp_stripe_test_create_test_product", "mcp_stripe_test_simulate_payment"]
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "echo 'stripe-test tool pre-approved'"
+  }
+}

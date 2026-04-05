@@ -1,0 +1,85 @@
+{
+  "speed": {
+    "Homepage": {
+      "responseTime": 25,
+      "size": 21633,
+      "status": 200,
+      "throughput": 873978
+    },
+    "Admin Dashboard": {
+      "responseTime": 4,
+      "size": 31282,
+      "status": 200,
+      "throughput": 8654246
+    },
+    "Creators Page": {
+      "responseTime": 2,
+      "size": 37177,
+      "status": 200,
+      "throughput": 16005039
+    },
+    "Dashboard": {
+      "responseTime": 2,
+      "size": 18055,
+      "status": 200,
+      "throughput": 8390603
+    },
+    "CSS Asset": {
+      "responseTime": 2,
+      "size": 469,
+      "status": 404,
+      "throughput": 270724
+    }
+  },
+  "accuracy": {
+    "Homepage Content": {
+      "status": 200,
+      "passed": 3,
+      "failed": 0,
+      "total": 3,
+      "details": {
+        "passed": [
+          "Brand name present",
+          "Target audience mentioned",
+          "CTA button present"
+        ],
+        "failed": []
+      }
+    },
+    "Admin Dashboard": {
+      "status": 200,
+      "passed": 1,
+      "failed": 1,
+      "total": 2,
+      "details": {
+        "passed": [
+          "Admin title present"
+        ],
+        "failed": [
+          "System tools available"
+        ]
+      }
+    }
+  },
+  "latency": {
+    "average": 2,
+    "minimum": 1,
+    "maximum": 3,
+    "samples": 10,
+    "jitter": 1
+  },
+  "security": {
+    "headers": {
+      "X-Frame-Options": "Missing",
+      "X-Content-Type-Options": "Missing",
+      "X-XSS-Protection": "Missing",
+      "Strict-Transport-Security": "Missing (HTTP only)",
+      "Content-Security-Policy": "Missing",
+      "Server Header": "Exposed: SimpleHTTP/0.6 Python/3.9.6"
+    },
+    "protocol": "HTTP",
+    "status": 200,
+    "directoryTraversal": "Protected"
+  },
+  "timestamp": "2026-03-15T15:59:48.208Z"
+}

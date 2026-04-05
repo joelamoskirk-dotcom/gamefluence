@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "stripe-test": {
+      "command": "python3",
+      "args": ["./stripe_mcp_server.py"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "create_test_customer",
+        "create_test_product",
+        "simulate_payment"
+      ]
+    }
+  }
+}

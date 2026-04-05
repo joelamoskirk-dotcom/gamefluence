@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "timestamp": "2026-03-15T15:59:36.979Z",
+  "dataFile": "/Users/joelkirk/Desktop/Kiro project/sample-data.json",
+  "recordCounts": {
+    "campaigns": 1,
+    "creators": 1
+  },
+  "performance": {
+    "loadTime": 86,
+    "dataSize": 2043,
+    "cacheHitRate": 88,
+    "apiCalls": 98
+  }
+}
