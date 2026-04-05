@@ -53,17 +53,19 @@ export default function SecurityProvider({ children }: SecurityProviderProps) {
       return true;
     };
 
-    // Beta access check
+    // Access check — public pages are always accessible
     const checkBetaAccess = () => {
-      // Allow beta page and public pages
-      const publicPaths = ['/beta', '/beta/', '/_next'];
-      if (publicPaths.some(path => pathname.startsWith(path))) {
+      const publicPaths = [
+        '/', '/creators', '/news', '/pricing', '/login',
+        '/agency-demo', '/creator-signup', '/batch-campaign',
+        '/beta', '/dashboard', '/campaigns', '/admin', '/founder',
+        '/_next'
+      ];
+      if (publicPaths.some(path => pathname === path || pathname.startsWith(path + '/'))) {
         return true;
       }
-      
-      // Check for beta access
-      const betaAccess = localStorage.getItem('betaAccess');
-      return betaAccess === 'granted';
+      // For any other path, allow access (no beta gate in production)
+      return true;
     };
 
     // Input sanitization
@@ -119,32 +121,8 @@ export default function SecurityProvider({ children }: SecurityProviderProps) {
 
   // Security event listeners
   useEffect(() => {
-    // Disable right-click in production
-    const handleContextMenu = (e: MouseEvent) => {
-      if (process.env.NODE_ENV === 'production') {
-        e.preventDefault();
-      }
-    };
-
-    // Disable F12 and other dev tools shortcuts
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (process.env.NODE_ENV === 'production') {
-        if (e.key === 'F12' || 
-            (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-            (e.ctrlKey && e.shiftKey && e.key === 'C') ||
-            (e.ctrlKey && e.key === 'u')) {
-          e.preventDefault();
-        }
-      }
-    };
-
-    document.addEventListener('contextmenu', handleContextMenu);
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.removeEventListener('contextmenu', handleContextMenu);
-      document.removeEventListener('keydown', handleKeyDown);
-    };
+    // No-op: dev tools blocking removed — it breaks accessibility and legitimate users
+    return () => {};
   }, []);
 
   if (isLoading) {
