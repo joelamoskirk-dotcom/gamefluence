@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 import { processBatchCampaignOrder, getGrowthInsights, BatchCampaignOrder } from '@/lib/batch-campaign-engine';
 import { gamefluenceAI } from '@/lib/advanced-gamefluence-ai-engine';
@@ -10,12 +11,13 @@ import {
   AlertCircle, Zap, Target, Globe, BarChart3
 } from 'lucide-react';
 
-const MARKETS = ['vietnam', 'thailand', 'indonesia', 'philippines'];
+const MARKETS = ['vietnam', 'thailand', 'indonesia', 'philippines', 'australia'];
 const GENRES = ['mobile_rpg', 'battle_royale', 'casual', 'racing', 'strategy'];
 
 type Step = 'brief' | 'preview' | 'payment' | 'processing' | 'complete';
 
 export default function BatchCampaignPage() {
+  const searchParams = useSearchParams();
   const [step, setStep] = useState<Step>('brief');
   const [brief, setBrief] = useState({
     genre: 'mobile_rpg',
@@ -28,6 +30,14 @@ export default function BatchCampaignPage() {
   });
   const [customerName, setCustomerName] = useState('');
   const [customerEmail, setCustomerEmail] = useState('');
+
+  // Read market from URL param (from homepage market cards)
+  useEffect(() => {
+    const urlMarket = searchParams.get('market');
+    if (urlMarket && MARKETS.includes(urlMarket)) {
+      setBrief(prev => ({ ...prev, market: urlMarket }));
+    }
+  }, [searchParams]);
   const [order, setOrder] = useState<BatchCampaignOrder | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [processingStep, setProcessingStep] = useState('');
@@ -185,6 +195,24 @@ export default function BatchCampaignPage() {
                 />
                 <span className="text-sm">Prefer creators already on Gamefluence (faster activation)</span>
               </label>
+
+              {/* Attribution tracking */}
+              <div className="bg-gray-50 rounded-lg p-4 border">
+                <h3 className="text-sm font-semibold mb-2">Attribution Tracking</h3>
+                <p className="text-xs text-gray-500 mb-3">Paste your tracking link — we'll generate unique links per creator</p>
+                <select className="w-full border rounded-lg p-2 text-sm mb-2">
+                  <option>AppsFlyer OneLink</option>
+                  <option>Adjust Tracker</option>
+                  <option>UTM Parameters</option>
+                  <option>Promo Code</option>
+                  <option>Custom SDK</option>
+                </select>
+                <input
+                  type="text"
+                  className="w-full border rounded-lg p-2 text-sm"
+                  placeholder="https://app.appsflyer.com/com.yourgame?pid=gamefluence&c=campaign_name"
+                />
+              </div>
             </div>
 
             {/* AI Insights panel */}
