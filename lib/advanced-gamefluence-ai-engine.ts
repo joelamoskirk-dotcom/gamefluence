@@ -73,6 +73,8 @@ const learningStore: {
     thailand: { avgROI: 2.8, count: 8 },
     indonesia: { avgROI: 3.5, count: 6 },
     philippines: { avgROI: 2.4, count: 4 },
+    australia: { avgROI: 2.6, count: 3 },
+    japan: { avgROI: 3.9, count: 7 },
   },
   genrePerformance: {
     mobile_rpg: { avgROI: 3.8, count: 15 },
@@ -80,6 +82,7 @@ const learningStore: {
     casual: { avgROI: 2.2, count: 8 },
     racing: { avgROI: 2.9, count: 7 },
     strategy: { avgROI: 3.4, count: 5 },
+    gacha: { avgROI: 4.2, count: 6 },
   },
   creatorPerformance: {},
   tierPerformance: {
@@ -331,3 +334,14 @@ export class AdvancedGamefluenceAI {
 }
 
 export const gamefluenceAI = AdvancedGamefluenceAI.getInstance();
+
+// Seed Japan historical campaign outcomes for learning
+[
+  { campaignId: 'jp-hist-1', creatorId: 'jp-001', market: 'japan', genre: 'gacha', budget: 40000, actualReach: 1200000, actualEngagement: 96000, actualConversions: 8400, actualROI: 4.1, creatorScore: 92, timestamp: Date.now() - 86400000 * 30 },
+  { campaignId: 'jp-hist-2', creatorId: 'jp-002', market: 'japan', genre: 'mobile_rpg', budget: 25000, actualReach: 680000, actualEngagement: 62000, actualConversions: 5100, actualROI: 3.6, creatorScore: 85, timestamp: Date.now() - 86400000 * 20 },
+  { campaignId: 'jp-hist-3', creatorId: 'jp-004', market: 'japan', genre: 'strategy', budget: 30000, actualReach: 520000, actualEngagement: 69000, actualConversions: 6200, actualROI: 4.4, creatorScore: 94, timestamp: Date.now() - 86400000 * 15 },
+  { campaignId: 'jp-hist-4', creatorId: 'jp-001', market: 'japan', genre: 'gacha', budget: 60000, actualReach: 1800000, actualEngagement: 140000, actualConversions: 12600, actualROI: 4.5, creatorScore: 96, timestamp: Date.now() - 86400000 * 10 },
+  { campaignId: 'jp-hist-5', creatorId: 'jp-003', market: 'japan', genre: 'casual', budget: 20000, actualReach: 950000, actualEngagement: 109000, actualConversions: 7300, actualROI: 3.9, creatorScore: 88, timestamp: Date.now() - 86400000 * 5 },
+  { campaignId: 'jp-hist-6', creatorId: 'jp-002', market: 'japan', genre: 'gacha', budget: 35000, actualReach: 720000, actualEngagement: 66000, actualConversions: 5800, actualROI: 4.0, creatorScore: 87, timestamp: Date.now() - 86400000 * 3 },
+  { campaignId: 'jp-hist-7', creatorId: 'jp-004', market: 'japan', genre: 'mobile_rpg', budget: 28000, actualReach: 480000, actualEngagement: 64000, actualConversions: 5500, actualROI: 3.7, creatorScore: 86, timestamp: Date.now() - 86400000 },
+].forEach(o => gamefluenceAI.recordOutcome(o));

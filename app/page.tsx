@@ -5,6 +5,7 @@ const MARKETS = [
   { id: 'vietnam', flag: '🇻🇳', name: 'Vietnam', creators: '340+', reach: '45M', topGame: 'Mobile Legends', cpi: '$0.35' },
   { id: 'thailand', flag: '🇹🇭', name: 'Thailand', creators: '280+', reach: '38M', topGame: 'PUBG Mobile', cpi: '$0.42' },
   { id: 'indonesia', flag: '🇮🇩', name: 'Indonesia', creators: '520+', reach: '72M', topGame: 'Free Fire', cpi: '$0.28' },
+  { id: 'japan', flag: '🇯🇵', name: 'Japan', creators: '410+', reach: '67M', topGame: 'Genshin Impact', cpi: '$0.95' },
   { id: 'philippines', flag: '🇵🇭', name: 'Philippines', creators: '190+', reach: '28M', topGame: 'Genshin Impact', cpi: '$0.38' },
   { id: 'australia', flag: '🇦🇺', name: 'Australia', creators: '120+', reach: '12M', topGame: 'Fortnite', cpi: '$1.20' },
 ];
@@ -37,11 +38,11 @@ export default function Home() {
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 mb-6 text-sm text-white">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            Now live across 5 APAC markets
+            Now live across 6 APAC markets
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-4xl mx-auto">
-            Reach <span className="text-accent">183M+ Gamers</span> Across Asia-Pacific
+            Reach <span className="text-accent">250M+ Gamers</span> Across Asia-Pacific
           </h1>
 
           <p className="text-lg sm:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
@@ -168,10 +169,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto text-center">
             {[
-              { value: '1,450+', label: 'Gaming Creators' },
-              { value: '183M', label: 'Audience Reach' },
-              { value: '3.2x', label: 'Avg Campaign ROI' },
-              { value: '5', label: 'APAC Markets' },
+              { value: '1,860+', label: 'Gaming Creators' },
+              { value: '250M', label: 'Audience Reach' },
+              { value: '3.4x', label: 'Avg Campaign ROI' },
+              { value: '6', label: 'APAC Markets' },
             ].map(s => (
               <div key={s.label}>
                 <div className="text-3xl sm:text-4xl font-bold text-gaming">{s.value}</div>

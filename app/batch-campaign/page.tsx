@@ -11,8 +11,8 @@ import {
   AlertCircle, Zap, Target, Globe, BarChart3
 } from 'lucide-react';
 
-const MARKETS = ['vietnam', 'thailand', 'indonesia', 'philippines', 'australia'];
-const GENRES = ['mobile_rpg', 'battle_royale', 'casual', 'racing', 'strategy'];
+const MARKETS = ['vietnam', 'thailand', 'indonesia', 'philippines', 'australia', 'japan'];
+const GENRES = ['mobile_rpg', 'battle_royale', 'casual', 'racing', 'strategy', 'gacha'];
 
 type Step = 'brief' | 'preview' | 'payment' | 'processing' | 'complete';
 

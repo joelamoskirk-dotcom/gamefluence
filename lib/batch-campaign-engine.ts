@@ -88,6 +88,42 @@ export const CREATOR_POOL: CreatorSignal[] = [
     audienceQuality: 84, pastCampaignROI: [2.4, 2.8],
     onPlatform: true, leadScore: 82, tier: 'gold',
   },
+  // Japan creators
+  {
+    creatorId: 'jp-001', platform: 'YouTube', followers: 1800000,
+    engagementRate: 7.8, avgConversions: 5.4, market: 'japan',
+    genres: ['gacha', 'mobile_rpg', 'strategy'], brandSafetyScore: 97,
+    audienceQuality: 94, pastCampaignROI: [4.1, 3.8, 4.5],
+    onPlatform: true, leadScore: 99, tier: 'diamond',
+  },
+  {
+    creatorId: 'jp-002', platform: 'YouTube', followers: 920000,
+    engagementRate: 9.2, avgConversions: 4.8, market: 'japan',
+    genres: ['mobile_rpg', 'gacha'], brandSafetyScore: 95,
+    audienceQuality: 91, pastCampaignROI: [3.6, 4.0],
+    onPlatform: true, leadScore: 94, tier: 'platinum',
+  },
+  {
+    creatorId: 'jp-003', platform: 'TikTok', followers: 1400000,
+    engagementRate: 11.5, avgConversions: 6.1, market: 'japan',
+    genres: ['casual', 'gacha', 'battle_royale'], brandSafetyScore: 93,
+    audienceQuality: 89, pastCampaignROI: [3.9],
+    onPlatform: false, leadScore: 78, tier: 'platinum',
+  },
+  {
+    creatorId: 'jp-004', platform: 'Twitch', followers: 680000,
+    engagementRate: 13.4, avgConversions: 5.7, market: 'japan',
+    genres: ['strategy', 'mobile_rpg'], brandSafetyScore: 96,
+    audienceQuality: 92, pastCampaignROI: [4.2, 3.7, 4.4],
+    onPlatform: true, leadScore: 91, tier: 'diamond',
+  },
+  {
+    creatorId: 'jp-005', platform: 'YouTube', followers: 520000,
+    engagementRate: 8.6, avgConversions: 4.2, market: 'japan',
+    genres: ['gacha', 'casual'], brandSafetyScore: 94,
+    audienceQuality: 88, pastCampaignROI: [],
+    onPlatform: false, leadScore: 65, tier: 'gold',
+  },
 ];
 
 function generateOutreachMessage(creator: CreatorSignal, brief: CampaignBrief): string {
