@@ -35,7 +35,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
 
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6 text-sm">
+          <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 mb-6 text-sm text-white">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
             Now live across 5 APAC markets
           </div>
@@ -55,7 +55,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/agency-demo">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto text-base sm:text-lg border-white/40 text-white hover:bg-white/10">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto text-base sm:text-lg border-2 border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20">
                 Agency Demo
               </Button>
             </Link>
@@ -196,7 +196,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/creator-signup">
-              <Button size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="border-2 border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20">
                 Join as Creator
               </Button>
             </Link>
