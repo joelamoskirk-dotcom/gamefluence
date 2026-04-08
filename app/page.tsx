@@ -3,11 +3,11 @@ import { Button } from '@/components/ui/Button';
 
 const MARKETS = [
   { id: 'vietnam', flag: '🇻🇳', name: 'Vietnam', creators: '340+', reach: '45M', topGame: 'Mobile Legends', cpi: '$0.35' },
-  { id: 'thailand', flag: '🇹🇭', name: 'Thailand', creators: '280+', reach: '38M', topGame: 'PUBG Mobile', cpi: '$0.42' },
-  { id: 'indonesia', flag: '🇮🇩', name: 'Indonesia', creators: '520+', reach: '72M', topGame: 'Free Fire', cpi: '$0.28' },
-  { id: 'japan', flag: '🇯🇵', name: 'Japan', creators: '410+', reach: '67M', topGame: 'Genshin Impact', cpi: '$0.95' },
-  { id: 'philippines', flag: '🇵🇭', name: 'Philippines', creators: '190+', reach: '28M', topGame: 'Genshin Impact', cpi: '$0.38' },
-  { id: 'australia', flag: '🇦🇺', name: 'Australia', creators: '120+', reach: '12M', topGame: 'Fortnite', cpi: '$1.20' },
+  { id: 'thailand', flag: '🇹🇭', name: 'Thailand', creators: '280+', reach: '38M', topGame: 'ROV / PUBG Mobile', cpi: '$0.45' },
+  { id: 'indonesia', flag: '🇮🇩', name: 'Indonesia', creators: '520+', reach: '72M', topGame: 'Free Fire', cpi: '$0.25' },
+  { id: 'japan', flag: '🇯🇵', name: 'Japan', creators: '410+', reach: '55M', topGame: 'Genshin / Gacha', cpi: '$3.50' },
+  { id: 'philippines', flag: '🇵🇭', name: 'Philippines', creators: '190+', reach: '68M', topGame: 'Mobile Legends', cpi: '$0.40' },
+  { id: 'australia', flag: '🇦🇺', name: 'Australia', creators: '120+', reach: '17M', topGame: 'Fortnite', cpi: '$3.00' },
 ];
 
 const ATTRIBUTION_PARTNERS = [
