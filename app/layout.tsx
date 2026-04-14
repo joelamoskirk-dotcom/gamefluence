@@ -4,7 +4,7 @@ import Link from 'next/link'
 import DataInitializer from '@/components/DataInitializer'
 import SecurityProvider from '@/components/SecurityProvider'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin', 'latin-ext', 'vietnamese'] })
 
 export const metadata = {
     title: 'Gamefluence.AI - AI-Powered Gaming Influencer Marketing Platform',
@@ -54,14 +54,20 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
-            <body className={inter.className}>
+        <html lang="en" translate="yes">
+            <head>
+                {/* CJK + Thai font support for APAC visitors and Google Translate */}
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet" />
+            </head>
+            <body className={inter.className} style={{ fontFamily: `${inter.style.fontFamily}, 'Noto Sans', 'Noto Sans JP', 'Noto Sans Thai', sans-serif` }}>
                 <nav className="bg-white shadow-sm border-b relative">
                     <div className="container-mobile">
                         <div className="flex justify-between h-14 sm:h-16">
                             <div className="flex items-center space-x-4 sm:space-x-8">
                                 <Link href="/">
-                                    <h1 className="text-lg sm:text-2xl font-bold gaming-gradient bg-clip-text text-transparent cursor-pointer no-select">
+                                    <h1 className="text-lg sm:text-2xl font-bold gaming-gradient bg-clip-text text-transparent cursor-pointer notranslate">
                                         Gamefluence.AI
                                     </h1>
                                 </Link>

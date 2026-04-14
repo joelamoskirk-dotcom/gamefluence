@@ -59,18 +59,14 @@
     @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl;
   }
   
-  /* Anti-scraping protection */
+  /* Brand protection - only prevents selection on brand logo, not content */
   .no-select {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
     -webkit-touch-callout: none;
     -webkit-tap-highlight-color: transparent;
+    /* NOTE: user-select: none REMOVED — it blocks Google Translate and accessibility tools */
   }
   
   .protected-content {
-    @apply no-select;
     pointer-events: none;
   }
   
