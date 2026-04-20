@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import DataInitializer from '@/components/DataInitializer'
 import SecurityProvider from '@/components/SecurityProvider'
+import MobileMenu from '@/components/ui/MobileMenu'
+import Footer from '@/components/ui/Footer'
 
 const inter = Inter({ subsets: ['latin', 'latin-ext', 'vietnamese'] })
 
@@ -148,9 +150,7 @@ export default function RootLayout({
                                     </Link>
                                 </div>
                                 <div className="sm:hidden">
-                                    <Link href="/login">
-                                        <button className="btn-primary text-xs px-3 py-2">Login</button>
-                                    </Link>
+                                    <MobileMenu />
                                 </div>
                             </div>
                         </div>
@@ -197,6 +197,7 @@ export default function RootLayout({
                         {children}
                     </SecurityProvider>
                 </DataInitializer>
+                <Footer />
             </body>
         </html>
     )
