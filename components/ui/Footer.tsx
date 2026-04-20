@@ -64,7 +64,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs">
           <div>
-            © {new Date().getFullYear()} <span className="notranslate">Gamefluence Pty Ltd</span>. All rights reserved. ABN/ACN: [ACN_PLACEHOLDER]
+            © {new Date().getFullYear()} <span className="notranslate">GAMEFLUENCE PTY LTD</span>. All rights reserved. ACN: 696 199 461
           </div>
           <div className="flex items-center gap-4">
             <span>Melbourne, Australia</span>

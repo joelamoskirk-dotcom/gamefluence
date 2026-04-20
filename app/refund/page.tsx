@@ -10,7 +10,7 @@ export default function RefundPolicy() {
         <div className="prose prose-gray max-w-none space-y-8">
           <section>
             <p className="text-gray-700 leading-relaxed">
-              Gamefluence Pty Ltd (ACN: [ACN_PLACEHOLDER]) is committed to fair and transparent refund practices. This policy outlines the terms for campaign cancellations, refunds, and payment disputes on the Gamefluence platform.
+              Gamefluence Pty Ltd (ACN: 696 199 461) is committed to fair and transparent refund practices. This policy outlines the terms for campaign cancellations, refunds, and payment disputes on the Gamefluence platform.
             </p>
           </section>
 
@@ -100,7 +100,7 @@ export default function RefundPolicy() {
             </p>
             <ul className="list-none pl-0 text-gray-700 space-y-1 mt-3">
               <li><strong>Email:</strong> hello@gamefluenceai.com</li>
-              <li><strong>Company:</strong> Gamefluence Pty Ltd (ACN: [ACN_PLACEHOLDER])</li>
+              <li><strong>Company:</strong> Gamefluence Pty Ltd (ACN: 696 199 461)</li>
               <li><strong>Website:</strong> gamefluenceai.com</li>
             </ul>
           </section>

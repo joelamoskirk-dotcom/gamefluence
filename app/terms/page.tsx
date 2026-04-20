@@ -11,7 +11,7 @@ export default function TermsOfService() {
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">1. Acceptance of Terms</h2>
             <p className="text-gray-700 leading-relaxed">
-              By accessing or using the Gamefluence platform (gamefluenceai.com), you agree to be bound by these Terms of Service. Gamefluence Pty Ltd (ACN: [ACN_PLACEHOLDER]) operates this platform. If you do not agree to these terms, you must not use our services.
+              By accessing or using the Gamefluence platform (gamefluenceai.com), you agree to be bound by these Terms of Service. Gamefluence Pty Ltd (ACN: 696 199 461) operates this platform. If you do not agree to these terms, you must not use our services.
             </p>
             <p className="text-gray-700 leading-relaxed mt-3">
               These terms constitute a legally binding agreement between you and Gamefluence Pty Ltd. We reserve the right to update these terms at any time, and continued use of the platform constitutes acceptance of any modifications.
@@ -102,7 +102,7 @@ export default function TermsOfService() {
               If you have any questions about these Terms of Service, please contact us:
             </p>
             <ul className="list-none pl-0 text-gray-700 space-y-1 mt-3">
-              <li><strong>Company:</strong> Gamefluence Pty Ltd (ACN: [ACN_PLACEHOLDER])</li>
+              <li><strong>Company:</strong> Gamefluence Pty Ltd (ACN: 696 199 461)</li>
               <li><strong>Email:</strong> hello@gamefluenceai.com</li>
               <li><strong>Website:</strong> gamefluenceai.com</li>
             </ul>

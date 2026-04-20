@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
         <div className="prose prose-gray max-w-none space-y-8">
           <section>
             <p className="text-gray-700 leading-relaxed">
-              Gamefluence Pty Ltd (ACN: [ACN_PLACEHOLDER]) is committed to protecting your privacy in accordance with the Australian Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs). This policy describes how we collect, use, disclose, and store your personal information.
+              Gamefluence Pty Ltd (ACN: 696 199 461) is committed to protecting your privacy in accordance with the Australian Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs). This policy describes how we collect, use, disclose, and store your personal information.
             </p>
           </section>
 
@@ -129,7 +129,7 @@ export default function PrivacyPolicy() {
             </p>
             <ul className="list-none pl-0 text-gray-700 space-y-1 mt-3">
               <li><strong>Privacy Officer</strong></li>
-              <li><strong>Company:</strong> Gamefluence Pty Ltd (ACN: [ACN_PLACEHOLDER])</li>
+              <li><strong>Company:</strong> Gamefluence Pty Ltd (ACN: 696 199 461)</li>
               <li><strong>Email:</strong> hello@gamefluenceai.com</li>
               <li><strong>Website:</strong> gamefluenceai.com</li>
             </ul>
