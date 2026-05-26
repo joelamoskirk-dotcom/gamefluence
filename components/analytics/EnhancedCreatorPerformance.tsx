@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { TrendingUp, Users, Eye, DollarSign, Calendar, Play, Pause, BarChart3, Zap, Globe, Clock } from 'lucide-react';
 import { SampleDataSeeder } from '@/lib/sample-data-seeder';
 import { automatedWorkflows } from '@/lib/automated-workflows';
@@ -27,9 +27,9 @@ export default function EnhancedCreatorPerformance() {
     }, 30000);
     
     return () => clearInterval(interval);
-  }, [timeRange]);
+  }, [timeRange]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const loadCreatorData = () => {
+  const loadCreatorData = useCallback(() => {
     const allCreators = creatorPerformanceAPI.getAllCreators();
     const live = creatorPerformanceAPI.getLiveCreators();
     
@@ -43,7 +43,7 @@ export default function EnhancedCreatorPerformance() {
     // Load performance chart data
     const chartData = creatorPerformanceAPI.getPerformanceTimeSeries();
     setPerformanceChart(chartData.slice(-30)); // Last 30 data points
-  };
+  }, [selectedCreator]);
 
   const loadAPIConnections = () => {
     const connections = creatorPerformanceAPI.getAPIConnections();

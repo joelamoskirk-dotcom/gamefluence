@@ -67,9 +67,9 @@ export default function Footer() {
             © {new Date().getFullYear()} <span className="notranslate">GAMEFLUENCE PTY LTD</span>. All rights reserved. ACN: 696 199 461
           </div>
           <div className="flex items-center gap-4">
-            <span>Melbourne, Australia</span>
+            <span>Sydney, Australia</span>
             <span>·</span>
-            <a href="mailto:hello@gamefluenceai.com" className="hover:text-white transition-colors">hello@gamefluenceai.com</a>
+            <a href="mailto:admin@gamefluence.com.au" className="hover:text-white transition-colors">admin@gamefluence.com.au</a>
           </div>
         </div>
       </div>

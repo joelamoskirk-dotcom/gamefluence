@@ -253,6 +253,30 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </Link>
+                  
+                  <Link href="/dashboard/market-trends" className="block">
+                    <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <div className="w-8 h-8 bg-green-500/10 rounded-lg flex items-center justify-center">
+                        📊
+                      </div>
+                      <div>
+                        <div className="font-medium text-sm">Market Trends 2026</div>
+                        <div className="text-xs text-gray-500">Genre & attention data</div>
+                      </div>
+                    </div>
+                  </Link>
+                  
+                  <Link href="/dashboard/twitch" className="block">
+                    <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <div className="w-8 h-8 bg-purple-500/10 rounded-lg flex items-center justify-center">
+                        📺
+                      </div>
+                      <div>
+                        <div className="font-medium text-sm">Twitch Analytics</div>
+                        <div className="text-xs text-gray-500">Creator streaming data</div>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -283,6 +307,30 @@ export default function Dashboard() {
                 <div className="flex justify-between text-sm">
                   <span>Budget: $2.5M</span>
                   <span>Expected: $9M revenue</span>
+                </div>
+              </div>
+              
+              <div className="border border-gray-200 rounded-lg p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-medium">Campaign 3: Massive APAC</h4>
+                  <span className="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full">In Progress</span>
+                </div>
+                <div className="text-sm text-gray-600 mb-3">11 markets, 250 creators</div>
+                <div className="flex justify-between text-sm">
+                  <span>Budget: $8.5M</span>
+                  <span>AI Accuracy: 94.7%</span>
+                </div>
+              </div>
+              
+              <div className="border border-dashed border-primary/40 rounded-lg p-4 bg-primary/5">
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-medium text-primary">Campaign 4: APAC Domination</h4>
+                  <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Planning</span>
+                </div>
+                <div className="text-sm text-gray-600 mb-3">7 markets, 280 creators, dual-genre strategy</div>
+                <div className="flex justify-between text-sm">
+                  <span>Budget: $12.5M</span>
+                  <span>Target: 5.8x ROI</span>
                 </div>
               </div>
             </div>

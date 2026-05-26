@@ -30,22 +30,49 @@ export default function CreatorSignupPage() {
     if (mkt) setMarket(mkt);
   }, [searchParams]);
 
-  const handleFormSubmit = (data: any) => {
-    // In production, this would send to your backend
-    console.log('Creator signup submitted:', data);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const handleFormSubmit = async (data: any) => {
+    setIsSubmitting(true);
     
-    // Show success message
-    alert(`🎉 Welcome to Gamefluence! 
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          creatorName: data.display_name || data.social_profile,
+          email: data.email,
+          phone: data.phone || undefined,
+          socialProfile: data.social_profile,
+          platform: data.social_profile?.includes('tiktok') ? 'TikTok' 
+            : data.social_profile?.includes('youtube') ? 'YouTube'
+            : data.social_profile?.includes('twitch') ? 'Twitch'
+            : data.social_profile?.includes('instagram') ? 'Instagram'
+            : 'Other',
+          gamingFocus: data.gaming_focus || [],
+          earningsGoal: data.monthly_earnings_goal || 'Not specified',
+          availability: data.availability || 'Not specified',
+          followerCount: data.followerCount,
+          engagementRate: data.engagementRate,
+          brandSafetyScore: data.brandSafetyScore,
+          marketTier: data.marketTier,
+        }),
+      });
 
-Your application has been submitted successfully. 
+      const result = await response.json();
 
-${contactPerson ? `${contactPerson} will` : 'Our team will'} reach out within 24 hours with your first campaign opportunities!
-
-Expected monthly earnings: ${data.monthly_earnings_goal || '$1,000 - $3,000'}
-Creator tier: Based on your profile analysis
-Next steps: Account setup and bank details
-
-Thank you for joining our gaming creator network! 🎮`);
+      if (result.success) {
+        setSubmitSuccess(true);
+      } else {
+        alert('Something went wrong. Please try again or email admin@gamefluence.com.au directly.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Network error. Please try again or email admin@gamefluence.com.au directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -156,10 +183,25 @@ Thank you for joining our gaming creator network! 🎮`);
       {/* Form Section */}
       <div className="py-16">
         <div className="container mx-auto px-4">
-          <SmartLeadGenForm 
-            formType={formType}
-            onSubmit={handleFormSubmit}
-          />
+          {submitSuccess ? (
+            <div className="max-w-2xl mx-auto text-center bg-white rounded-2xl shadow-xl p-12">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-10 h-10 text-green-600" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">You&apos;re In! 🎮</h2>
+              <p className="text-lg text-gray-600 mb-6">
+                Your application has been submitted successfully. Our team will review your profile and reach out within 24 hours with campaign opportunities.
+              </p>
+              <p className="text-sm text-gray-500">
+                Check your email for a confirmation from Gamefluence.
+              </p>
+            </div>
+          ) : (
+            <SmartLeadGenForm 
+              formType={formType}
+              onSubmit={handleFormSubmit}
+            />
+          )}
         </div>
       </div>
 

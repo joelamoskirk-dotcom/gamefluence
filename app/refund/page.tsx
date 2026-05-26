@@ -45,7 +45,7 @@ export default function RefundPolicy() {
               If you believe a payment has been processed incorrectly or you have a dispute regarding campaign charges:
             </p>
             <ul className="list-disc pl-6 text-gray-700 space-y-2 mt-3">
-              <li>Contact us at hello@gamefluenceai.com within 30 days of the transaction.</li>
+              <li>Contact us at admin@gamefluence.com.au within 30 days of the transaction.</li>
               <li>Provide your campaign ID, transaction reference, and a description of the dispute.</li>
               <li>We will investigate and respond within 10 business days.</li>
               <li>During the investigation, disputed amounts may be held in escrow.</li>
@@ -60,7 +60,7 @@ export default function RefundPolicy() {
               To request a refund or cancellation, follow these steps:
             </p>
             <ol className="list-decimal pl-6 text-gray-700 space-y-2 mt-3">
-              <li>Email hello@gamefluenceai.com with the subject line &quot;Refund Request — [Campaign Name]&quot;.</li>
+              <li>Email admin@gamefluence.com.au with the subject line &quot;Refund Request — [Campaign Name]&quot;.</li>
               <li>Include your account email, campaign ID, and reason for the refund request.</li>
               <li>Our team will acknowledge your request within 2 business days.</li>
               <li>A refund decision will be communicated within 5 business days of acknowledgement.</li>
@@ -99,9 +99,9 @@ export default function RefundPolicy() {
               For refund inquiries or assistance:
             </p>
             <ul className="list-none pl-0 text-gray-700 space-y-1 mt-3">
-              <li><strong>Email:</strong> hello@gamefluenceai.com</li>
+              <li><strong>Email:</strong> admin@gamefluence.com.au</li>
               <li><strong>Company:</strong> Gamefluence Pty Ltd (ACN: 696 199 461)</li>
-              <li><strong>Website:</strong> gamefluenceai.com</li>
+              <li><strong>Website:</strong> gamefluence.com.au</li>
             </ul>
           </section>
         </div>

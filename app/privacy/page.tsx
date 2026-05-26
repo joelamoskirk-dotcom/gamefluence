@@ -105,7 +105,7 @@ export default function PrivacyPolicy() {
               <li>Lodge a complaint with the Office of the Australian Information Commissioner (OAIC) if you believe your privacy has been breached</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mt-3">
-              To exercise any of these rights, contact us at hello@gamefluenceai.com.
+              To exercise any of these rights, contact us at admin@gamefluence.com.au.
             </p>
           </section>
 
@@ -130,8 +130,8 @@ export default function PrivacyPolicy() {
             <ul className="list-none pl-0 text-gray-700 space-y-1 mt-3">
               <li><strong>Privacy Officer</strong></li>
               <li><strong>Company:</strong> Gamefluence Pty Ltd (ACN: 696 199 461)</li>
-              <li><strong>Email:</strong> hello@gamefluenceai.com</li>
-              <li><strong>Website:</strong> gamefluenceai.com</li>
+              <li><strong>Email:</strong> admin@gamefluence.com.au</li>
+              <li><strong>Website:</strong> gamefluence.com.au</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mt-3">
               We will respond to privacy inquiries within 30 days. If you are unsatisfied with our response, you may lodge a complaint with the OAIC at <span className="text-primary">www.oaic.gov.au</span>.

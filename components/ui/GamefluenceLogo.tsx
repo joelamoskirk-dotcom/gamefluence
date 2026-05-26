@@ -116,7 +116,7 @@ export default function GamefluenceLogo({
       {/* Subtitle */}
       <div className="text-center mt-3">
         <span className="text-sm font-medium bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-          Gaming Influencer Marketing Platform
+          Gaming Creator Marketing Platform
         </span>
       </div>
     </div>
@@ -205,7 +205,7 @@ export function GamefluenceMarquee({ className = '' }: { className?: string }) {
       {/* Scrolling text */}
       <div className="mt-4 overflow-hidden">
         <div className="animate-marquee whitespace-nowrap text-sm font-medium text-gray-400">
-          ★ GAMING INFLUENCER MARKETING PLATFORM ★ LEVEL UP YOUR CAMPAIGNS ★ CONNECT WITH TOP CREATORS ★
+          ★ GAMING CREATOR MARKETING PLATFORM ★ LEVEL UP YOUR CAMPAIGNS ★ CONNECT WITH TOP CREATORS ★
         </div>
       </div>
     </div>

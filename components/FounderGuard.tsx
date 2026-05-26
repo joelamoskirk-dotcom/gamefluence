@@ -15,44 +15,46 @@ export default function FounderGuard({ children, requireFounder = false }: Found
   const [accessLevel, setAccessLevel] = useState<string | null>(null);
 
   useEffect(() => {
-    const checkAccess = () => {
-      const founderAccess = localStorage.getItem('founderAccess');
-      const adminLevel = localStorage.getItem('adminLevel');
-      const loginTime = localStorage.getItem('loginTime');
-      
-      // Check if founder access is granted and not expired (24 hours)
-      if (founderAccess === 'granted' && adminLevel === 'founder' && loginTime) {
-        const loginDate = new Date(loginTime);
-        const now = new Date();
-        const hoursSinceLogin = (now.getTime() - loginDate.getTime()) / (1000 * 60 * 60);
-        
-        if (hoursSinceLogin < 24) {
-          setHasAccess(true);
-          setAccessLevel('founder');
-        } else {
-          // Session expired
-          localStorage.removeItem('founderAccess');
-          localStorage.removeItem('adminLevel');
-          localStorage.removeItem('loginTime');
-          setHasAccess(false);
+    const checkAccess = async () => {
+      try {
+        // Validate session server-side via the auth API
+        const res = await fetch('/api/auth/founder', { method: 'GET' });
+
+        if (res.ok) {
+          const data = await res.json();
+          if (data.authenticated) {
+            setHasAccess(true);
+            setAccessLevel('founder');
+            setIsLoading(false);
+            return;
+          }
         }
-      } else if (!requireFounder) {
-        // For non-founder protected routes, check beta access
-        const betaAccess = localStorage.getItem('betaAccess');
-        if (betaAccess === 'granted') {
-          setHasAccess(true);
-          setAccessLevel('beta');
+
+        // Server says not authenticated
+        if (!requireFounder) {
+          // For non-founder routes, fall back to beta access check
+          const betaAccess = localStorage.getItem('betaAccess');
+          if (betaAccess === 'granted') {
+            setHasAccess(true);
+            setAccessLevel('beta');
+            setIsLoading(false);
+            return;
+          }
         }
+
+        setHasAccess(false);
+      } catch {
+        // Network error — deny access
+        setHasAccess(false);
+      } finally {
+        setIsLoading(false);
       }
-      
-      setIsLoading(false);
     };
 
     checkAccess();
-    
-    // Check access every minute
-    const interval = setInterval(checkAccess, 60000);
-    
+
+    // Re-validate every 5 minutes
+    const interval = setInterval(checkAccess, 5 * 60 * 1000);
     return () => clearInterval(interval);
   }, [requireFounder]);
 
@@ -75,9 +77,9 @@ export default function FounderGuard({ children, requireFounder = false }: Found
             <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-red-500/30">
               <Lock className="w-8 h-8 text-red-400" />
             </div>
-            
+
             <h1 className="text-2xl font-bold text-white mb-4">Access Denied</h1>
-            
+
             {requireFounder ? (
               <>
                 <p className="text-gray-300 mb-6">
@@ -89,7 +91,7 @@ export default function FounderGuard({ children, requireFounder = false }: Found
                     <span className="text-red-300 text-sm">Founder Portal Access Required</span>
                   </div>
                 </div>
-                <Button 
+                <Button
                   onClick={() => window.location.href = '/founder'}
                   className="bg-red-600 hover:bg-red-700 text-white"
                 >
@@ -102,7 +104,7 @@ export default function FounderGuard({ children, requireFounder = false }: Found
                 <p className="text-gray-300 mb-6">
                   This platform is currently in private beta. Please enter your beta access code to continue.
                 </p>
-                <Button 
+                <Button
                   onClick={() => window.location.href = '/beta'}
                   className="bg-primary hover:bg-primary/90 text-white"
                 >
@@ -116,7 +118,6 @@ export default function FounderGuard({ children, requireFounder = false }: Found
     );
   }
 
-  // Show access level indicator for founder
   return (
     <div className="relative">
       {accessLevel === 'founder' && (

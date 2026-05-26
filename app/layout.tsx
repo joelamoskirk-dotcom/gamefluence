@@ -9,23 +9,24 @@ import Footer from '@/components/ui/Footer'
 const inter = Inter({ subsets: ['latin', 'latin-ext', 'vietnamese'] })
 
 export const metadata = {
-    title: 'Gamefluence.AI - AI-Powered Gaming Influencer Marketing Platform',
-    description: 'Connect gaming studios and brands with top gaming influencers worldwide. AI-powered creator matching, advanced attribution, and performance-based pricing.',
-    keywords: 'gaming influencer marketing, AI creator matching, game promotion, influencer platform, gaming marketing, ROI optimization',
-    authors: [{ name: 'Gamefluence.AI Team' }],
-    creator: 'Gamefluence.AI',
-    publisher: 'Gamefluence.AI',
+    metadataBase: new URL('https://gamefluence.com.au'),
+    title: 'Gamefluence - Gaming Creator Marketing Platform',
+    description: 'Connect APAC agencies and brands with gaming content creators for authentic audience engagement. Creator matching, attribution, and performance-based pricing.',
+    keywords: 'gaming influencer marketing, creator matching, game promotion, influencer platform, gaming marketing, APAC',
+    authors: [{ name: 'Gamefluence' }],
+    creator: 'Gamefluence',
+    publisher: 'Gamefluence',
     openGraph: {
-        title: 'Gamefluence.AI - AI-Powered Gaming Influencer Marketing',
-        description: 'Connect gaming studios and brands with top gaming influencers worldwide using AI-powered matching and optimization',
-        url: 'https://gamefluence.ai',
-        siteName: 'Gamefluence.AI',
+        title: 'Gamefluence - Gaming Creator Marketing Platform',
+        description: 'Connect APAC agencies and brands with gaming content creators for authentic audience engagement',
+        url: 'https://gamefluence.com.au',
+        siteName: 'Gamefluence',
         images: [
             {
                 url: '/og-image.png',
                 width: 1200,
                 height: 630,
-                alt: 'Gamefluence.AI Platform',
+                alt: 'Gamefluence Platform',
             },
         ],
         locale: 'en_US',
@@ -33,8 +34,8 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Gamefluence.AI - AI-Powered Gaming Influencer Marketing',
-        description: 'Connect gaming studios and brands with top gaming influencers worldwide using AI',
+        title: 'Gamefluence - Gaming Creator Marketing Platform',
+        description: 'Connect APAC agencies and brands with gaming content creators for authentic audience engagement',
         images: ['/twitter-image.png'],
     },
     robots: {
@@ -58,10 +59,7 @@ export default function RootLayout({
     return (
         <html lang="en" translate="yes">
             <head>
-                {/* CJK + Thai font support for APAC visitors and Google Translate */}
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet" />
+                {/* CJK + Thai font support loaded via globals.css @import to avoid no-page-custom-font warning */}
             </head>
             <body className={inter.className} style={{ fontFamily: `${inter.style.fontFamily}, 'Noto Sans', 'Noto Sans JP', 'Noto Sans Thai', sans-serif` }}>
                 <nav className="bg-white shadow-sm border-b relative">
@@ -70,83 +68,25 @@ export default function RootLayout({
                             <div className="flex items-center space-x-4 sm:space-x-8">
                                 <Link href="/">
                                     <h1 className="text-lg sm:text-2xl font-bold gaming-gradient bg-clip-text text-transparent cursor-pointer notranslate">
-                                        Gamefluence.AI
+                                        Gamefluence
                                     </h1>
                                 </Link>
                                 <div className="hidden md:flex items-center space-x-6">
                                     <Link href="/creators" className="text-gray-600 hover:text-gray-900 text-responsive transition-colors">
                                         Creators
                                     </Link>
-                                    <div className="relative group">
-                                        <Link href="/dashboard" className="text-gray-600 hover:text-gray-900 text-responsive transition-colors flex items-center gap-1">
-                                            Dashboard
-                                            <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"/>
-                                            </svg>
-                                        </Link>
-                                        <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                                            <div className="p-2">
-                                                <Link href="/campaigns" className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors">
-                                                    🎯 All Campaigns
-                                                </Link>
-                                                <Link href="/batch-campaign" className="block px-3 py-2 text-sm text-purple-700 hover:bg-purple-50 rounded-md transition-colors">
-                                                    ⚡ Batch Campaign Builder
-                                                </Link>
-                                                <Link href="/dashboard" className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors">
-                                                    📊 Campaign Builder
-                                                </Link>
-                                                <Link href="/dashboard/analytics" className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors">
-                                                    📈 Advanced Analytics
-                                                </Link>
-                                                <Link href="/dashboard/market-intelligence" className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors">
-                                                    🌏 Market Intelligence
-                                                </Link>
-                                                <Link href="/dashboard/real-time" className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors">
-                                                    ⚡ Real-Time Dashboard
-                                                </Link>
-                                                <Link href="/dashboard/ai-insights" className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors">
-                                                    🤖 AI Insights
-                                                </Link>
-                                                <Link href="/dashboard/campaign-3" className="block px-3 py-2 text-sm text-purple-700 hover:bg-purple-50 rounded-md transition-colors border-t border-gray-100 mt-1 pt-2">
-                                                    🚀 Campaign 3: Massive APAC
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="relative group">
-                                        <Link href="/admin" className="text-gray-600 hover:text-gray-900 text-responsive transition-colors flex items-center gap-1">
-                                            Admin
-                                            <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"/>
-                                            </svg>
-                                        </Link>
-                                        <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                                            <div className="p-2">
-                                                <Link href="/admin" className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors">
-                                                    🛡️ Admin Dashboard
-                                                </Link>
-                                                <Link href="/founder" className="block px-3 py-2 text-sm text-red-700 hover:bg-red-50 rounded-md transition-colors border-t border-gray-100 mt-1 pt-2">
-                                                    👑 Founder Portal
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <Link href="/news" className="text-gray-600 hover:text-gray-900 text-responsive transition-colors">
-                                        News
+                                    <Link href="/get-started" className="text-gray-600 hover:text-gray-900 text-responsive transition-colors">
+                                        For Brands
                                     </Link>
                                 </div>
                             </div>
                             <div className="flex items-center space-x-2 sm:space-x-4">
-                                <div className="hidden sm:flex items-center space-x-2">
-                                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                                    <span className="text-xs text-gray-500">Live</span>
-                                </div>
                                 <div className="hidden sm:flex space-x-2">
-                                    <Link href="/login">
-                                        <button className="btn-primary">Login</button>
+                                    <Link href="/get-started">
+                                        <button className="btn-primary">Get Started</button>
                                     </Link>
-                                    <Link href="/login">
-                                        <button className="btn-secondary">Sign Up</button>
+                                    <Link href="/creator-signup">
+                                        <button className="btn-secondary">Join as Creator</button>
                                     </Link>
                                 </div>
                                 <div className="sm:hidden">

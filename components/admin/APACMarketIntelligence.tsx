@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/Button';
 import { 
   Globe, 
@@ -55,9 +55,9 @@ export default function APACMarketIntelligence() {
 
   useEffect(() => {
     generateMarketAnalysis();
-  }, [selectedIndustry, selectedCountries]);
+  }, [selectedIndustry, selectedCountries]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const generateMarketAnalysis = () => {
+  const generateMarketAnalysis = useCallback(() => {
     setIsLoading(true);
     
     // Simulate analysis processing
@@ -95,7 +95,7 @@ export default function APACMarketIntelligence() {
       setMarketAnalysis(analysis);
       setIsLoading(false);
     }, 1500);
-  };
+  }, [tamData.totalMarket, tamData.projectedGrowth]);
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {

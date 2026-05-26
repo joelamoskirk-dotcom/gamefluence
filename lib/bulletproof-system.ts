@@ -318,6 +318,7 @@ class BulletproofSystem {
 
   // Persist data to localStorage
   private persistData() {
+    if (typeof window === 'undefined') return;
     try {
       const data = {
         tickets: this.tickets.slice(-100), // Keep last 100 tickets
@@ -334,6 +335,7 @@ class BulletproofSystem {
 
   // Load persisted data
   private loadPersistedData() {
+    if (typeof window === 'undefined') return;
     try {
       const stored = localStorage.getItem('bulletproof_system_data');
       if (stored) {

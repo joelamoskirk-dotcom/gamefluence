@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/Button';
 import { 
   Globe, 
@@ -41,9 +41,9 @@ export default function Campaign2Dashboard() {
 
   useEffect(() => {
     loadCampaign2Data();
-  }, [budget, selectedRegions]);
+  }, [budget, selectedRegions]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const loadCampaign2Data = () => {
+  const loadCampaign2Data = useCallback(() => {
     // Generate Campaign 2 strategy using AI
     const strategy = SoutheastAsiaMarketIntelligence.generateCampaign2Strategy(budget);
     const topPerformers = SoutheastAsiaMarketIntelligence.getTopPerformersFromCampaign1();
@@ -61,7 +61,7 @@ export default function Campaign2Dashboard() {
       timeline: strategy.timeline,
       expectedResults: strategy.expectedResults
     });
-  };
+  }, [budget, selectedRegions]);
 
   const handleLaunchCampaign = () => {
     setIsLaunched(true);

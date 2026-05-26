@@ -2,12 +2,13 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 
 const MARKETS = [
-  { id: 'vietnam', flag: '🇻🇳', name: 'Vietnam', creators: '340+', reach: '45M', topGame: 'Mobile Legends', cpi: '$0.35' },
-  { id: 'thailand', flag: '🇹🇭', name: 'Thailand', creators: '280+', reach: '38M', topGame: 'ROV / PUBG Mobile', cpi: '$0.45' },
-  { id: 'indonesia', flag: '🇮🇩', name: 'Indonesia', creators: '520+', reach: '72M', topGame: 'Free Fire', cpi: '$0.25' },
-  { id: 'japan', flag: '🇯🇵', name: 'Japan', creators: '410+', reach: '55M', topGame: 'Genshin / Gacha', cpi: '$3.50' },
-  { id: 'philippines', flag: '🇵🇭', name: 'Philippines', creators: '190+', reach: '68M', topGame: 'Mobile Legends', cpi: '$0.40' },
-  { id: 'australia', flag: '🇦🇺', name: 'Australia', creators: '120+', reach: '17M', topGame: 'Fortnite', cpi: '$3.00' },
+  { id: 'vietnam', flag: '🇻🇳', name: 'Vietnam', creators: '340+', topGame: 'Mobile Legends' },
+  { id: 'thailand', flag: '🇹🇭', name: 'Thailand', creators: '280+', topGame: 'ROV / PUBG Mobile' },
+  { id: 'indonesia', flag: '🇮🇩', name: 'Indonesia', creators: '520+', topGame: 'Free Fire' },
+  { id: 'japan', flag: '🇯🇵', name: 'Japan', creators: '410+', topGame: 'Genshin / Gacha' },
+  { id: 'philippines', flag: '🇵🇭', name: 'Philippines', creators: '190+', topGame: 'Mobile Legends' },
+  { id: 'newzealand', flag: '🇳🇿', name: 'New Zealand', creators: '85+', topGame: 'Fortnite / Valorant' },
+  { id: 'australia', flag: '🇦🇺', name: 'Australia', creators: '120+', topGame: 'Fortnite' },
 ];
 
 const ATTRIBUTION_PARTNERS = [
@@ -38,26 +39,26 @@ export default function Home() {
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 mb-6 text-sm text-white">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            Now live across 6 APAC markets
+            Gaming creator campaigns across APAC
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-4xl mx-auto">
-            Reach <span className="text-accent">250M+ Gamers</span> Across Asia-Pacific
+            Gaming Creator Marketing <span className="text-accent">Across Asia-Pacific</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            The agency-first platform connecting brands with gaming creators in Vietnam, Thailand, Indonesia, Philippines &amp; Australia. AI-powered matching. Real attribution.
+            Connect your brand with authentic gaming creators in Vietnam, Thailand, Indonesia, Philippines, New Zealand &amp; Australia. AI-powered matching. Real attribution.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-12">
-            <Link href="/batch-campaign">
+            <Link href="/get-started">
               <Button size="lg" className="w-full sm:w-auto text-base sm:text-lg bg-accent hover:bg-accent/90 text-white">
                 Launch a Campaign
               </Button>
             </Link>
-            <Link href="/agency-demo">
+            <Link href="/pricing">
               <Button variant="outline" size="lg" className="w-full sm:w-auto text-base sm:text-lg border-2 border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white/20">
-                Agency Demo
+                See Pricing
               </Button>
             </Link>
           </div>
@@ -81,17 +82,15 @@ export default function Home() {
             Select a market to start your campaign. Our AI matches you with the highest-performing local gaming creators.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {MARKETS.map(m => (
-              <Link key={m.id} href={`/batch-campaign?market=${m.id}`}>
+              <Link key={m.id} href="/get-started">
                 <div className="bg-white rounded-xl border border-gray-200 p-5 hover:border-primary hover:shadow-lg transition-all cursor-pointer group">
                   <div className="text-3xl mb-3">{m.flag}</div>
                   <h3 className="font-bold text-lg group-hover:text-primary transition-colors">{m.name}</h3>
                   <div className="mt-3 space-y-1 text-sm text-gray-500">
                     <div className="flex justify-between"><span>Creators</span><span className="font-medium text-gray-900">{m.creators}</span></div>
-                    <div className="flex justify-between"><span>Reach</span><span className="font-medium text-gray-900">{m.reach}</span></div>
                     <div className="flex justify-between"><span>Top Game</span><span className="font-medium text-gray-900">{m.topGame}</span></div>
-                    <div className="flex justify-between"><span>Avg CPI</span><span className="font-medium text-green-600">{m.cpi}</span></div>
                   </div>
                 </div>
               </Link>
@@ -169,10 +168,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto text-center">
             {[
-              { value: '1,860+', label: 'Gaming Creators' },
-              { value: '250M', label: 'Audience Reach' },
-              { value: '3.4x', label: 'Avg Campaign ROI' },
-              { value: '6', label: 'APAC Markets' },
+              { value: '1,900+', label: 'Creators in Network' },
+              { value: '7', label: 'APAC Markets' },
+              { value: '24hr', label: 'Campaign Activation' },
+              { value: 'Full', label: 'Attribution Tracking' },
             ].map(s => (
               <div key={s.label}>
                 <div className="text-3xl sm:text-4xl font-bold text-gaming">{s.value}</div>
@@ -191,7 +190,7 @@ export default function Home() {
             Launch your first campaign in under 5 minutes. AI-selected creators. Real attribution. Pay only for results.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <Link href="/batch-campaign">
+            <Link href="/get-started">
               <Button size="lg" className="bg-white text-gaming hover:bg-gray-100">
                 Start Campaign
               </Button>

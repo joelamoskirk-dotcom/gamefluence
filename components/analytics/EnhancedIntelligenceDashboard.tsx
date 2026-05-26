@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/badge';
@@ -33,9 +33,9 @@ export default function EnhancedIntelligenceDashboard() {
 
   useEffect(() => {
     loadIntelligenceData();
-  }, [selectedRegion]);
+  }, [selectedRegion]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const loadIntelligenceData = async () => {
+  const loadIntelligenceData = useCallback(async () => {
     try {
       setLoading(true);
       
@@ -50,7 +50,7 @@ export default function EnhancedIntelligenceDashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [selectedRegion]);
 
   const getROASColor = (roas: number) => {
     if (roas >= 1.4) return 'text-green-600';

@@ -54,12 +54,14 @@ export default function AdminPage() {
   });
 
   useEffect(() => {
+    // Session info is now managed server-side via httpOnly cookie.
+    // Display login time from localStorage (UI-only, not auth).
     const loginTime = localStorage.getItem('loginTime');
     if (loginTime) {
       const login = new Date(loginTime);
       const now = new Date();
       const duration = Math.floor((now.getTime() - login.getTime()) / (1000 * 60));
-      
+
       setFounderInfo({
         loginTime: login.toLocaleString(),
         sessionDuration: `${duration} minutes`,
@@ -575,8 +577,11 @@ export default function AdminPage() {
                 
                 <div className="pt-4 border-t">
                   <Button 
-                    onClick={() => {
-                      localStorage.clear();
+                    onClick={async () => {
+                      try {
+                        await fetch('/api/auth/founder', { method: 'DELETE' });
+                      } catch { /* best-effort */ }
+                      localStorage.removeItem('loginTime');
                       window.location.href = '/founder';
                     }}
                     variant="outline"
