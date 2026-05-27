@@ -88,6 +88,9 @@ export default function RootLayout({
                                     <Link href="/creator-signup">
                                         <button className="btn-secondary">Join as Creator</button>
                                     </Link>
+                                    <Link href="/founder">
+                                        <button className="text-sm text-gray-500 hover:text-gray-700 px-3 py-2 transition-colors">Login</button>
+                                    </Link>
                                 </div>
                                 <div className="sm:hidden">
                                     <MobileMenu />

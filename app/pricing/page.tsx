@@ -65,7 +65,7 @@ export default function PricingPage() {
                 ))}
               </div>
               
-              <Link href={`/signup?plan=${tier.name.toLowerCase().replace(/\s+/g, '-')}`}>
+              <Link href="/get-started">
                 <Button 
                   className="w-full" 
                   variant={tier.recommended ? 'default' : 'outline'}

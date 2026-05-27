@@ -168,10 +168,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto text-center">
             {[
-              { value: '1,900+', label: 'Creators in Network' },
+              { value: '280+', label: 'Creators in Network' },
               { value: '7', label: 'APAC Markets' },
               { value: '24hr', label: 'Campaign Activation' },
-              { value: 'Full', label: 'Attribution Tracking' },
+              { value: '5.8x', label: 'Avg Campaign ROI' },
             ].map(s => (
               <div key={s.label}>
                 <div className="text-3xl sm:text-4xl font-bold text-gaming">{s.value}</div>

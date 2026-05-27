@@ -84,7 +84,7 @@ export default function CreatorSignupPage() {
             Get Paid to Game! 🎮
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-blue-100">
-            Join 250+ creators earning from gaming content across APAC
+            Join 280+ creators earning from gaming content across APAC
           </p>
           
           {contactPerson && (
@@ -110,7 +110,7 @@ export default function CreatorSignupPage() {
               <div className="flex items-center justify-center mb-3">
                 <Users className="w-8 h-8 text-blue-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-900">250+</div>
+              <div className="text-3xl font-bold text-gray-900">280+</div>
               <div className="text-gray-600">Active Creators</div>
             </div>
             
@@ -118,15 +118,15 @@ export default function CreatorSignupPage() {
               <div className="flex items-center justify-center mb-3">
                 <DollarSign className="w-8 h-8 text-green-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-900">$32M</div>
-              <div className="text-gray-600">Creator Earnings</div>
+              <div className="text-3xl font-bold text-gray-900">$2.4M</div>
+              <div className="text-gray-600">Campaign Value</div>
             </div>
             
             <div>
               <div className="flex items-center justify-center mb-3">
                 <TrendingUp className="w-8 h-8 text-purple-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-900">3.8x</div>
+              <div className="text-3xl font-bold text-gray-900">5.8x</div>
               <div className="text-gray-600">Average ROI</div>
             </div>
             
@@ -134,7 +134,7 @@ export default function CreatorSignupPage() {
               <div className="flex items-center justify-center mb-3">
                 <Globe className="w-8 h-8 text-orange-600" />
               </div>
-              <div className="text-3xl font-bold text-gray-900">11</div>
+              <div className="text-3xl font-bold text-gray-900">7</div>
               <div className="text-gray-600">APAC Markets</div>
             </div>
           </div>

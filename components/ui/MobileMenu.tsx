@@ -6,10 +6,11 @@ import { Menu, X } from 'lucide-react';
 
 const NAV_ITEMS = [
   { label: 'Home', href: '/' },
-  { label: 'Creators', href: '/creators' },
+  { label: 'How It Works', href: '/creators' },
   { label: 'For Brands', href: '/get-started' },
   { label: 'Creator Signup', href: '/creator-signup' },
   { label: 'About', href: '/about' },
+  { label: 'Login', href: '/founder' },
 ];
 
 export default function MobileMenu() {
