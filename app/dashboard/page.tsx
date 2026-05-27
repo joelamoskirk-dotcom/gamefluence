@@ -277,6 +277,30 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </Link>
+                  
+                  <Link href="/dashboard/social-listening" className="block">
+                    <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <div className="w-8 h-8 bg-pink-500/10 rounded-lg flex items-center justify-center">
+                        📡
+                      </div>
+                      <div>
+                        <div className="font-medium text-sm">Social Listening</div>
+                        <div className="text-xs text-gray-500">Market signals & brands</div>
+                      </div>
+                    </div>
+                  </Link>
+                  
+                  <Link href="/dashboard/supanova" className="block">
+                    <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <div className="w-8 h-8 bg-red-500/10 rounded-lg flex items-center justify-center">
+                        🎮
+                      </div>
+                      <div>
+                        <div className="font-medium text-sm">Supanova Planner</div>
+                        <div className="text-xs text-gray-500">Event intel & outreach</div>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
