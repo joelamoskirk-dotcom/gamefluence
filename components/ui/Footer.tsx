@@ -32,7 +32,7 @@ export default function Footer() {
             <h4 className="text-white font-semibold text-sm mb-3">Platform</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/batch-campaign" className="hover:text-white transition-colors">Launch Campaign</Link></li>
-              <li><Link href="/creators" className="hover:text-white transition-colors">Browse Creators</Link></li>
+              <li><Link href="/creators" className="hover:text-white transition-colors">How It Works</Link></li>
               <li><Link href="/creator-signup" className="hover:text-white transition-colors">Join as Creator</Link></li>
               <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
               <li><Link href="/agency-demo" className="hover:text-white transition-colors">Agency Demo</Link></li>

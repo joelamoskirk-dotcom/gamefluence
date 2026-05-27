@@ -1,121 +1,117 @@
 import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
-import { Twitch, Youtube, Instagram } from 'lucide-react';
-
-// This would normally come from a database
-const creators = [
-  {
-    id: 'alex-gamemaster',
-    name: 'Alex GameMaster',
-    avatar: '👨‍💻',
-    followers: 125000,
-    platforms: ['twitch', 'youtube', 'instagram'],
-    topGames: ['Apex Legends', 'Call of Duty'],
-    rate: 200,
-  },
-  {
-    id: 'sarah-plays',
-    name: 'Sarah Plays',
-    avatar: '👩‍🎮',
-    followers: 250000,
-    platforms: ['youtube', 'instagram'],
-    topGames: ['Minecraft', 'Fortnite'],
-    rate: 200,
-  },
-  {
-    id: 'gaming-with-mike',
-    name: 'Gaming With Mike',
-    avatar: '🎮',
-    followers: 180000,
-    platforms: ['twitch', 'youtube'],
-    topGames: ['League of Legends', 'Valorant'],
-    rate: 200,
-  },
-  {
-    id: 'jessica-gamer',
-    name: 'Jessica Gamer',
-    avatar: '🕹️',
-    followers: 320000,
-    platforms: ['youtube', 'instagram', 'twitch'],
-    topGames: ['Among Us', 'Fall Guys'],
-    rate: 200,
-  },
-  {
-    id: 'pro-gamer-dave',
-    name: 'Pro Gamer Dave',
-    avatar: '🏆',
-    followers: 420000,
-    platforms: ['twitch', 'youtube'],
-    topGames: ['Counter-Strike', 'Dota 2'],
-    rate: 200,
-  },
-  {
-    id: 'gaming-guru',
-    name: 'Gaming Guru',
-    avatar: '🎯',
-    followers: 510000,
-    platforms: ['youtube', 'instagram'],
-    topGames: ['Overwatch', 'Rainbow Six Siege'],
-    rate: 200,
-  },
-];
 
 export default function CreatorsPage() {
   return (
-    <main className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Gaming Creators</h1>
-        <div className="flex gap-2">
-          <Button variant="outline">Filter</Button>
-          <Button variant="outline">Sort</Button>
+    <main className="container mx-auto px-4 py-12">
+      {/* Hero */}
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <h1 className="text-4xl font-bold mb-4">
+          We Match You With the Right Creators
+        </h1>
+        <p className="text-lg text-gray-600 mb-8">
+          Our roster is private. We use AI-powered matching to connect your brand with
+          verified APAC gaming creators who fit your campaign goals, audience, and budget.
+        </p>
+        <div className="flex justify-center gap-4">
+          <Link href="/get-started">
+            <Button>Get Matched</Button>
+          </Link>
+          <Link href="/creator-signup">
+            <Button variant="outline">Join as Creator</Button>
+          </Link>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {creators.map((creator) => (
-          <Link href={`/creators/${creator.id}`} key={creator.id}>
-            <div className="card hover:shadow-xl transition-shadow">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-2xl border-2 border-primary">
-                  {creator.avatar}
-                </div>
-                <div>
-                  <h2 className="font-bold text-lg">{creator.name}</h2>
-                  <p className="text-gray-600">{creator.followers.toLocaleString()} Followers</p>
-                </div>
-              </div>
-              
-              <div className="flex gap-2 mb-4">
-                {creator.platforms.includes('twitch') && (
-                  <span className="text-[#9146FF]"><Twitch size={18} /></span>
-                )}
-                {creator.platforms.includes('youtube') && (
-                  <span className="text-[#FF0000]"><Youtube size={18} /></span>
-                )}
-                {creator.platforms.includes('instagram') && (
-                  <span className="text-[#E1306C]"><Instagram size={18} /></span>
-                )}
-              </div>
-              
-              <div className="mb-4">
-                <h3 className="text-sm text-gray-600 mb-1">Top Games</h3>
-                <div className="flex flex-wrap gap-1">
-                  {creator.topGames.map((game) => (
-                    <span key={game} className="bg-gray-100 px-2 py-1 rounded-full text-xs">
-                      {game}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="flex justify-between items-center pt-3 border-t">
-                <span className="font-semibold">${creator.rate} base rate</span>
-                <Button variant="outline" size="sm">View Profile</Button>
-              </div>
+      {/* How It Works */}
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-2xl font-bold text-center mb-10">How Creator Matching Works</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="text-center">
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl">🎯</span>
             </div>
-          </Link>
-        ))}
+            <h3 className="font-bold mb-2">1. Tell Us Your Goals</h3>
+            <p className="text-sm text-gray-600">
+              Share your game, target markets, audience demographics, and campaign objectives.
+              We handle the rest.
+            </p>
+          </div>
+          <div className="text-center">
+            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl">🤖</span>
+            </div>
+            <h3 className="font-bold mb-2">2. AI Finds Your Match</h3>
+            <p className="text-sm text-gray-600">
+              Our engine scores creators on engagement, cultural fit, audience overlap,
+              and brand safety — with 94.7% prediction accuracy.
+            </p>
+          </div>
+          <div className="text-center">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl">🚀</span>
+            </div>
+            <h3 className="font-bold mb-2">3. Campaign Launches</h3>
+            <p className="text-sm text-gray-600">
+              We manage briefing, content approval, and performance tracking.
+              You get real-time attribution and ROI reporting.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Why Private Roster */}
+      <div className="max-w-3xl mx-auto mt-16 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-8 border border-blue-100">
+        <h3 className="font-bold text-lg mb-3">Why We Don&apos;t Share Our Roster</h3>
+        <ul className="space-y-3 text-sm text-gray-700">
+          <li className="flex items-start gap-3">
+            <span className="text-green-500 mt-0.5">✓</span>
+            <span><strong>Creator Protection</strong> — Our creators trust us to manage inbound. No spam, no lowball offers.</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-green-500 mt-0.5">✓</span>
+            <span><strong>Better Matches</strong> — AI matching outperforms manual browsing. We find creators you&apos;d never discover on your own.</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-green-500 mt-0.5">✓</span>
+            <span><strong>Exclusive Access</strong> — Many of our creators work exclusively through Gamefluence for APAC campaigns.</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-green-500 mt-0.5">✓</span>
+            <span><strong>Quality Guarantee</strong> — Every creator is vetted for authenticity, brand safety, and performance history.</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* Stats */}
+      <div className="max-w-4xl mx-auto mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <p className="text-3xl font-bold text-primary">280+</p>
+          <p className="text-sm text-gray-500">Verified Creators</p>
+        </div>
+        <div>
+          <p className="text-3xl font-bold text-purple-600">7</p>
+          <p className="text-sm text-gray-500">APAC Markets</p>
+        </div>
+        <div>
+          <p className="text-3xl font-bold text-green-600">94.7%</p>
+          <p className="text-sm text-gray-500">Match Accuracy</p>
+        </div>
+        <div>
+          <p className="text-3xl font-bold text-orange-500">5.8x</p>
+          <p className="text-sm text-gray-500">Avg Campaign ROI</p>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div className="text-center mt-16">
+        <Link href="/get-started">
+          <Button className="px-8 py-3 text-lg">Start Your Campaign</Button>
+        </Link>
+        <p className="text-sm text-gray-500 mt-3">
+          Free consultation. No commitment required.
+        </p>
       </div>
     </main>
   );

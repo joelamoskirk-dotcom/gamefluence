@@ -502,11 +502,9 @@ export default function Dashboard() {
                   >
                     Continue to User Acquisition →
                   </Button>
-                  <Link href="/creators">
-                    <Button variant="outline" className="w-full">
-                      Browse More Creators
-                    </Button>
-                  </Link>
+                  <Button variant="outline" className="w-full" disabled>
+                    AI Matching Active — We Find Your Creators
+                  </Button>
                 </div>
               </div>
             </div>

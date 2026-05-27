@@ -1175,7 +1175,7 @@ export default function MarketIntelligenceDashboard() {
             </Button>
             <Button className="bg-blue-500 hover:bg-blue-400 text-white px-8 py-3">
               <Users className="w-4 h-4 mr-2" />
-              Browse {getCurrentMarketData().country} Creators
+              Get Matched — {getCurrentMarketData().country} Creators
             </Button>
           </div>
         </div>

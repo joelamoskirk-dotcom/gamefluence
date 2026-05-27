@@ -73,7 +73,7 @@ export default function RootLayout({
                                 </Link>
                                 <div className="hidden md:flex items-center space-x-6">
                                     <Link href="/creators" className="text-gray-600 hover:text-gray-900 text-responsive transition-colors">
-                                        Creators
+                                        How It Works
                                     </Link>
                                     <Link href="/get-started" className="text-gray-600 hover:text-gray-900 text-responsive transition-colors">
                                         For Brands
@@ -110,7 +110,7 @@ export default function RootLayout({
                             <svg className="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
-                            <span>Creators</span>
+                            <span>How It Works</span>
                         </Link>
                         <Link href="/dashboard" className="mobile-nav-item">
                             <svg className="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 20 20">
