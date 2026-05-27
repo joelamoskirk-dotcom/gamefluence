@@ -539,3 +539,254 @@ Cancel before: **July 4, 2026** (avoid charge)
 **To an Industry Contact:**
 "Hi [Name] — noticed we're both in the APAC gaming space. I'm building Gamefluence (gaming creator marketing for SEA markets) and will be at Supanova Sydney. Would be great to connect briefly if you're there. Happy to share what we're seeing in the Vietnam/Indonesia creator economy."
 `;
+
+
+// ── INDUSTRY CONTACTS & BRAND TARGETS ─────────────────────────────────────────
+// Key brands and contacts likely at Supanova or targetable through the event
+
+export interface IndustryTarget {
+  id: string;
+  company: string;
+  type: 'game_publisher' | 'agency' | 'platform' | 'non_endemic_brand' | 'esports_org' | 'media';
+  hq: string;
+  relevance: 'immediate_client' | 'future_client' | 'partner' | 'competitor_to_watch';
+  annualGamingSpend: string;
+  apacPresence: string;
+  whyTarget: string;
+  supanovaLikelihood: 'confirmed' | 'very_likely' | 'likely' | 'possible' | 'unlikely';
+  keyPeople: string; // roles to look for, not real names
+  pitch: string;
+  notes: string;
+  website: string;
+}
+
+export const industryTargets: IndustryTarget[] = [
+  // GAME PUBLISHERS (likely exhibiting or attending)
+  {
+    id: 'bandai_namco_au',
+    company: 'Bandai Namco Entertainment Australia',
+    type: 'game_publisher',
+    hq: 'Sydney, Australia',
+    relevance: 'immediate_client',
+    annualGamingSpend: '$5M+ AU marketing (est.)',
+    apacPresence: 'Strong — JP parent, AU office handles ANZ + SEA distribution',
+    whyTarget: 'Major publisher with APAC roots. Dragon Ball, Tekken, Elden Ring. They need creator campaigns for new releases. Sydney HQ = easy relationship.',
+    supanovaLikelihood: 'very_likely',
+    keyPeople: 'Marketing Manager, PR/Comms Manager, Community Manager',
+    pitch: 'We can extend your AU creator campaigns into Vietnam/Thailand/Indonesia where your anime IP (Dragon Ball, Naruto) has massive fanbases. Same creators, new markets.',
+    notes: 'Dragon Ball Xenoverse 3 just announced. They will be promoting heavily. Anime crossover = perfect for APAC audiences.',
+    website: 'https://www.bandainamcoent.com.au/',
+  },
+  {
+    id: 'playstation_au',
+    company: 'PlayStation Australia (Sony Interactive)',
+    type: 'game_publisher',
+    hq: 'Sydney, Australia',
+    relevance: 'future_client',
+    annualGamingSpend: '$20M+ AU marketing (est.)',
+    apacPresence: 'Massive — JP parent, dedicated APAC marketing teams',
+    whyTarget: 'Biggest console brand. They run creator programs but mostly through big agencies. Gamefluence angle: APAC mobile/streaming audience they are not reaching.',
+    supanovaLikelihood: 'likely',
+    keyPeople: 'Head of Marketing AU, Influencer/Creator Partnerships, PR Manager',
+    pitch: 'PlayStation is underrepresented in SEA mobile-first markets. We can connect your titles with gaming creators who reach the 95% mobile audience in Vietnam, Indonesia, Philippines.',
+    notes: 'State of Play just aired (May 2026). New titles to promote. They use Click Management for big AU creators but may need APAC specialist.',
+    website: 'https://www.playstation.com/en-au/',
+  },
+  {
+    id: 'xbox_au',
+    company: 'Xbox Australia (Microsoft)',
+    type: 'game_publisher',
+    hq: 'Sydney, Australia',
+    relevance: 'future_client',
+    annualGamingSpend: '$15M+ AU marketing (est.)',
+    apacPresence: 'Growing — Game Pass expansion into APAC markets',
+    whyTarget: 'Xbox Games Showcase June 7 = new titles to promote. Game Pass growth in APAC = need for local creator content. Less established than PlayStation in SEA.',
+    supanovaLikelihood: 'likely',
+    keyPeople: 'Marketing Lead AU, Creator Partnerships, Community Manager',
+    pitch: 'Game Pass is growing in APAC but awareness is low. Gaming creators in Vietnam/Thailand can drive subscriptions through authentic gameplay content — we handle the matching and attribution.',
+    notes: 'Xbox Showcase June 7 (12 days before Supanova). Fresh announcements = marketing teams in activation mode. Good timing.',
+    website: 'https://www.xbox.com/en-AU',
+  },
+  // AGENCIES (competitors but also potential partners/clients)
+  {
+    id: 'livewire_group',
+    company: 'Livewire',
+    type: 'agency',
+    hq: 'London (AU office via Foxtel partnership)',
+    relevance: 'competitor_to_watch',
+    annualGamingSpend: 'N/A (they are the agency)',
+    apacPresence: 'New to ANZ via Foxtel Media partnership (Sept 2025). Global clients: Samsung, Maybelline, Uber Eats, Amazon.',
+    whyTarget: 'Direct competitor in gaming marketing space. BUT they focus on in-game advertising and IP partnerships (Fortnite activations), not creator/influencer campaigns. Different lane.',
+    supanovaLikelihood: 'possible',
+    keyPeople: 'ANZ Lead, Business Development, Client Services',
+    pitch: 'N/A — competitor. But could be a referral partner for creator campaigns they cannot service (they do in-game ads, we do creator marketing).',
+    notes: 'Foxtel x Livewire partnership announced Sept 2025. They are new to AU market. Watch their moves. Their weakness: no creator network, no APAC depth.',
+    website: 'https://livewire.group/',
+  },
+  {
+    id: 'maxconnectors',
+    company: 'MaxConnectors',
+    type: 'agency',
+    hq: 'Sydney, Australia',
+    relevance: 'competitor_to_watch',
+    annualGamingSpend: 'N/A (talent management)',
+    apacPresence: 'AU only — represents top AU creators',
+    whyTarget: 'They represent big AU creators (Loserfruit, etc). Competitor for talent signing. BUT they are generalist (lifestyle, beauty, gaming). Gamefluence is gaming-specialist + APAC.',
+    supanovaLikelihood: 'very_likely',
+    keyPeople: 'Talent Managers, Business Development',
+    pitch: 'N/A — competitor for talent. But their creators may want APAC campaign opportunities that MaxConnectors cannot service. Potential collaboration.',
+    notes: 'They represent Australia\'s leading creators. If you meet their talent managers, position Gamefluence as complementary (APAC campaigns) not competitive (AU talent).',
+    website: 'https://www.maxconnectors.com.au/',
+  },
+  {
+    id: 'click_management',
+    company: 'Click Management',
+    type: 'agency',
+    hq: 'Sydney, Australia',
+    relevance: 'competitor_to_watch',
+    annualGamingSpend: 'N/A (talent management)',
+    apacPresence: 'AU focused — represents LazarBeam, Loserfruit, Lachlan, Muselk',
+    whyTarget: 'Biggest gaming talent agency in AU. They have the mega creators. Gamefluence targets mid-tier creators they would not represent. Different segment.',
+    supanovaLikelihood: 'very_likely',
+    keyPeople: 'Agents, Talent Managers',
+    pitch: 'We are not competing for your talent. We service the 10K-500K tier that is too small for Click but perfect for APAC brand campaigns. Could refer overflow.',
+    notes: 'Their creators are too big/expensive for Gamefluence right now. But knowing their people builds credibility. If they see you at events, you are "in the scene."',
+    website: 'https://clickmgmt.com.au/',
+  },
+  // NON-ENDEMIC BRANDS (big budgets, entering gaming)
+  {
+    id: 'red_bull_au',
+    company: 'Red Bull Australia',
+    type: 'non_endemic_brand',
+    hq: 'Sydney, Australia',
+    relevance: 'immediate_client',
+    annualGamingSpend: '$2M+ gaming/esports AU (est.)',
+    apacPresence: 'Strong — Red Bull APAC runs gaming events across region',
+    whyTarget: 'Already deep in gaming (Red Bull One for All Valorant tournament AU). They need creator content for these events. APAC expansion is natural for them.',
+    supanovaLikelihood: 'likely',
+    keyPeople: 'Gaming/Esports Marketing Manager, Brand Partnerships, Events Team',
+    pitch: 'You are already running gaming events in AU. We can amplify your reach into SEA markets with local gaming creators who cover your events and create content for Vietnamese/Thai/Indonesian audiences.',
+    notes: 'Red Bull One for All (Valorant AU) just happened. They pair esports pros with content creators. Perfect Gamefluence use case.',
+    website: 'https://www.redbull.com/au-en/',
+  },
+  {
+    id: 'ebay_au',
+    company: 'eBay Australia',
+    type: 'non_endemic_brand',
+    hq: 'Sydney, Australia',
+    relevance: 'immediate_client',
+    annualGamingSpend: '$1M+ gaming activations (est.)',
+    apacPresence: 'AU focused but expanding live commerce model',
+    whyTarget: 'Just launched eBay Live gaming campaign (May 2026) via dentsu + Livewire. They are actively spending on gaming creator content. Live commerce + gaming = growing trend in APAC.',
+    supanovaLikelihood: 'possible',
+    keyPeople: 'Marketing Manager (Gaming/Collectables), Agency contacts at dentsu',
+    pitch: 'Your eBay Live gaming format would explode in SEA markets where live commerce is already mainstream. We can connect you with gaming creators in Indonesia/Philippines who do live shopping streams to millions.',
+    notes: 'eBay Live campaign just launched via dentsu. They are in "test and learn" mode with gaming. Fresh budget. Timing is perfect.',
+    website: 'https://www.ebay.com.au/',
+  },
+  {
+    id: 'foxtel_media',
+    company: 'Foxtel Media (Kayo Sports)',
+    type: 'media',
+    hq: 'Sydney, Australia',
+    relevance: 'future_client',
+    annualGamingSpend: '$3M+ via Livewire partnership (est.)',
+    apacPresence: 'AU only but Livewire partnership gives global gaming access',
+    whyTarget: 'Foxtel x Livewire partnership (Sept 2025) means they are actively building gaming advertising capability. They need creator content to fill their gaming inventory.',
+    supanovaLikelihood: 'unlikely',
+    keyPeople: 'Head of Gaming Partnerships, Livewire ANZ contact',
+    pitch: 'Your Livewire partnership gives you in-game ad inventory. We can provide the creator content layer — gaming influencers who drive audiences to your gaming programming on Kayo/Foxtel.',
+    notes: 'They are building gaming ad infrastructure. Creator content is the missing piece. Long-term play but could be significant.',
+    website: 'https://www.foxtel.com.au/',
+  },
+  // ESPORTS ORGS
+  {
+    id: 'avant_gaming',
+    company: 'Avant Gaming',
+    type: 'esports_org',
+    hq: 'Sydney, Australia',
+    relevance: 'partner',
+    annualGamingSpend: '$500K+ (org operations)',
+    apacPresence: 'AU Valorant team competing in APAC leagues',
+    whyTarget: 'Their players (Exxy, m4jor) are our priority creator targets. Building relationship with the org could unlock their entire roster for Gamefluence campaigns.',
+    supanovaLikelihood: 'likely',
+    keyPeople: 'Team Manager, Content Manager, Business Development',
+    pitch: 'Your players have small but credible audiences. We can bring them paid brand campaigns from APAC gaming brands — additional revenue stream for your org beyond prize money and org sponsors.',
+    notes: 'Exxy (Vietnamese-Australian) and m4jor (Asian-Australian) are both Avant players. If you sign the org relationship, you get access to all their content creators.',
+    website: 'https://www.avantgaming.com/',
+  },
+  {
+    id: 'order_esports',
+    company: 'ORDER Esports',
+    type: 'esports_org',
+    hq: 'Melbourne, Australia',
+    relevance: 'partner',
+    annualGamingSpend: '$1M+ (org operations)',
+    apacPresence: 'AU teams in Valorant, LoL, Rocket League',
+    whyTarget: 'Larger AU esports org. Their players stream and create content. Partnership could give Gamefluence access to their creator network for APAC campaigns.',
+    supanovaLikelihood: 'possible',
+    keyPeople: 'Head of Partnerships, Content Director, Player Managers',
+    pitch: 'Your players create content that resonates across APAC. We can bring them brand deals from SEA gaming companies — supplementing their org salary with creator income.',
+    notes: 'ORDER is one of AU\'s biggest esports orgs. Melbourne-based but players are everywhere. Good long-term partnership target.',
+    website: 'https://www.orderesports.com/',
+  },
+  // GAME PUBLISHERS (APAC-focused, may have AU presence at event)
+  {
+    id: 'garena_sea',
+    company: 'Garena (Sea Limited)',
+    type: 'game_publisher',
+    hq: 'Singapore (AU office)',
+    relevance: 'immediate_client',
+    annualGamingSpend: '$50M+ APAC marketing (est.)',
+    apacPresence: 'Dominant — Free Fire, Arena of Valor across all SEA markets',
+    whyTarget: 'Biggest mobile game publisher in SEA. Free Fire alone has 155M TikTok Live watch hours. They spend massively on creator campaigns. If Gamefluence can service even 1% of their creator needs...',
+    supanovaLikelihood: 'unlikely',
+    keyPeople: 'Regional Marketing Director, Creator Partnerships Manager (Singapore office)',
+    pitch: 'We have a network of AU-based creators with APAC heritage who can create bilingual content for Free Fire campaigns targeting Vietnamese/Indonesian audiences. Fresh angle they have not tried.',
+    notes: 'Unlikely at Supanova but worth researching their AU contacts. They may have local marketing people. Long-term whale client.',
+    website: 'https://www.garena.com/',
+  },
+  {
+    id: 'moonton_mlbb',
+    company: 'Moonton (Mobile Legends: Bang Bang)',
+    type: 'game_publisher',
+    hq: 'Shanghai (Singapore APAC office)',
+    relevance: 'immediate_client',
+    annualGamingSpend: '$100M+ APAC marketing (est.)',
+    apacPresence: 'Dominant — MLBB is #1 mobile game in SEA by revenue',
+    whyTarget: 'The single biggest spender on gaming creator campaigns in Southeast Asia. MPL ecosystem. M7 hit 5.59M peak viewers. They need creators constantly.',
+    supanovaLikelihood: 'unlikely',
+    keyPeople: 'APAC Marketing Director, MPL Creator Partnerships, Regional Brand Manager',
+    pitch: 'We can provide AU-based creators with APAC audiences for your MPL content amplification. Cross-border content that reaches new demographics.',
+    notes: 'Not at Supanova but the ultimate target client. Research their agency relationships. They likely work through local agencies in each market.',
+    website: 'https://www.moonton.com/',
+  },
+];
+
+export function getTargetsByRelevance(relevance: IndustryTarget['relevance']): IndustryTarget[] {
+  return industryTargets.filter(t => t.relevance === relevance);
+}
+
+export function getTargetsByLikelihood(): IndustryTarget[] {
+  const order = { confirmed: 0, very_likely: 1, likely: 2, possible: 3, unlikely: 4 };
+  return [...industryTargets].sort((a, b) => order[a.supanovaLikelihood] - order[b.supanovaLikelihood]);
+}
+
+export function getRelevanceColor(relevance: IndustryTarget['relevance']): string {
+  switch (relevance) {
+    case 'immediate_client': return 'bg-green-100 text-green-700 border-green-200';
+    case 'future_client': return 'bg-blue-100 text-blue-700 border-blue-200';
+    case 'partner': return 'bg-purple-100 text-purple-700 border-purple-200';
+    case 'competitor_to_watch': return 'bg-red-100 text-red-700 border-red-200';
+  }
+}
+
+export function getLikelihoodColor(likelihood: IndustryTarget['supanovaLikelihood']): string {
+  switch (likelihood) {
+    case 'confirmed': return 'bg-green-500 text-white';
+    case 'very_likely': return 'bg-green-100 text-green-700';
+    case 'likely': return 'bg-yellow-100 text-yellow-700';
+    case 'possible': return 'bg-gray-100 text-gray-600';
+    case 'unlikely': return 'bg-gray-50 text-gray-400';
+  }
+}

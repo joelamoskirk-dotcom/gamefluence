@@ -10,10 +10,11 @@ import {
   supanovaConfig, creatorTargets, eventTasks,
   generateGoogleCalendarUrl, generateICSFile,
   getTierColor, getTierLabel,
+  industryTargets, getRelevanceColor, getLikelihoodColor,
 } from '@/lib/supanova-event-intel';
-import type { EventCreatorTarget, EventTask } from '@/lib/supanova-event-intel';
+import type { EventCreatorTarget, EventTask, IndustryTarget } from '@/lib/supanova-event-intel';
 
-type Tab = 'overview' | 'creators' | 'tasks' | 'strategy';
+type Tab = 'overview' | 'creators' | 'brands' | 'tasks' | 'strategy';
 
 export default function SupanovaPage() {
   const [activeTab, setActiveTab] = useState<Tab>('overview');
@@ -90,15 +91,16 @@ export default function SupanovaPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 bg-gray-100 p-1 rounded-lg mb-6">
+      <div className="flex gap-1 bg-gray-100 p-1 rounded-lg mb-6 overflow-x-auto">
         {([
           { id: 'overview' as Tab, label: 'Overview', icon: <Globe size={14} /> },
           { id: 'creators' as Tab, label: 'Creator Targets', icon: <Users size={14} /> },
+          { id: 'brands' as Tab, label: 'Brands & Contacts', icon: <Target size={14} /> },
           { id: 'tasks' as Tab, label: 'Task Planner', icon: <CheckCircle size={14} /> },
           { id: 'strategy' as Tab, label: 'Strategy & Links', icon: <Target size={14} /> },
         ]).map(tab => (
           <button key={tab.id} onClick={() => setActiveTab(tab.id)}
-            className={`flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === tab.id ? 'bg-white text-primary shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
+            className={`flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${activeTab === tab.id ? 'bg-white text-primary shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
             {tab.icon} {tab.label}
           </button>
         ))}
@@ -107,6 +109,7 @@ export default function SupanovaPage() {
       {/* Content */}
       {activeTab === 'overview' && <OverviewTab />}
       {activeTab === 'creators' && <CreatorsTab creators={creatorTargets} />}
+      {activeTab === 'brands' && <BrandsTab />}
       {activeTab === 'tasks' && <TasksTab tasks={tasks} onToggle={toggleTask} />}
       {activeTab === 'strategy' && <StrategyTab />}
     </main>
@@ -330,6 +333,81 @@ function TasksTab({ tasks, onToggle }: { tasks: EventTask[]; onToggle: (id: stri
                       <Calendar size={14} className="text-blue-500" />
                     </a>
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function BrandsTab() {
+  const relevanceOrder = ['immediate_client', 'future_client', 'partner', 'competitor_to_watch'] as const;
+  const relevanceLabels: Record<string, string> = {
+    immediate_client: '💰 Immediate Client Targets',
+    future_client: '🔮 Future Client Targets',
+    partner: '🤝 Partnership Opportunities',
+    competitor_to_watch: '⚔️ Competitors to Watch',
+  };
+
+  return (
+    <div className="space-y-8">
+      {relevanceOrder.map(relevance => {
+        const targets = industryTargets.filter(t => t.relevance === relevance);
+        if (targets.length === 0) return null;
+        return (
+          <div key={relevance}>
+            <h3 className="font-bold text-lg mb-4">{relevanceLabels[relevance]}</h3>
+            <div className="space-y-4">
+              {targets.map(target => (
+                <div key={target.id} className="card border hover:shadow-md transition-shadow">
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h4 className="font-bold text-lg">{target.company}</h4>
+                        <span className={`text-[10px] px-2 py-0.5 rounded-full border ${getRelevanceColor(target.relevance)}`}>
+                          {target.relevance.replace(/_/g, ' ')}
+                        </span>
+                        <span className={`text-[10px] px-2 py-0.5 rounded-full ${getLikelihoodColor(target.supanovaLikelihood)}`}>
+                          {target.supanovaLikelihood === 'very_likely' ? 'Very Likely at Supanova' : `${target.supanovaLikelihood} at Supanova`}
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-500">{target.type.replace(/_/g, ' ')} • {target.hq}</p>
+                    </div>
+                    <a href={target.website} target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-gray-100 rounded-lg text-xs hover:bg-gray-200 flex items-center gap-1">
+                      <ExternalLink size={12} /> Website
+                    </a>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-4 mb-3">
+                    <div>
+                      <p className="text-xs font-medium text-gray-500 mb-1">Why Target</p>
+                      <p className="text-sm text-gray-700">{target.whyTarget}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium text-gray-500 mb-1">Your Pitch</p>
+                      <p className="text-sm text-green-800 bg-green-50 p-2 rounded">{target.pitch}</p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-3 text-xs mb-3">
+                    <div>
+                      <span className="text-gray-500">Est. Gaming Spend:</span>
+                      <span className="font-medium ml-1">{target.annualGamingSpend}</span>
+                    </div>
+                    <div>
+                      <span className="text-gray-500">APAC Presence:</span>
+                      <span className="font-medium ml-1">{target.apacPresence}</span>
+                    </div>
+                    <div>
+                      <span className="text-gray-500">Key People:</span>
+                      <span className="font-medium ml-1">{target.keyPeople}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-gray-500 italic border-t pt-2">{target.notes}</p>
                 </div>
               ))}
             </div>
