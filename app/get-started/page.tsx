@@ -171,13 +171,16 @@ export default function GetStartedPage() {
                   className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary"
                 >
                   <option value="">Select market...</option>
-                  <option value="vietnam">Vietnam</option>
-                  <option value="thailand">Thailand</option>
                   <option value="indonesia">Indonesia</option>
                   <option value="philippines">Philippines</option>
+                  <option value="vietnam">Vietnam</option>
+                  <option value="thailand">Thailand</option>
+                  <option value="malaysia">Malaysia</option>
+                  <option value="singapore">Singapore</option>
+                  <option value="south-korea">South Korea</option>
                   <option value="japan">Japan</option>
-                  <option value="newzealand">New Zealand</option>
                   <option value="australia">Australia</option>
+                  <option value="newzealand">New Zealand</option>
                   <option value="multiple">Multiple markets</option>
                 </select>
               </div>

@@ -2,13 +2,13 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 
 const MARKETS = [
-  { id: 'vietnam', flag: '🇻🇳', name: 'Vietnam', creators: '340+', topGame: 'Mobile Legends' },
-  { id: 'thailand', flag: '🇹🇭', name: 'Thailand', creators: '280+', topGame: 'ROV / PUBG Mobile' },
-  { id: 'indonesia', flag: '🇮🇩', name: 'Indonesia', creators: '520+', topGame: 'Free Fire' },
-  { id: 'japan', flag: '🇯🇵', name: 'Japan', creators: '410+', topGame: 'Genshin / Gacha' },
-  { id: 'philippines', flag: '🇵🇭', name: 'Philippines', creators: '190+', topGame: 'Mobile Legends' },
-  { id: 'newzealand', flag: '🇳🇿', name: 'New Zealand', creators: '85+', topGame: 'Fortnite / Valorant' },
-  { id: 'australia', flag: '🇦🇺', name: 'Australia', creators: '120+', topGame: 'Fortnite' },
+  { id: 'indonesia', flag: '🇮🇩', name: 'Indonesia', creators: '65+', topGame: 'Mobile Legends' },
+  { id: 'philippines', flag: '🇵🇭', name: 'Philippines', creators: '52+', topGame: 'Mobile Legends' },
+  { id: 'vietnam', flag: '🇻🇳', name: 'Vietnam', creators: '48+', topGame: 'Arena of Valor' },
+  { id: 'thailand', flag: '🇹🇭', name: 'Thailand', creators: '38+', topGame: 'Valorant / RoV' },
+  { id: 'malaysia', flag: '🇲🇾', name: 'Malaysia', creators: '28+', topGame: 'Mobile Legends' },
+  { id: 'singapore', flag: '🇸🇬', name: 'Singapore', creators: '17+', topGame: 'Valorant' },
+  { id: 'south-korea', flag: '🇰🇷', name: 'South Korea', creators: '32+', topGame: 'League of Legends' },
 ];
 
 const ATTRIBUTION_PARTNERS = [
