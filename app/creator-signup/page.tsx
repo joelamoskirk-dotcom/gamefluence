@@ -19,15 +19,24 @@ export default function CreatorSignupPage() {
   const [formType, setFormType] = useState<'quick_interest' | 'validation_check'>('quick_interest');
   const [contactPerson, setContactPerson] = useState('');
   const [market, setMarket] = useState('');
+  const [outreachRef, setOutreachRef] = useState('');
+  const [outreachSource, setOutreachSource] = useState('');
+  const [eventCode, setEventCode] = useState('');
   
   useEffect(() => {
     const form = searchParams.get('form') as 'quick_interest' | 'validation_check';
     const contact = searchParams.get('contact') || '';
     const mkt = searchParams.get('market') || '';
+    const ref = searchParams.get('ref') || '';
+    const source = searchParams.get('source') || '';
+    const event = searchParams.get('event') || '';
     
     if (form) setFormType(form);
     if (contact) setContactPerson(contact);
     if (mkt) setMarket(mkt);
+    if (ref) setOutreachRef(ref);
+    if (source) setOutreachSource(source);
+    if (event) setEventCode(event);
   }, [searchParams]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -57,6 +66,11 @@ export default function CreatorSignupPage() {
           engagementRate: data.engagementRate,
           brandSafetyScore: data.brandSafetyScore,
           marketTier: data.marketTier,
+          // Outreach attribution tracking
+          outreachRef: outreachRef || undefined,
+          outreachSource: outreachSource || undefined,
+          eventCode: eventCode || undefined,
+          market: market || undefined,
         }),
       });
 
