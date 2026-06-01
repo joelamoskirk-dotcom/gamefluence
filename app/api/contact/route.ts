@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendContactNotification, ContactFormData } from '@/lib/email';
+import { logBrandInquiry } from '@/lib/google-sheets-db';
 
 export async function POST(request: NextRequest) {
   try {
@@ -39,6 +40,17 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
+
+    // Log to Google Sheets (non-blocking)
+    logBrandInquiry({
+      name: body.name,
+      email: body.email,
+      company: body.company || '',
+      market: body.message?.match(/Market: (\w+)/)?.[1] || '',
+      budget: body.message?.match(/Budget: ([^\n]+)/)?.[1] || '',
+      message: body.message,
+      type: body.type || 'general',
+    }).catch(err => console.warn('[sheets] Brand inquiry log failed:', err));
 
     return NextResponse.json({
       success: true,

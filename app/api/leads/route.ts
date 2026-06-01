@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendLeadNotification, sendCreatorConfirmation, LeadNotificationData } from '@/lib/email';
+import { logCreatorSignup } from '@/lib/google-sheets-db';
 
 export async function POST(request: NextRequest) {
   try {
@@ -42,6 +43,20 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
+
+    // Log to Google Sheets (non-blocking — don't fail if sheets unavailable)
+    logCreatorSignup({
+      creatorName: body.creatorName,
+      email: body.email,
+      socialProfile: body.socialProfile,
+      platform: body.platform || 'unknown',
+      market: body.market || body.marketTier || '',
+      outreachRef: body.outreachRef || '',
+      outreachSource: body.outreachSource || '',
+      eventCode: body.eventCode || '',
+      followerCount: body.followerCount,
+      engagementRate: body.engagementRate,
+    }).catch(err => console.warn('[sheets] Creator signup log failed:', err));
 
     return NextResponse.json({
       success: true,
