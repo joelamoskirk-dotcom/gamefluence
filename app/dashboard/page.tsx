@@ -733,7 +733,30 @@ export default function Dashboard() {
                 </Button>
                 <Button 
                   className="flex-1"
-                  onClick={() => alert('Payment processing would be implemented here!')}
+                  onClick={async () => {
+                    try {
+                      const res = await fetch('/api/checkout', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                          planName: selectedPackage ? `Campaign + ${acquisitionPackages.find(p => p.id === selectedPackage)?.name} UA` : 'Creator Campaign',
+                          amount: totalCost * 100, // cents
+                          currency: 'aud',
+                          customerEmail: '', // Would come from form
+                          creatorCount: selectedCreators.length,
+                          metadata: { creators: selectedCreators.map(c => c.id).join(',') },
+                        }),
+                      });
+                      const data = await res.json();
+                      if (data.url) {
+                        window.location.href = data.url;
+                      } else if (data.simulated) {
+                        alert('Payment simulated (Stripe not configured). In production, you would be redirected to Stripe Checkout.');
+                      }
+                    } catch {
+                      alert('Payment error. Please try again.');
+                    }
+                  }}
                 >
                   Complete Payment
                 </Button>

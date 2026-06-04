@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendContactNotification, ContactFormData } from '@/lib/email';
 import { logBrandInquiry } from '@/lib/google-sheets-db';
+import { triggerBrandSequence } from '@/lib/email-sequences';
 
 export async function POST(request: NextRequest) {
   try {
@@ -51,6 +52,13 @@ export async function POST(request: NextRequest) {
       message: body.message,
       type: body.type || 'general',
     }).catch(err => console.warn('[sheets] Brand inquiry log failed:', err));
+
+    // Trigger brand email drip sequence (non-blocking)
+    triggerBrandSequence(body.email, {
+      name: body.name,
+      market: body.message?.match(/Market: (\w+)/)?.[1] || 'APAC',
+      budget: body.message?.match(/Budget: ([^\n]+)/)?.[1] || 'TBD',
+    }).catch(err => console.warn('[email-sequences] Brand drip failed:', err));
 
     return NextResponse.json({
       success: true,

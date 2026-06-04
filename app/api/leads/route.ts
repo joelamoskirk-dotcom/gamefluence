@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendLeadNotification, sendCreatorConfirmation, LeadNotificationData } from '@/lib/email';
 import { logCreatorSignup } from '@/lib/google-sheets-db';
+import { triggerCreatorSequence } from '@/lib/email-sequences';
 
 export async function POST(request: NextRequest) {
   try {
@@ -57,6 +58,15 @@ export async function POST(request: NextRequest) {
       followerCount: body.followerCount,
       engagementRate: body.engagementRate,
     }).catch(err => console.warn('[sheets] Creator signup log failed:', err));
+
+    // Trigger automated email drip sequence (non-blocking)
+    triggerCreatorSequence(body.email, {
+      name: body.creatorName,
+      platform: body.platform || 'unknown',
+      genres: Array.isArray(body.gamingFocus) ? body.gamingFocus.join(', ') : body.gamingFocus || 'Gaming',
+      market: body.market || body.marketTier || 'APAC',
+      creatorId: body.outreachRef || 'organic',
+    }).catch(err => console.warn('[email-sequences] Creator drip failed:', err));
 
     return NextResponse.json({
       success: true,
