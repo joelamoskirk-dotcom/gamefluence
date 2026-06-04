@@ -230,3 +230,27 @@ export function generatePersonalizedEmail(creator: OutreachCreator, template: Ou
     .replace(/\[BRAND_CATEGORY\]/g, 'gaming publishers')
     .replace(/\[NUMBER\]/g, '8');
 }
+
+
+// ── COMBINED GETTERS ──────────────────────────────────────────────────────────
+
+export function getAllCreators(): OutreachCreator[] {
+  return vietnamCreators;
+}
+
+export function getCreatorsByMarketFull(market: OutreachCreator['market']): OutreachCreator[] {
+  if (market === 'VN') return vietnamCreators;
+  return [];
+}
+
+export function getMarketStats(market: OutreachCreator['market']) {
+  const creators = getCreatorsByMarketFull(market);
+  return {
+    total: creators.length,
+    totalReach: creators.reduce((s, c) => s + c.followers, 0),
+    avgEngagement: creators.length > 0 ? creators.reduce((s, c) => s + c.engagementRate, 0) / creators.length : 0,
+    racingCreators: creators.filter(c => c.genres.some(g => g.toLowerCase().includes('racing') || g.toLowerCase().includes('drift'))).length,
+    unrepresented: creators.filter(c => !c.hasWorkedBrands).length,
+    avgRate: creators.length > 0 ? creators.reduce((s, c) => s + c.estimatedRate, 0) / creators.length : 0,
+  };
+}
