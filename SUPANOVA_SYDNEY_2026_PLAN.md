@@ -356,3 +356,208 @@ Notes: _______________
 ---
 
 *Updated: May 27, 2026*
+
+
+---
+
+## 12. DEEP STRATEGIC ANALYSIS — SUPANOVA AS KICKSTARTER FOR GAMEFLUENCE
+
+### First: The Honest Audit — Are We Influencing the Influencers?
+
+**YES. This is the whole point.**
+
+Supanova Sydney 2026 has 40,000+ attendees (44,000 projected for 2027). From the audience data:
+- Age 18-25: **29.9%** (the content creator demographic)
+- Age 25-34: **27.3%** (the aspiring creator + early career demographic)
+- Combined 18-34: **57.2%** of all attendees
+
+This is not a kids show. This is a purchase-ready, digitally-active, APAC-aware gaming and pop culture audience. Christopher Lloyd, Karl Urban, Anthony Daniels — these are 25-35 year old cultural touchstones. The Variety and Rolling Stone coverage confirms Supanova punches well above its weight in cultural relevance.
+
+**The creators we want (AU-based, APAC-adjacent gaming creators) ARE HERE.** They attend Supanova as fans first, creators second. That's the insight. You're not trying to sell to them — you're showing up where they already are and offering something they want.
+
+---
+
+### Does Supanova's Audience Buy?
+
+**Yes — with nuance.**
+
+The "highly engaged, early-adopting, purchase-ready" framing from their exhibitor portal is marketing language. What it means in practice:
+
+**They DO buy:**
+- Merchandise, collectibles, artist prints (high impulse, low ticket)
+- Tickets to experiences ($77.50+ for 3-day pass = they have disposable income)
+- Photo ops ($80-$150+ for celebrity photos — these are discretionary spends)
+- Gaming peripherals, indie games from Bytes & Backlots exhibitors
+- Booksellers report strong sales (Inside Retail NZ confirms Supanova is a viable retail environment)
+
+**They DON'T buy in ways that help Gamefluence directly:**
+- B2B services (our actual offer)
+- Long-term platform commitments
+- Campaign briefs
+
+**The reframe:** Supanova is NOT a brand sales channel for Gamefluence. It IS a creator acquisition channel. You're not selling campaigns to 40,000 fans — you're signing 5-10 creators in front of 40,000 fans. The fans are irrelevant to your P&L. The creators are everything.
+
+**The real ROI question:** Can we sign 5-10 creators from attending? If yes, and each creator generates one $2K-$5K campaign in the next 6 months, that's $10K-$50K in potential revenue from a $500-$2K investment. That math works.
+
+---
+
+### The Options — Cheapest to Most Expensive
+
+#### OPTION A: Zero Cost — Just Attend (✅ Already Done — You Have a Ticket)
+**Cost:** $81.50 (paid)
+**What you get:** Access to find creators, film content (within handheld rules), network
+**Risk:** Zero
+**Recommended:** Yes, this is your baseline
+
+#### OPTION B: Bytes & Backlots Table — eDM/Newsletter Partnership (💡 Best ROI)
+**Cost:** $605–$678 Early Bird (one table, Sydney)
+**What you get:** A 2m x 2m space in the gaming section, table + 2 chairs + 3 passes
+**Zone:** Bytes & Backlots — "Independent gaming studios, screen-based projects, film/TV creatives and promotional activations"
+**Gamefluence fits here perfectly.**
+
+This is your physical presence. A table in the gaming zone with:
+- Gamefluence + Mobileyes branding (dual brand awareness)
+- Creator signup QR codes (event-attributed)
+- Simple pitch: "We pay gaming creators for APAC brand campaigns"
+- Take names, sign people up on the spot
+
+**The pitch to the wife:** $605 for a table at Australia's biggest gaming convention to sign our first 5-10 creators. If one creator does one campaign at $2K+, we've paid it back 3x over. This is the cheapest way to acquire creators with qualified intent.
+
+#### OPTION C: eDM Newsletter Inclusion — "Paid Media" Play (💡 Interesting)
+**Cost:** ~$500-$1,500 (estimated based on their kit — enquire via partners@supanova.com.au)
+**What you get:** Ad tile in their eDM to 242,000 subscribers (24% open rate = ~58,000 opens)
+**What to put there:** Creator signup link. "Get paid to game. Australia's newest gaming creator platform. Apply now."
+**Attribution:** gamefluenceai.com/creator-signup?source=supanova-edm
+
+**Honest assessment:** 242K subscribers sounds huge. But this list skews fans, not creators. Expected creators in that list: maybe 2-5% have any gaming content creation. That's 12,000 people at most who might be relevant. At 24% open rate: ~2,900 relevant people see the ad. At 2% click rate: ~58 clicks. At 20% signup conversion: ~12 signups.
+
+For $500-$1,500, 12 creator signups is actually decent ($40-$125 per signup). But you need to vet them. This works better as a volume top-of-funnel than quality acquisition.
+
+**Better version:** The social post option. A single Supanova social post across all channels (173K FB, 69K IG, 3.5K TikTok). Cost: enquire but likely $300-$800. More targeted because it reaches people who actively follow Supanova, which over-indexes on creators and fans who aspire to create.
+
+#### OPTION D: The Sim Rig Competition (🎯 HIGH IMPACT — LOW PROBABILITY OF APPROVAL)
+This is the bold play. Here's the full breakdown:
+
+**The Concept:**
+Neil's P1 sim rig on display in the gaming area (Bytes & Backlots or as a standalone activation). Competition entry: "Gaming creators only — post a 30-second hot lap video on TikTok/YouTube tagging @gamefluenceai to enter. Prize: P1 sim rig worth $X."
+
+**Why this works:**
+- Sim rigs are aspirational for the exact 18-34 gaming audience at Supanova
+- A real high-value prize creates genuine buzz
+- The entry mechanic (post a video) IS the creator acquisition — you're getting them to create content before they've signed up
+- Racing/sim content = Gamefluence's sweet spot
+- You get video content of creators doing exactly what you'd pay them for in campaigns
+- The UGC from entries becomes free content for Gamefluence social
+- Mobileyes can be co-branded (live video element)
+
+**The logistics:**
+- Bytes & Backlots would likely need a larger space (6x6m or exhibitor booth): $5,602–$7,843 Early Bird for Sydney
+- Alternatively, Supanova has "Branded Media Wall" and custom activation partnerships — contact partners@supanova.com.au for custom pricing
+- Need: Display rig, monitor, TV/screen showing Gamefluence branding, QR codes for signup, staff member
+
+**The budget (realistic):**
+| Item | Cost |
+|------|------|
+| Booth/space (6x6m early bird) | $5,602 |
+| Power (10 amp for monitors/PC) | $185 |
+| Signage | $58 |
+| Extra exhibitor passes | $159 (3x $53) |
+| P1 rig (at cost from Neil) | TBD |
+| Staff (one extra person) | $300-600 |
+| **Total excluding rig** | **~$6,300** |
+
+**The argument to the C-suite (and the wife):**
+- This is a $6K+ investment for a startup
+- ROI needs to be 3x+ to justify
+- 10 signed creators × avg $2K first campaign = $20K revenue potential
+- But also: video content, social media coverage, brand launch moment, case study for investor/partner pitches
+- The rig can be returned to Neil after the event — it's not consumed
+- This is Gamefluence's public launch moment. You're not just attending — you're THE gaming platform people remember
+
+**The honest downside:**
+- Requires booth booking NOW (June 8, 2027 early bird cut-off is Feb 2027 for Sydney — so NOT for 2026, only 2027)
+- For June 2026 (this year), Sydney standard rate cut-off: April 19, 2027 — wait, that's 2027 Sydney
+
+**IMPORTANT:** Looking at the documents again:
+- The exhibitor kit is for **2027** dates
+- The advertising kit is for **2026** dates
+- **Supanova Sydney 2026 is June 19-21 — that's 2 weeks away and sold out for exhibitors**
+
+The early bird window for Sydney 2026 closed April 19, 2027... no wait. Let me re-read.
+
+The 2026 advertising kit shows Sydney June 19-21 (that's THIS year, which you already have a ticket to). The exhibitor kit is for 2027 (Sydney June 18-20, 2027).
+
+**For THIS event (Sydney June 19-21, 2026): You have your ticket. That's it. Exhibitor booths are sold out or past deadline.**
+
+**For NEXT year (Supanova Sydney 2027, June 18-20): Early bird deadline is February 8, 2027. You have time to plan.**
+
+---
+
+### The Outreach Email — Crying Poor, Late Entry, What's Available
+
+**To:** partners@supanova.com.au
+**Subject:** Late partnership enquiry — gaming creator platform, June Sydney 2026
+
+```
+Hi team,
+
+I'm Joel Kirk, founder of Gamefluence (gamefluenceai.com) — we're a gaming creator marketing 
+platform launching in the APAC market. We connect gaming content creators with brand 
+campaigns across Vietnam, Indonesia, Philippines, Thailand and Australia.
+
+I've just bought my 3-day pass for Sydney 2026 and I'm coming to meet creators, but 
+I wanted to ask — is there anything still available for last-minute partners even at 
+a small scale? We're a new business, so we don't have a big budget, but we do have:
+
+1. A genuine product creators want (paid brand campaigns)
+2. An audience of gaming brand clients who want to reach the Supanova demographic
+3. A good story for your audience: Australian platform, APAC gaming focus
+
+Specifically I'm interested in:
+- eDM ad tile inclusion if any space remains (even a small tile)
+- Social media post targeting your gaming audience
+- Any unsold placement at reasonable rates
+
+I know it's last minute and I'm coming regardless as an attendee. But if there's an 
+opportunity to put Gamefluence in front of your audience — especially the creator/gaming 
+segment — I'd love to hear what's possible.
+
+For context on what we do: gamefluenceai.com/creators (private — I can give you access)
+
+Happy to chat this week if there's availability.
+
+Joel Kirk
+Founder, Gamefluence Pty Ltd
+joel@mobileyes.live | gamefluenceai.com
+```
+
+---
+
+### Recommended Decision Framework
+
+| Option | Cost | Creator Acquisitions Expected | ROI | Do It? |
+|--------|------|------------------------------|-----|--------|
+| Attend only (done) | $81.50 | 5-10 via direct outreach | 🟢 Excellent | YES — done |
+| eDM tile (if available) | $500-$1,500 | 10-20 (unvetted) | 🟡 Moderate | Maybe — ask |
+| Social post | $300-$800 | 5-15 targeted | 🟡 Good | Maybe — ask |
+| Bytes & Backlots table 2027 | $605-$678 | 20-40 | 🟢 Strong | YES for 2027 |
+| Sim rig activation 2027 | $6,000+ | 50-100 + brand moment | 🟢 Strong if rig is cheap | YES for 2027 with planning |
+
+**Verdict for June 2026:** You're already set with your ticket. Try the "crying poor" outreach to Supanova for any remaining eDM/social placement. Don't pay for things that won't move the needle.
+
+**Verdict for 2027:** Book a table in Bytes & Backlots early bird (Feb 8, 2027 deadline). Consider the sim rig activation if Neil can loan the rig. Start planning NOW — budget line item for FY27.
+
+---
+
+## 13. SUPANOVA CONTACT SHEET
+
+| Purpose | Contact |
+|---------|---------|
+| Partnership/advertising | partners@supanova.com.au |
+| Exhibitor enquiries | exhibitor@supanova.com.au |
+| Sponsorship | https://www.supanova.com.au/contact-us/sponsorship-advertising-enquiries/ |
+| Exhibitor portal | https://exhibitors.supanova.com.au |
+| Exhibitor application | https://www.supanova.com.au/exhibitors/ |
+| 2027 early bird Sydney | Deadline: February 8, 2027 |
+
+*Updated: May 28, 2026 — Based on Supanova 2027 Exhibition Sales Kit and 2026 Advertising Kit*
