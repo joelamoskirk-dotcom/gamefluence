@@ -164,7 +164,7 @@ We're building our Vietnam creator network and would love to discuss:
 • Paid brand campaigns ($[RATE]+ per campaign)
 • Priority access to international gaming brand deals
 • No exclusivity required — work with us alongside your existing partnerships
-• 7-day payment guarantee
+• 4-day payment guarantee
 
 We currently work with creators across 7 APAC markets and are expanding our Vietnam roster for upcoming campaigns from [BRAND_CATEGORY] brands.
 
@@ -185,7 +185,7 @@ gamefluenceai.com | admin@gamefluence.com.au`,
 export const outreachInsights: OutreachInsight[] = [
   { market: 'VN', insight: 'Vietnamese creators respond best to DMs on their primary platform, not email', recommendation: 'Use TikTok DM or Facebook Messenger for first touch. Email for follow-up only.', dataPoint: '73% response rate via platform DM vs 12% via email (industry data)' },
   { market: 'VN', insight: 'Racing game creators in Vietnam are severely undermonetized', recommendation: 'Lead with specific dollar amounts in outreach. "$200 for one video" gets attention when they currently earn $0 from brands.', dataPoint: 'Racing creators avg $0 brand income vs MOBA creators avg $500/month' },
-  { market: 'VN', insight: 'Vietnamese creators value fast payment above all else', recommendation: 'Emphasize "7-day payment" in every outreach. This is the #1 differentiator vs competitors who pay net-30 or net-60.', dataPoint: '51% of AU creators reject inauthentic deals (Social Soup 2026) — VN creators reject slow-paying deals' },
+  { market: 'VN', insight: 'Vietnamese creators value fast payment above all else', recommendation: 'Emphasize "4-day payment" in every outreach. This is the #1 differentiator vs competitors who pay net-30 or net-60.', dataPoint: '51% of AU creators reject inauthentic deals (Social Soup 2026) — VN creators reject slow-paying deals' },
   { market: 'VN', insight: 'Female gaming creators in Vietnam are 4x underrepresented vs audience demand', recommendation: 'Prioritize signing female creators — brands will pay premium for this audience. Only 12% of VN gaming creators are female but 35% of gamers are.', dataPoint: 'Female gaming audience: 35% of VN gamers. Female creators: ~12% of gaming content.' },
   { market: 'VN', insight: 'TikTok Live is now the primary discovery platform in Vietnam', recommendation: 'Creators who stream on TikTok Live have 2.3x higher brand deal conversion than those who only post clips.', dataPoint: 'TikTok Live: 35% platform share in VN (highest in SEA)' },
   { market: 'ID', insight: 'Indonesian creators expect Bahasa Indonesia communication', recommendation: 'Never outreach in English to ID creators under 500K. Use Bahasa. Consider hiring local outreach support.', dataPoint: 'English proficiency in ID gaming community: ~15% (vs 45% in PH)' },

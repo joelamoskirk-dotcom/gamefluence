@@ -1,174 +1,176 @@
-# GAMEFLUENCE CREATOR SERVICE AGREEMENT
+# GAMEFLUENCE — CAMPAIGN SERVICE AGREEMENT
 
-**Standard Terms & Conditions**
+**Standard Terms & Conditions v2.0**
 
-These terms and conditions apply to confirmation of the Creator (who is managed by Gamefluence, a division of Gamefluence Pty Ltd, ACN 696 199 461) who is engaged by a third party (Customer/Brand) for campaign services.
-
-If there is any conflict between these terms and those in the Campaign Brief/Booking Agreement, the Agreement terms will take precedence.
+Between Gamefluence Pty Ltd (ACN 696 199 461) ("Gamefluence", "Platform") and the Brand/Agency ("Customer") engaging Creator services.
 
 ---
 
-## 1. FEES & RATES
+## 1. PAYMENT TERMS — 4 BUSINESS DAYS
 
-1.1. The rates for the Creator are as quoted in the Campaign Brief.
+1.1. All campaign fees are payable within **four (4) business days** of Gamefluence issuing a Completion Notice.
 
-1.2. A minimum campaign fee of $200 AUD applies to all engagements.
+1.2. A Completion Notice is issued when Gamefluence's technology confirms:
+- The agreed content is live and publicly accessible
+- The attribution link/code is correctly inserted and trackable
+- The integration meets the Brief specifications (duration, placement, disclosure)
 
-1.3. Campaign fees are based on the deliverables specified in the Brief (video count, duration, platform, content type).
+1.3. This confirmation is automated via Gamefluence's attribution engine. There is no subjective review. If the link works and the content is live, the campaign is complete.
 
-1.4. Additional content beyond the agreed Brief will be charged at the Creator's standard rate plus platform margin.
+1.4. Late payment attracts interest at 10% per annum from the due date. Gamefluence reserves the right to suspend future campaign access for Customers with overdue accounts.
 
-1.5. All fees are payable by the Customer within seven (7) days of receipt of an invoice from Gamefluence on behalf of the Creator.
-
-1.6. Gamefluence will be entitled to charge interest on overdue fees at the rate of 5% per annum and the Customer shall pay to Gamefluence on demand any costs incurred in recovering such overdue fees.
-
-1.7. A third party will only be invoiced on the understanding that the Customer accepts ultimate liability for payment should the third party not pay.
-
----
-
-## 2. SERVICE FEE (PLATFORM MARGIN)
-
-2.1. A service fee will be charged on all Creator fees at the rate of **20% of the total campaign fees** for the service, matching, attribution, and license of use.
-
-2.2. GST will be charged on the service fee at the prescribed rate (currently 10%).
-
-2.3. The service fee will be retained by Gamefluence Pty Ltd.
-
-2.4. The fee structure is transparent: Customer pays Creator fee + Platform service fee + GST on service fee.
+1.5. Gamefluence pays Creators within **4 business days** of receiving Customer payment. Where Customer payment is delayed, Gamefluence may elect to advance Creator payment at its discretion.
 
 ---
 
-## 3. CREATOR COMMISSION
+## 2. FEE STRUCTURE
 
-3.1. Gamefluence retains **20% commission** on all Creator earnings facilitated through the platform.
+2.1. **Creator fee:** As quoted in the Campaign Brief.
 
-3.2. Creator receives 80% of the quoted campaign fee within **7 days** of campaign completion verification.
+2.2. **Agency service fee:** 20% of total Creator fees, charged to the Customer. This covers matching, brief management, attribution setup, verification, and reporting.
 
-3.3. Campaign completion is verified when:
-- All agreed deliverables are published on the specified platform(s)
-- Integration timestamp(s) are captured and logged
-- Content meets the requirements specified in the Brief
-- No material brand safety violations are present
+2.3. **GST:** 10% on the service fee (Australian Customers). International Customers: GST-free under exported services provisions.
 
----
+2.4. **Total Customer pays:** Creator fee + 20% service fee + GST on service fee.
 
-## 4. INTEGRATION VERIFICATION & PROOF OF DELIVERY
-
-4.1. For each campaign, Gamefluence will capture and log:
-- Direct URL(s) to published content
-- Timestamp of brand integration (start time and end time within the content)
-- Screenshot/clip of the integration moment
-- View count at time of verification
-- Engagement metrics at 48 hours post-publish
-
-4.2. Integration verification serves as proof of Brief completion and triggers Creator payment.
-
-4.3. The Customer will receive a Campaign Completion Report including all verification data, attribution metrics, and content URLs within 5 business days of campaign completion.
-
-4.4. Disputes regarding content quality or Brief compliance must be raised within 48 hours of content publication. After this period, the campaign is deemed completed.
+2.5. **Creator receives:** 80% of the quoted Creator fee (20% commission to Gamefluence).
 
 ---
 
-## 5. USAGE & LICENSING
+## 3. CAMPAIGN COMPLETION — TECH-VERIFIED
 
-5.1. Content created under this Agreement is licensed to the Customer for the usage specified in the Campaign Brief.
+3.1. Campaign completion is determined solely by Gamefluence's attribution technology. Completion requires:
 
-5.2. Standard usage includes: Creator's own channels for the duration specified.
+| Requirement | How It's Verified |
+|-------------|------------------|
+| Content published | URL accessible and returning 200 status |
+| Attribution link/code present | UTM parameters detected OR promo code visible in content |
+| Integration duration met | Timestamp verification against Brief (±5 seconds tolerance) |
+| Platform disclosure applied | Paid promotion tag/toggle detected |
 
-5.3. Extended usage (brand social media, paid advertising, website) requires additional licensing fees as specified in the Brief.
+3.2. Once all verification checks pass, the Completion Notice is issued automatically. This is not subject to Customer approval.
 
-5.4. Usage rights are NOT granted to the Customer until payment in full has been received by Gamefluence.
+3.3. Customer has **24 hours** from Completion Notice to raise a material dispute. Material disputes are limited to:
+- Factual errors about the Brand (wrong product name, incorrect claims)
+- Content that violates brand safety guidelines explicitly stated in the Brief
+- Content not published on the agreed platform
 
-5.5. Any continued, unapproved usage following completion of the Usage Term shall be charged at a rate of up to 100% of the original Fee, at Gamefluence's discretion.
-
-5.6. Upon receipt of notice regarding unapproved use, the Customer shall immediately cease all use of the materials.
-
----
-
-## 6. CONTENT RESTRICTIONS
-
-6.1. Content will comply with all applicable advertising standards and platform policies.
-
-6.2. Integration mentions must be disclosed in accordance with AANA Code of Ethics and platform-specific requirements (e.g., YouTube paid promotion toggle, TikTok branded content tools).
-
-6.3. Content will not be derogatory, pornographic, or subject the Brand to legal liability or reputational harm.
-
-6.4. Gamefluence reserves the right to reject content that does not meet Brief requirements before publication.
+3.4. Disputes about creative style, tone, or subjective quality are NOT valid grounds for withholding payment if the Brief specifications were met.
 
 ---
 
-## 7. CANCELLATION
+## 4. CANCELLATION — PROTECTS GAMEFLUENCE & CREATORS
 
-7.1. If cancellation is received more than 14 days before the campaign start date: 50% of the fee plus any expenses incurred will be payable.
+4.1. **Customer cancellation before Brief acceptance by Creator:** Full refund minus $50 administration fee.
 
-7.2. If cancellation is received within 14 days of the campaign start date: full fee plus expenses will be payable.
+4.2. **Customer cancellation after Brief acceptance but before content creation:** 75% of campaign fee payable immediately. Creator has committed time and availability.
 
-7.3. Creator cancellation: Gamefluence will provide a replacement Creator of equivalent quality at no additional cost, or refund the Customer in full.
+4.3. **Customer cancellation after content is created but before publication:** 100% of campaign fee payable. Creator has delivered the work.
 
----
+4.4. **Customer cancellation after publication:** Not possible. Campaign is complete. Full fee payable.
 
-## 8. APAC JURISDICTION & INTERNATIONAL SERVICES
+4.5. **Creator cancellation:** Gamefluence will provide a replacement Creator of equivalent quality within 48 hours, or extend the deadline by 7 days. If no replacement is available, full refund to Customer.
 
-8.1. This Agreement is governed by the laws of the State of New South Wales and the Commonwealth of Australia.
-
-8.2. The parties submit to the non-exclusive jurisdiction of the courts of NSW and the Commonwealth.
-
-8.3. Where services are performed by Creators located outside Australia (including but not limited to Vietnam, Indonesia, Philippines, Thailand, Malaysia, Singapore, South Korea), the Customer acknowledges:
-- Payment will be processed in AUD unless otherwise agreed
-- Local tax obligations in the Creator's jurisdiction are the responsibility of the Creator
-- Gamefluence will administer PAYG withholding where applicable for Australian-based Creators
-- International Creators are engaged as independent contractors
-
-8.4. Gamefluence warrants that all Creators on its platform have agreed to Gamefluence's Creator Terms of Service, including content standards, disclosure requirements, and payment terms.
+4.6. Cancellation notices must be in writing to admin@gamefluence.com.au.
 
 ---
 
-## 9. EXCLUSIVITY
+## 5. USAGE & IP — CREATOR-FAVOURABLE
 
-9.1. Creator engagements are on a **non-exclusive** basis unless otherwise specified in the Campaign Brief.
+5.1. Content remains the intellectual property of the Creator at all times.
 
-9.2. The Creator will be available to work with competitor brands unless exclusivity is purchased.
+5.2. The Customer receives a **license to use** the content as follows:
 
-9.3. Exclusivity periods will be subject to additional fees as negotiated.
+| Usage Tier | What's Included | Duration |
+|------------|-----------------|----------|
+| Standard (included in campaign fee) | Creator's own channels only | Perpetual (Creator may remove after 90 days at their discretion) |
+| Extended (additional fee required) | Brand social media reposting | 90 days from publication |
+| Premium (additional fee required) | Paid advertising, website, all digital | 12 months |
+| Perpetual (additional fee required) | All channels, all formats, no expiry | Unlimited |
 
-9.4. It is the Customer's responsibility to check for conflicts before engaging the Creator.
+5.3. Usage rights are NOT granted until payment in full is received.
 
----
+5.4. Customer may not edit, alter, or modify Creator content without written approval from the Creator via Gamefluence.
 
-## 10. ATTRIBUTION & ANALYTICS
+5.5. Customer may reshare/repost unedited content to their own social channels with Creator credit — this is included in Standard usage at no additional cost. The Creator must be tagged/credited.
 
-10.1. All campaigns include standard attribution tracking:
-- UTM-tagged links (utm_source, utm_medium, utm_campaign, utm_content)
-- Unique promo/referral codes where applicable
-- S2S conversion tracking (TikTok Events API, Meta CAPI) where Customer has configured their pixels
+5.6. Any usage beyond what is specified in the Brief requires separate written agreement and may attract additional fees.
 
-10.2. Additional analytics services (custom dashboards, real-time optimization, creative analytics) are available at additional cost as specified in the Brief.
-
-10.3. Campaign performance data belongs jointly to Customer and Gamefluence. Gamefluence retains the right to use anonymized, aggregated campaign data to improve its matching and optimization algorithms.
-
----
-
-## 11. GENERAL
-
-11.1. Gamefluence manages Creators as independent contractors. Creators are not employees of Gamefluence.
-
-11.2. The Customer will exercise rights granted in this Agreement in a manner consistent with the good name, goodwill, and reputation of the Creator.
-
-11.3. All rights not expressly granted to the Customer are reserved by the Creator.
-
-11.4. Where there is any inconsistency between these terms and any other documents provided by the Customer, these terms will prevail.
+5.7. Unapproved usage beyond the licensed term will be invoiced at 150% of the original campaign fee per additional 30-day period.
 
 ---
 
-## 12. ACCEPTANCE
+## 6. ATTRIBUTION & MEASUREMENT
 
-By engaging Creator services through Gamefluence, the Customer acknowledges and agrees to these Standard Terms & Conditions.
+6.1. All campaigns include as standard:
+- Unique UTM-tagged link per Creator
+- Unique promo/referral code (where applicable)
+- Real-time click and conversion tracking
+- Integration timestamp verification
 
-**Gamefluence Pty Ltd**
-ACN 696 199 461
-Sydney, NSW, Australia
+6.2. Gamefluence's S2S attribution engine fires conversion events back to Customer's ad platforms (TikTok, Meta, Google Ads) where pixels are configured.
+
+6.3. Campaign performance reports are delivered within 5 business days of campaign completion.
+
+6.4. Attribution data is the basis for campaign completion verification. If the link/code is trackable and functioning, the campaign is complete regardless of conversion volume.
+
+---
+
+## 7. ADDITIONAL SERVICES (CHARGED SEPARATELY)
+
+7.1. Custom creative strategy + briefing: From $500
+
+7.2. Real-time campaign optimisation (mid-flight adjustments): From $300/week
+
+7.3. Advanced analytics dashboard access: From $200/month
+
+7.4. Multi-market coordination (2+ countries): +25% of campaign fee
+
+7.5. Exclusivity (Creator cannot work with competing brands): +50-200% of campaign fee depending on duration
+
+---
+
+## 8. BRAND SAFETY & CONTENT STANDARDS
+
+8.1. All content complies with AANA Distinguishable Advertising Code and applicable platform policies.
+
+8.2. Creators disclose paid partnerships using platform-native tools (YouTube paid promotion toggle, TikTok branded content, Instagram partnership label).
+
+8.3. Gamefluence reviews all content for brand safety prior to publication where specified in the Brief.
+
+8.4. Brand safety violations that were not addressed in the Brief (e.g., language, cultural norms) are not grounds for payment withholding.
+
+---
+
+## 9. GOVERNING LAW & JURISDICTION
+
+9.1. This Agreement is governed by the laws of New South Wales, Australia.
+
+9.2. The parties submit to the non-exclusive jurisdiction of the courts of NSW.
+
+9.3. For international campaigns (Creators in Vietnam, Indonesia, Philippines, Thailand, Malaysia, Singapore, South Korea):
+- Payment processed in AUD (or USD by agreement)
+- Content published on international platforms governed by platform T&Cs
+- Disputes resolved under NSW law
+- Local consumer protection laws of the Creator's jurisdiction apply to the Creator relationship
+
+---
+
+## 10. LIABILITY
+
+10.1. Gamefluence's total liability under this Agreement is limited to the campaign fees paid.
+
+10.2. Gamefluence is not liable for: platform algorithm changes affecting reach, Creator's future behaviour or content, third-party claims arising from Customer's product/service.
+
+10.3. Customer indemnifies Gamefluence against claims arising from: products/services promoted, false or misleading claims in the Brief, unapproved usage of content.
+
+---
+
+## 11. ACCEPTANCE
+
+By submitting a Campaign Brief to Gamefluence, the Customer agrees to these terms. A signed copy may be requested for campaigns exceeding $10,000 AUD.
+
+**Gamefluence Pty Ltd** | ACN 696 199 461 | Sydney, NSW, Australia
 admin@gamefluence.com.au | gamefluenceai.com
 
----
-
-*Version 1.0 — June 2026*
+*v2.0 — June 2026. This document should be reviewed by qualified legal counsel before use.*

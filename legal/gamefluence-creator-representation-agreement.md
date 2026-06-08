@@ -22,7 +22,7 @@ This Agreement is between Gamefluence Pty Ltd (ACN 696 199 461) ("Gamefluence", 
 
 2.2. You receive **80%** of the agreed campaign fee.
 
-2.3. Payment is made within **7 days** of campaign completion verification.
+2.3. Payment is made within **4 business days** of campaign completion verification.
 
 2.4. Payment is made via bank transfer to the account you provide, or via international transfer (Wise/PayPal) for Creators outside Australia.
 
@@ -62,7 +62,7 @@ This Agreement is between Gamefluence Pty Ltd (ACN 696 199 461) ("Gamefluence", 
 - Integration/mention matches Brief requirements
 - Disclosure requirements are met
 
-5.2. Verification triggers your payment (within 7 days).
+5.2. Verification triggers your payment (within 4 business days).
 
 5.3. If content does not meet Brief requirements, we will notify you within 24 hours of publication with specific feedback. You will have 48 hours to make corrections before the campaign is marked as incomplete.
 
@@ -74,7 +74,7 @@ This Agreement is between Gamefluence Pty Ltd (ACN 696 199 461) ("Gamefluence", 
 
 6.2. Brief management — we handle all brand communication so you can focus on creating.
 
-6.3. Payment guarantee — once a campaign is verified, payment is guaranteed within 7 days regardless of when the Brand pays us.
+6.3. Payment guarantee — once a campaign is verified, payment is guaranteed within 4 business days regardless of when the Brand pays us.
 
 6.4. Analytics — access to your campaign performance data.
 
