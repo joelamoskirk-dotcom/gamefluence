@@ -1,136 +1,175 @@
-# Jacob Tabor — Call Script & Qualification Questions
-## Jul 3, 2026 @ 11:00 AM
-
-**Your positioning:** You're a talent manager who works with hardware brands in the sim space. You've been watching DCS content, you know his world, and you have a hardware brand ready to go. His job is just to keep doing what he's already doing — you handle the rest.
+# Jacob Tabor — Call Prep & Script
+## Jul 3, 2026 @ 11:00 AM | Managed by Mobileyes
 
 ---
 
-## OPENER (2 min)
+## 🤖 AI AGENT PRE-CALL BRIEFING
 
-"Hey Jacob, thanks for making time. I'll keep this quick — I know you're probably mid-campaign in DCS right now. I run Mobileyes — we represent live video creators to hardware brands. Basically I find the brand deals, negotiate the rates, handle all the logistics, and make sure you get paid fast. You just keep creating."
+**🔍 Terry (Talent Scout):**
+Jacob scores HIGH POTENTIAL. No prior brand deals = first-mover. DCS ecosystem access (167K YT + 113K IG + 65K Discord) is rare and valuable. Flight sim vertical has zero agency competition in AU. Risk is low — he has nothing to lose. **Sign immediately.**
 
----
+**💰 Dazza (Deal Agent):**
+At $8K/month total spend, your margin is 34% ($2,700/mo). Jacob gets $4,800 — generous for a first deal with zero track record. Don't go higher until month 3 data proves ROI. The affiliate layer ($1K/rig, 50/50) is the upsell — mention it as "extra income on top with zero extra work." **Lead with: ~$4,800/month for 4 posts.**
 
-## DISCOVERY QUESTIONS (10-15 min)
-
-### About His Content
-
-1. "What's your main channel right now — YouTube, Twitch, Kick? Or a mix?"
-   - *[You need: his personal channels + reach, not just the DCS official account]*
-
-2. "How often are you posting? What's your rhythm — daily streams, weekly videos, both?"
-   - *[You need: posting frequency for content strategy]*
-
-3. "What does your audience engage with most — tutorials, combat footage, hardware stuff, mission walkthroughs?"
-   - *[You need: what content resonates — this shapes the P1 brief]*
-
-4. "What's your setup like right now? What HOTAS/pedals/cockpit are you running?"
-   - *[Critical: does he already have P1 gear? Competitor gear? Nothing serious?]*
-
-5. "Are you in the DCS Discord community much? Do people know you there?"
-   - *[Gateway question: his influence within the 65K member community]*
-
-### About His Goals
-
-6. "Have you ever been approached by brands or been paid for content before?"
-   - *[If NO: first-mover advantage. If YES: find out who and what went wrong]*
-
-7. "Is content creation something you want to grow into a proper income stream, or is it more of a hobby that'd be nice to monetise?"
-   - *[You need: how hungry is he? $4,800/month matters differently to different people]*
-
-8. "What would your ideal brand deal look like if you could design it yourself?"
-   - *[Let him dream. Then match it to what you already have lined up.]*
-
-### About His Concerns
-
-9. "What would put you off a brand partnership? Like what would feel wrong or uncomfortable?"
-   - *[Get his red lines early — you don't want surprises post-signing]*
-
-10. "How do you feel about sponsored content in the flight sim space? Do you think your audience would respond well if it's authentic?"
-    - *[Most DCS creators worry about "selling out" — you need to hear this concern and address it]*
+**📣 CMO (Messaging):**
+Don't say "influencer marketing." Jacob will cringe. This audience values precision and authenticity. Frame it as: "I connect hardware brands with serious sim pilots who can speak credibly to their audience." The language is **performance, not promotion.** Say "we make your content pay" not "we need you to sell stuff."
 
 ---
 
-## THE PITCH (5 min)
+## YOUR POSITIONING
 
-Once you've heard his answers, you position like this:
-
-"Cool — so here's what I'm thinking. I've got a relationship with an AU-based flight sim hardware retailer. They want to work with someone in the DCS space who actually uses this gear and can speak to it authentically. The deal I'm putting together would look like this:"
-
-### What Jacob hears:
-
-- **4 posts a month** — one per week, and we build them around content you'd make anyway
-- **You keep doing normal DCS combat content** between the sponsored posts — your audience doesn't change
-- **You get free gear** shipped to you to use and feature
-- **You get paid within 4 business days** of each post going live — I don't wait for the brand to pay me, I front it
-- **Plus an affiliate code** for their premium products — if your audience buys through your link, you earn a cut forever. No extra work.
-- **Non-exclusive** — I'm not locking you into anything. 14 days notice if you want out.
-- **I handle everything** — the brand relationship, the brief, the invoicing, the reporting. You just create.
+You're a talent manager who represents creators to hardware brands in the sim space. You've been watching DCS content. You know his world. You have a hardware brand ready to go. His job is just to keep doing what he's already doing — you handle the rest.
 
 ---
 
-## OBJECTION HANDLING
+## CALL STRUCTURE (20 min)
+
+### Phase 1: RAPPORT (3 min)
+
+"Hey Jacob, thanks for making time. I'll keep this quick. I run Mobileyes — we're a talent agency for live video creators in AU. Basically I find hardware brand deals, negotiate the rates, handle all the logistics, and make sure creators get paid fast. I've been watching DCS content and the flight sim space — your community is incredible."
+
+**Transition:** "I wanted to chat because I've got a specific opportunity that might fit you."
+
+---
+
+### Phase 2: DISCOVERY (8 min)
+
+Ask these — tick them off as you go (or use the interactive checklist on /dashboard/collabs):
+
+**About his content:**
+- [ ] "What's your main channel? YouTube, Twitch, Kick — or a mix?"
+- [ ] "How often are you posting? What's your rhythm?"
+- [ ] "What does your audience engage with most — tutorials, combat, hardware reviews?"
+- [ ] "What's your current setup? What HOTAS/pedals/cockpit are you running?"
+
+**About his goals:**
+- [ ] "Have you ever been paid for content or approached by brands?"
+- [ ] "Is content creation something you're looking to grow into income?"
+- [ ] "What would an ideal brand partnership look like for you?"
+
+**About concerns:**
+- [ ] "What would feel wrong or uncomfortable about a brand deal?"
+- [ ] "How do you think your DCS audience would react to gear recommendations?"
+
+**Gateway question:**
+- [ ] "Who else in the DCS community creates content? Anyone you'd recommend?"
+
+---
+
+### Phase 3: THE PITCH (5 min)
+
+Once you've heard his answers:
+
+"Cool — so here's what I'm working on. I've got a relationship with an AU-based flight sim hardware retailer. They want to reach the DCS audience through someone who actually uses this gear every day. The deal I'm putting together looks like this:"
+
+**What Jacob hears:**
+- ✅ 4 posts a month — one per week, built around content you'd make anyway
+- ✅ Keep doing normal DCS combat content between paid posts — audience doesn't change
+- ✅ You get free gear shipped to you — it's yours to keep
+- ✅ You get paid within 4 business days of each post going live
+- ✅ Plus an affiliate code — if your audience buys through your link, you earn a cut forever
+- ✅ Non-exclusive — 14 days notice if you want out
+- ✅ I handle everything — brand relationship, brief, invoicing, reporting
+
+**Don't mention yet:**
+- ❌ Don't name P1 Sim Gear until he's signed (say "AU flight sim hardware retailer")
+- ❌ Don't quote exact numbers unless pushed (say "around $4,800/month")
+- ❌ Don't mention your commission (only if directly asked: "20%, standard in talent rep")
+
+---
+
+### Phase 4: OBJECTIONS (as needed)
 
 | He says | You say |
 |---------|---------|
-| "I've never done brand deals before" | "That's actually ideal — means your audience hasn't been sold to yet. First brand integration from a trusted creator always converts highest." |
-| "I don't want to feel like I'm selling out" | "Neither do I. That's why we keep it to 1 post/week and the other 3-4 posts are pure DCS combat. Your audience won't feel a shift." |
-| "What if the gear isn't good?" | "You try it first. If it's not up to standard, we don't feature it. Your reputation comes first — that's what makes this work long-term." |
-| "How much would I get paid?" | "Based on your audience and the niche, I'm working on around $4,800 a month for 4 posts, plus affiliate on top. But let me confirm the exact numbers and come back to you." |
-| "What's the catch?" | "Non-exclusive. 14 days notice to leave. You own all your content. I get 20% as my management fee — standard in talent representation. You get 80%." |
-| "I need to think about it" | "Totally. I'll send you a quick summary after this call. No pressure. But the hardware brand is ready to move, so if you're keen, let's lock it in this week." |
-| "Can I see the agreement?" | "Yeah absolutely — I'll send you a link to the terms. It's a simple non-exclusive representation agreement. Read it, ask questions, sign when you're ready." |
+| "Never done brand deals" | "That's ideal — your audience hasn't been sold to yet. First integration always converts highest." |
+| "Don't want to sell out" | "Neither do I. 1 post/week is paid, the other 3-4 are pure DCS. Your audience won't feel it." |
+| "What if gear's not good?" | "You try it first. If it's not up to standard, we don't feature it. Your reputation comes first." |
+| "How much?" | "Based on your audience, around $4,800/month for 4 posts, plus affiliate on top. Let me confirm the exact numbers." |
+| "What's the catch?" | "Non-exclusive. 14 days notice. You own all content. I take 20% as management fee — standard." |
+| "Need to think" | "Totally. I'll send you a quick summary. But the brand is ready to move, so if you're keen, let's lock it this week." |
 
 ---
 
-## THE CLOSE (2 min)
+### Phase 5: CLOSE (2 min)
 
-"So here's what I'd suggest as next steps — and there's genuinely nothing to lose here:
+"Here's what happens next — and genuinely, nothing to lose:
 
-1. **I'll send you the Mobileyes representation agreement** — it's non-exclusive, you can leave anytime, 14 days notice. Have a read.
-2. **If it looks good, sign it** — takes 2 minutes, it's an online form.
-3. **I'll get the hardware brand to ship you their Flight Pilot Pack** — that's yours to keep and use.
-4. **We'll put together a simple 4-post content plan** — I'll suggest topics but you have final say on everything you create.
-5. **You post, I verify, you get paid within 4 days.** Plus affiliate runs forever in the background.
+1. I'll send you the representation agreement — non-exclusive, leave anytime
+2. If it looks good, sign it — 2 minutes online
+3. The hardware brand ships you their flagship rig — yours to keep
+4. We plan 4 posts for the month — you have final say on everything you create
+5. You post, I verify, you get paid within 4 days. Plus affiliate runs forever.
 
-The worst case scenario is: you get free flight sim gear, you try it, and if you don't like working with brands, you give me 14 days notice and keep the gear. There's no downside."
+The worst case: you get free flight sim gear, try it, and if you don't like working with brands, give me 14 days notice and keep the gear."
+
+---
+
+## INTEGRATION CHECKLIST (Ask During Call)
+
+Use the interactive checklist on `/dashboard/collabs` to tick these off live:
+
+- [ ] Promo code in description (JACOBDCS)
+- [ ] Promo code spoken in video
+- [ ] Pinned comment with link
+- [ ] Chat command for live streams
+- [ ] Link in bio/about
+- [ ] Video description link
+- [ ] Dedicated landing page (ask Neil)
+- [ ] Discord server pin (if he has access)
+
+**Key question:** "How do you normally link stuff for your audience? Description? Pinned comment? Do you do live streams where we could set up a chat command?"
+
+---
+
+## NUMBERS CHEAT SHEET (For Your Eyes Only)
+
+| | What you know | What you say |
+|---|---|---|
+| His fee | $4,800/month | "Around $4,800" |
+| Posts | 4/month | "One a week" |
+| Affiliate | $500/rig sold | "A few hundred per sale" |
+| Payment | 4 business days | "Paid within 4 days" |
+| Notice | 14 days | "Leave anytime, 14 days" |
+| Your commission | 20% ($1,200/mo) | Only if asked directly |
+| Brand | P1 Sim Gear, Neil, QLD | "AU flight sim hardware retailer" |
+| Total brand spend | $8K/month | NEVER share this with Jacob |
+| Your total take | $2,700/mo + affiliate | NEVER share this |
 
 ---
 
 ## POST-CALL ACTIONS
 
-If he's keen:
-- [ ] Send him the talent signup link: `mobileyes.live/talent-signup`
-- [ ] Update collabs page status → "accepted"
-- [ ] Generate his UTM links (platform does this)
-- [ ] Send brief to Neil confirming Jacob is locked in
-- [ ] Get Neil to ship the Fighter Pilot Pack
-- [ ] Generate the first month's content brief via signed token URL
+**If he's keen:**
+- [ ] Send talent signup link: gamefluence.com.au/talent-signup
+- [ ] Update collabs page → status "accepted"
+- [ ] Generate UTM links (platform does this)
+- [ ] Confirm with Neil: Jacob is locked in, ship Fighter Pilot Pack
+- [ ] Generate first month brief via signed token URL
 
-If he needs to think:
-- [ ] Send follow-up email within 2 hours summarising the opportunity
-- [ ] Include a one-liner: "Non-exclusive, free gear, $4,800/month, paid in 4 days, leave anytime."
+**If he needs to think:**
+- [ ] Follow-up email within 2 hours: "Non-exclusive, free gear, $4,800/month, paid in 4 days, leave anytime."
 - [ ] Follow up in 48 hours if no response
 
-If he declines:
+**If he declines:**
 - [ ] Thank him, stay connected
-- [ ] Ask: "Who else in the DCS community creates content?" (gateway play still works)
-- [ ] Log status as "declined" in platform
+- [ ] Ask: "Who else in the DCS community creates content?" (gateway still works)
+- [ ] Log as declined in platform
 
 ---
 
-## KEY NUMBERS TO HAVE READY (DON'T SHARE UNLESS ASKED)
+## STRATEGIC CONTEXT (Why This Matters Beyond the Deal)
 
-| | Amount |
-|---|---|
-| His monthly fee | ~$4,800 (you say "around $4,800") |
-| Posts required | 4/month (once a week) |
-| Affiliate per rig sale | $500 his cut (you say "a few hundred per sale") |
-| Payment speed | 4 business days |
-| Notice period | 14 days |
-| Commission you take | 20% (only mention if asked directly) |
-| Brand name | DON'T name P1 until he's signed — say "an AU-based flight sim hardware retailer" |
+This isn't just a $2,700/month deal. It's your entry point into the entire flight sim vertical:
+
+- **Jacob = gateway** to dozens of DCS creators globally
+- **P1 = proof point** to pitch Virpil, Winwing, VKB, Thrustmaster
+- **Flight sim = zero agency competition** in AU. You're first.
+- **The flywheel:** Jacob × P1 → proves model → signs more creators → pitches more brands → becomes THE sim talent agency
+
+Even if the deal is small, the positioning is enormous. Execute well here and you unlock a whole vertical.
 
 ---
 
-*This script is in `proposals/jacob-tabor-call-script.md` — pull it up on your phone during the call.*
+*Pull this up on your phone or second monitor during the call.*
+*Collabs dashboard with interactive checklist: gamefluence.com.au/dashboard/collabs*
