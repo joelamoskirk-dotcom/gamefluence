@@ -31,13 +31,29 @@ const PUBLIC_ROUTES = [
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Skip API routes, static files, and Next.js internals
+  // Skip static files and Next.js internals
   if (
-    pathname.startsWith('/api/') ||
     pathname.startsWith('/_next/') ||
     pathname.startsWith('/favicon') ||
     pathname.includes('.')
   ) {
+    return NextResponse.next();
+  }
+
+  // Protected API routes (internal/confidential endpoints)
+  const PROTECTED_API_ROUTES = ['/api/call-script-pdf'];
+  const isProtectedApi = PROTECTED_API_ROUTES.some(route => pathname.startsWith(route));
+
+  if (isProtectedApi) {
+    const sessionCookie = req.cookies.get('founder_session')?.value;
+    if (!sessionCookie) {
+      return new NextResponse('Unauthorized', { status: 401 });
+    }
+    return NextResponse.next();
+  }
+
+  // Skip other API routes
+  if (pathname.startsWith('/api/')) {
     return NextResponse.next();
   }
 
