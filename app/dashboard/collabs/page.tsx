@@ -54,6 +54,62 @@ export default function CollabsDashboard() {
         </p>
       </header>
 
+      {/* ─── AI AGENT PRE-CALL BRIEFING ─── */}
+      <section className="bg-gradient-to-r from-gray-900 to-gray-900 border border-indigo-800/50 rounded-xl p-5 space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-sm font-bold text-indigo-400 flex items-center gap-2 uppercase tracking-wider">
+            <Brain className="w-4 h-4" /> AI Agent Pre-Call Briefing
+          </h2>
+          <span className="text-[10px] bg-indigo-900/50 text-indigo-300 px-2 py-0.5 rounded">Auto-generated from your data</span>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-4">
+          {/* Terry */}
+          <div className="bg-gray-800/50 border border-green-900/50 rounded-lg p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-lg">🔍</span>
+              <span className="text-xs font-bold text-green-400">TERRY — Talent Scout</span>
+            </div>
+            <p className="text-xs text-gray-300 leading-relaxed">
+              Jacob scores <strong className="text-white">HIGH POTENTIAL</strong>. No prior brand deals = first-mover. DCS ecosystem access (167K + 65K Discord) is rare. Flight sim vertical has zero agency competition in AU. The risk is low — he has nothing to lose and you have the only hardware brand ready to go. <strong className="text-green-400">Recommend: Sign immediately.</strong>
+            </p>
+          </div>
+
+          {/* Dazza */}
+          <div className="bg-gray-800/50 border border-yellow-900/50 rounded-lg p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-lg">💰</span>
+              <span className="text-xs font-bold text-yellow-400">DAZZA — Deal Agent</span>
+            </div>
+            <p className="text-xs text-gray-300 leading-relaxed">
+              At $8K/month total brand spend, your margin is 34% ($2,700/mo). Jacob gets $4,800 — generous for a first deal with no track record. Don&apos;t go higher until month 3 data proves ROI. The affiliate layer ($1K/rig, 50/50) is the upsell — mention it as &ldquo;extra income on top with zero extra work.&rdquo; <strong className="text-yellow-400">Lead with: $4,800/month for 4 posts.</strong>
+            </p>
+          </div>
+
+          {/* CMO */}
+          <div className="bg-gray-800/50 border border-pink-900/50 rounded-lg p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-lg">📣</span>
+              <span className="text-xs font-bold text-pink-400">CMO — Messaging</span>
+            </div>
+            <p className="text-xs text-gray-300 leading-relaxed">
+              This audience responds to <strong className="text-white">precision and authenticity</strong>. Don&apos;t pitch it as &ldquo;influencer marketing&rdquo; — Jacob will hate that. Frame it as: &ldquo;we connect hardware brands with serious sim pilots who can speak to their audience credibly.&rdquo; The language is <strong className="text-pink-400">performance, not promotion.</strong>
+            </p>
+          </div>
+        </div>
+
+        {/* Quick Talking Points */}
+        <div className="bg-gray-800/30 rounded-lg p-3 border border-gray-700/50">
+          <p className="text-[10px] font-bold text-gray-500 uppercase mb-2">Your key lines for the call</p>
+          <div className="grid md:grid-cols-2 gap-2 text-xs text-gray-400">
+            <p>→ &ldquo;I work with hardware brands in the sim space — I handle the commercial side so you can focus on content.&rdquo;</p>
+            <p>→ &ldquo;You&apos;d get free gear, $4,800/month, paid in 4 days. Non-exclusive. Leave anytime.&rdquo;</p>
+            <p>→ &ldquo;On top of that, there&apos;s an affiliate code that earns you money every time someone buys through your link.&rdquo;</p>
+            <p>→ &ldquo;You just keep doing what you&apos;re already doing — we make it pay.&rdquo;</p>
+          </div>
+        </div>
+      </section>
+
       {/* ─────────────────────────────────────────────── */}
       {/* SECTION 1: THE MARKET */}
       {/* ─────────────────────────────────────────────── */}
