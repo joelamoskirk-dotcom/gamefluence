@@ -166,56 +166,63 @@ export default function AdminPage() {
 
         {/* Admin Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
-          <TabsList className="grid grid-cols-11 gap-2 bg-gray-100 p-1 rounded-lg">
+          <TabsList className="grid grid-cols-6 gap-2 bg-gray-100 p-1 rounded-lg">
             <TabsTrigger value="overview" className="flex items-center gap-2 text-sm">
               <Eye className="w-4 h-4" />
               Overview
-            </TabsTrigger>
-            <TabsTrigger value="implement" className="flex items-center gap-2 text-sm">
-              <Zap className="w-4 h-4" />
-              Implement
-            </TabsTrigger>
-            <TabsTrigger value="bulletproof" className="flex items-center gap-2 text-sm">
-              <Shield className="w-4 h-4" />
-              Bulletproof
-            </TabsTrigger>
-            <TabsTrigger value="system" className="flex items-center gap-2 text-sm">
-              <Activity className="w-4 h-4" />
-              System
-            </TabsTrigger>
-            <TabsTrigger value="testing" className="flex items-center gap-2 text-sm">
-              <Zap className="w-4 h-4" />
-              Testing
-            </TabsTrigger>
-            <TabsTrigger value="product" className="flex items-center gap-2 text-sm">
-              <Brain className="w-4 h-4" />
-              Product
-            </TabsTrigger>
-            <TabsTrigger value="tickets" className="flex items-center gap-2 text-sm">
-              <AlertTriangle className="w-4 h-4" />
-              Tickets
-            </TabsTrigger>
-            <TabsTrigger value="crm" className="flex items-center gap-2 text-sm">
-              <Users className="w-4 h-4" />
-              CRM
             </TabsTrigger>
             <TabsTrigger value="outreach" className="flex items-center gap-2 text-sm">
               <TrendingUp className="w-4 h-4" />
               Outreach
             </TabsTrigger>
-            <TabsTrigger value="ide" className="flex items-center gap-2 text-sm">
-              <Code className="w-4 h-4" />
-              IDE
+            <TabsTrigger value="crm" className="flex items-center gap-2 text-sm">
+              <Users className="w-4 h-4" />
+              CRM
             </TabsTrigger>
             <TabsTrigger value="advisors" className="flex items-center gap-2 text-sm">
-              <Database className="w-4 h-4" />
+              <Brain className="w-4 h-4" />
               AI Advisors
+            </TabsTrigger>
+            <TabsTrigger value="system" className="flex items-center gap-2 text-sm">
+              <Activity className="w-4 h-4" />
+              System
             </TabsTrigger>
             <TabsTrigger value="settings" className="flex items-center gap-2 text-sm">
               <Settings className="w-4 h-4" />
-              Settings
+              More
             </TabsTrigger>
           </TabsList>
+
+          {/* Quick Links — Mobileyes & Operations */}
+          <div className="space-y-3 px-1">
+            {/* PRIMARY: What you use every day */}
+            <div>
+              <p className="text-[10px] font-medium text-gray-500 uppercase tracking-wider mb-1.5">Operations</p>
+              <div className="flex flex-wrap gap-2">
+                <a href="/dashboard/collabs" className="inline-flex items-center gap-1.5 px-3 py-2 bg-indigo-600 text-white rounded-lg text-xs font-medium hover:bg-indigo-700 transition shadow-sm">
+                  💰 Collabs
+                </a>
+                <a href="/dashboard/agents" className="inline-flex items-center gap-1.5 px-3 py-2 bg-green-600 text-white rounded-lg text-xs font-medium hover:bg-green-700 transition shadow-sm">
+                  🤖 Terry + Dazza
+                </a>
+                <a href="/dashboard/talent" className="inline-flex items-center gap-1.5 px-3 py-2 bg-purple-600 text-white rounded-lg text-xs font-medium hover:bg-purple-700 transition shadow-sm">
+                  🎬 Talent Roster
+                </a>
+                <a href="/dashboard/batch-upload" className="inline-flex items-center gap-1.5 px-3 py-2 bg-orange-600 text-white rounded-lg text-xs font-medium hover:bg-orange-700 transition shadow-sm">
+                  📤 Upload Contacts
+                </a>
+                <a href="/talent-signup" className="inline-flex items-center gap-1.5 px-3 py-2 bg-gray-700 text-white rounded-lg text-xs font-medium hover:bg-gray-800 transition shadow-sm">
+                  📝 Talent Form
+                </a>
+                <a href="/brief-accept" className="inline-flex items-center gap-1.5 px-3 py-2 bg-gray-700 text-white rounded-lg text-xs font-medium hover:bg-gray-800 transition shadow-sm">
+                  ✅ Brief Accept
+                </a>
+              </div>
+            </div>
+            <div className="text-[10px] text-yellow-700 bg-yellow-50 border border-yellow-200 rounded px-2 py-1 inline-block">
+              ⚠️ Outreach/CRM data below is demo — only Collabs page has real data (Jacob × P1)
+            </div>
+          </div>
           
           <TabsContent value="overview">
             <div className="space-y-6">

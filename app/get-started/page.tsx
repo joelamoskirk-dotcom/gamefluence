@@ -18,6 +18,10 @@ export default function GetStartedPage() {
     message: '',
     market: '',
     budget: '',
+    campaignType: '',
+    appName: '',
+    cpiTarget: '',
+    appPlatform: '',
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -32,7 +36,7 @@ export default function GetStartedPage() {
           name: formData.name,
           email: formData.email,
           company: formData.company,
-          message: `[${selectedType?.toUpperCase()} INQUIRY]\nMarket: ${formData.market}\nBudget: ${formData.budget}\n\n${formData.message}`,
+          message: `[${selectedType?.toUpperCase()} INQUIRY]\nCampaign Type: ${formData.campaignType || 'Not specified'}\nMarket: ${formData.market}\nBudget: ${formData.budget}${formData.appName ? `\nApp: ${formData.appName}` : ''}${formData.cpiTarget ? `\nCPI Target: ${formData.cpiTarget}` : ''}${formData.appPlatform ? `\nPlatform: ${formData.appPlatform}` : ''}\n\n${formData.message}`,
           type: selectedType === 'creator' ? 'creator_inquiry' : selectedType === 'agency' ? 'agency_inquiry' : 'brand_inquiry',
         }),
       });
@@ -200,6 +204,63 @@ export default function GetStartedPage() {
                 </select>
               </div>
             </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Campaign Type</label>
+              <select
+                value={formData.campaignType}
+                onChange={e => setFormData({ ...formData, campaignType: e.target.value })}
+                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary"
+              >
+                <option value="">Select type...</option>
+                <option value="creator-campaigns">Creator campaigns</option>
+                <option value="live-ops-content-drop">Live-ops content drop</option>
+                <option value="game-launch">Game launch</option>
+                <option value="brand-awareness">Brand awareness</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            {/* UA conditional fields — shown for Live-ops and Game launch */}
+            {(formData.campaignType === 'live-ops-content-drop' || formData.campaignType === 'game-launch') && (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">App / Game Name</label>
+                  <input
+                    type="text"
+                    value={formData.appName}
+                    onChange={e => setFormData({ ...formData, appName: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                    placeholder="e.g. Gumball 3000"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">CPI Target</label>
+                  <input
+                    type="text"
+                    value={formData.cpiTarget}
+                    onChange={e => setFormData({ ...formData, cpiTarget: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                    placeholder="e.g. $2.50"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Platform</label>
+                  <select
+                    value={formData.appPlatform}
+                    onChange={e => setFormData({ ...formData, appPlatform: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                  >
+                    <option value="">Select...</option>
+                    <option value="ios">iOS</option>
+                    <option value="android">Android</option>
+                    <option value="both">iOS + Android</option>
+                    <option value="pc">PC / Steam</option>
+                    <option value="console">Console</option>
+                  </select>
+                </div>
+              </div>
+            )}
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Tell us about your campaign goals</label>

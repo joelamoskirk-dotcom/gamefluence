@@ -212,9 +212,14 @@ export async function logMobileyesBrief(data: {
 export async function logMobileyesTalentSignup(data: {
   name: string;
   email: string;
-  socialProfile: string;
-  platform: string;
-  followers?: number;
+  phone?: string;
+  location: string;
+  timezone: string;
+  platforms: string; // JSON stringified
+  primaryPlatform: string;
+  rateCard: string; // JSON stringified
+  preExistingBrands: string;
+  agreementVersion: string;
 }): Promise<boolean> {
   if (!MOBILEYES_SHEET_ID) return false;
   const timestamp = new Date().toISOString();
@@ -222,9 +227,48 @@ export async function logMobileyesTalentSignup(data: {
     timestamp,
     data.name,
     data.email,
-    data.socialProfile,
-    data.platform,
-    data.followers || '',
+    data.phone || '',
+    data.location,
+    data.timezone,
+    data.platforms,
+    data.primaryPlatform,
+    data.rateCard,
+    data.preExistingBrands,
+    data.agreementVersion,
     'new', // status
   ]);
+}
+
+export async function logMobileyesBriefResponse(data: {
+  briefId: string;
+  talentId: string;
+  talentName: string;
+  talentEmail: string;
+  accepted: boolean;
+  brandName?: string;
+  campaignName?: string;
+  talentFee?: number;
+  declineReason?: string;
+  notes?: string;
+}): Promise<boolean> {
+  if (!MOBILEYES_SHEET_ID) return false;
+  const timestamp = new Date().toISOString();
+  return appendRow(MOBILEYES_SHEET_ID, 'Brief Responses', [
+    timestamp,
+    data.briefId,
+    data.talentId,
+    data.talentName,
+    data.talentEmail,
+    data.accepted ? 'accepted' : 'declined',
+    data.brandName || '',
+    data.campaignName || '',
+    data.talentFee || '',
+    data.declineReason || '',
+    data.notes || '',
+  ]);
+}
+
+export async function logMobileyesAudit(row: (string | number)[]): Promise<boolean> {
+  if (!MOBILEYES_SHEET_ID) return false;
+  return appendRow(MOBILEYES_SHEET_ID, 'Audit Log', row);
 }

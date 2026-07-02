@@ -58,6 +58,9 @@ export default function OutreachPage() {
             <p className="text-sm text-gray-500">57 creators across 4 P1 markets — AI-scored for campaign fit</p>
           </div>
         </div>
+        <Link href="/dashboard/batch-upload" className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm hover:bg-indigo-700">
+          <Zap size={14} /> Batch Upload
+        </Link>
       </div>
 
       {/* Stats */}

@@ -74,6 +74,78 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── CURRENTLY OPERATING (G-07) ── */}
+      <section className="py-10 bg-[#0D0D0D]">
+        <div className="container mx-auto px-4">
+          <p className="text-[10px] font-mono tracking-[0.2em] text-white/50 mb-4 uppercase">Currently Operating</p>
+          <div className="bg-[#161616] border border-white/10 rounded-xl p-6">
+            <div className="flex items-center gap-3 mb-2">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span className="text-xs font-mono text-green-400/80 uppercase tracking-wider">Live</span>
+            </div>
+            {/* Feature-flagged: swap to named case study when caseStudyApproved = true */}
+            {process.env.NEXT_PUBLIC_CASE_STUDY_APPROVED === 'true' ? (
+              <div>
+                <h3 className="text-white font-bold text-lg">Roadburn Games — Gumball 3000: World Tour</h3>
+                <p className="text-white/60 text-sm mt-1">Live-ops creator system + UA + measurement. Full case study available.</p>
+              </div>
+            ) : (
+              <div>
+                <h3 className="text-white font-bold text-lg">Arcade racing portfolio</h3>
+                <p className="text-white/60 text-sm mt-1">Live-ops creator system + UA + measurement. Case study coming soon.</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SERVICES (G-06) ── */}
+      <section className="py-16 bg-[#0D0D0D]">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-3">What We Operate</h2>
+          <p className="text-white/50 text-center mb-10 max-w-xl mx-auto text-sm">
+            Three service lines. Repeatable. Measured. Always-on.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="bg-[#161616] border border-white/10 rounded-xl p-6">
+              <div className="inline-block bg-purple-500/20 text-purple-400 text-xs font-mono px-2 py-1 rounded mb-4">LIVE-OPS</div>
+              <h3 className="text-white font-bold text-lg mb-3">Live-Ops Creator System</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Every content drop becomes a creator campaign. We match gaming creators to your update, deep link their audiences straight into the new content, and read out results within 7 days. Repeatable, measured, always-on.
+              </p>
+            </div>
+
+            <div className="bg-[#161616] border border-white/10 rounded-xl p-6">
+              <div className="inline-block bg-purple-500/20 text-purple-400 text-xs font-mono px-2 py-1 rounded mb-4">UA</div>
+              <h3 className="text-white font-bold text-lg mb-3">UA &amp; Measurement</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Attribution stood up properly — MMP configuration, deep-link infrastructure, incrementality testing, and incremental ad channels you&apos;ve never bought. You keep the stack; we operate it.
+              </p>
+            </div>
+
+            <div className="bg-[#161616] border border-white/10 rounded-xl p-6">
+              <div className="inline-block bg-purple-500/20 text-purple-400 text-xs font-mono px-2 py-1 rounded mb-4">GROWTH</div>
+              <h3 className="text-white font-bold text-lg mb-3">Cross-Promo &amp; Portfolio Growth</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Your existing players are your cheapest installs. House placements, audience syncs and creator-led cross-promotion across your portfolio — costed on measured uplift.
+              </p>
+            </div>
+          </div>
+
+          {/* G-09: APAC proof strip */}
+          <div className="mt-10 text-center">
+            <div className="inline-flex items-center gap-3 text-white/40 text-xs font-mono tracking-wide">
+              <span>Vietnam-first APAC operation</span>
+              <span className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
+              <span>HCMC creator network</span>
+              <span className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
+              <span>AU HQ</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── MARKET CARDS ── */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
