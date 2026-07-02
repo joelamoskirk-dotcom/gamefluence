@@ -1,572 +1,612 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/Button';
+import React from 'react';
 import {
+  ExternalLink,
+  Users,
   DollarSign,
   TrendingUp,
-  Users,
-  Video,
-  ExternalLink,
-  Star,
+  Target,
   Zap,
-  BarChart3,
+  Video,
   Package,
+  Brain,
 } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
 
-const collabData = {
-  creator: {
-    name: 'Jacob Tabor',
-    email: 'jacob_tabor@outlook.com',
-    location: 'Switzerland',
-    joined: 'Mar 2011',
-    youtube: { subscribers: '167K', videos: 279, totalViews: '35.5M' },
-    instagram: { followers: '113K', posts: 1720 },
-    discord: { members: 65759, online: 12826 },
-    facebook: 'facebook.com/EagleDynamics',
-    featuredVideo: { title: 'DCS 2025 AND BEYOND', views: '1.9M' },
-    recentVideos: [
-      { title: 'Summer Sale', views: '60K' },
-      { title: 'F-100D Super Sabre', views: '34K' },
-    ],
-  },
-  brand: {
-    name: 'P1 Sim Gear',
-    contact: 'Neil',
-    location: 'QLD, Australia',
-    website: 'p1simgear.com.au',
-    products: [
-      { name: 'Fighter Pilot Pack', price: '$3,099' },
-      { name: 'TR8 Pro Flight', price: '$1,129' },
-      { name: 'VIRPIL HOSAS', price: '$2,149' },
-      { name: 'Full Custom Rig', price: '~$10,000' },
-    ],
-  },
-  meeting: 'Jul 3 2026 @ 11:00 AM',
-  dealType: 'Hybrid (Sponsored Content + Affiliate)',
-  sponsored: {
-    brandPays: 2500,
-    agencyFee: 500,
-    commission: 400,
-    jacobGets: 1600,
-    joelKeeps: 900,
-  },
-  affiliate: {
-    perPremiumRig: 1000,
-    jacobSplit: 500,
-    joelSplit: 500,
-    estimatedPerMonth: 2,
-  },
-  retainer: {
-    brandPays: 4000,
-    agencyFee: 500,
-    commission: 700,
-    jacobGets: 2800,
-    joelKeeps: 1200,
-  },
-  discord: {
-    opportunity: 'Jason (Joel&apos;s mate) just started at Discord',
-    members: '65K DCS Discord members',
-    channels: 'Influencer marketing channel, sponsored server events, P1 gear giveaways, affiliate links in pinned channels',
-  },
-};
-
-export default function CollabsPage() {
-  const [activeTab, setActiveTab] = useState('overview');
-
-  const tabs = [
-    { id: 'overview', label: 'Overview' },
-    { id: 'deal', label: 'Deal Structure' },
-    { id: 'analytics', label: 'Analytics' },
-    { id: 'strategy', label: 'Strategy' },
-  ];
-
+function ExtLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-gray-950 text-white p-6">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white">Collabs</h1>
-        <p className="text-gray-400 mt-1">Active collaboration opportunities</p>
-      </div>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 underline underline-offset-2"
+    >
+      {children}
+      <ExternalLink className="w-3 h-3" />
+    </a>
+  );
+}
 
-      {/* Main Card */}
-      <div className="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-        {/* Gradient Header */}
-        <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-2xl font-bold text-white">Jacob Tabor × P1 Sim Gear</h2>
-              <p className="text-white/80 mt-1">DCS World Flight Sim | Premium Hardware Collab</p>
-            </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <p className="text-sm text-white/80">Meeting</p>
-              <p className="text-white font-semibold">{collabData.meeting}</p>
-            </div>
+export default function CollabsDashboard() {
+  const [integrationChecks, setIntegrationChecks] = React.useState<Record<string, boolean>>({});
+
+  const toggleCheck = (id: string) => {
+    setIntegrationChecks(prev => {
+      const updated = { ...prev, [id]: !prev[id] };
+      // Persist to localStorage so it survives refresh
+      localStorage.setItem('collab_integration_checks', JSON.stringify(updated));
+      return updated;
+    });
+  };
+
+  React.useEffect(() => {
+    const saved = localStorage.getItem('collab_integration_checks');
+    if (saved) setIntegrationChecks(JSON.parse(saved));
+  }, []);
+  return (
+    <div className="min-h-screen bg-gray-950 text-white p-6 md:p-10 space-y-12 max-w-5xl mx-auto">
+      {/* Page Header */}
+      <header className="border-b border-gray-800 pb-6">
+        <h1 className="text-3xl font-bold tracking-tight">Collabs Strategic Dashboard</h1>
+        <p className="text-gray-400 mt-2">
+          DCS × P1 Sim Gear × Jacob Tabor — July 2026
+        </p>
+      </header>
+
+      {/* ─────────────────────────────────────────────── */}
+      {/* SECTION 1: THE MARKET */}
+      {/* ─────────────────────────────────────────────── */}
+      <section className="space-y-6">
+        <div className="flex items-center gap-3">
+          <span className="text-4xl font-black text-gray-600">01</span>
+          <div>
+            <h2 className="text-xl font-bold flex items-center gap-2">
+              <Target className="w-5 h-5 text-blue-400" />
+              THE MARKET
+            </h2>
+            <p className="text-sm text-gray-400">Why this collab exists</p>
           </div>
         </div>
 
-        {/* Tabs */}
-        <div className="border-b border-gray-800 px-6">
-          <div className="flex space-x-6">
-            {tabs.map((tab) => (
+        <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-5">
+          <p className="text-gray-300">
+            <strong className="text-white">DCS (Digital Combat Simulator)</strong> is the world&apos;s most realistic flight sim.
+            The audience is deeply invested — financially and emotionally — in the hardware that powers their experience.
+          </p>
+
+          {/* Audience Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { label: 'YouTube Subs', value: '167K' },
+              { label: 'Instagram', value: '113K' },
+              { label: 'Discord Members', value: '65.7K' },
+              { label: 'Total YT Views', value: '35.5M' },
+            ].map((stat) => (
+              <div key={stat.label} className="bg-gray-800 rounded-lg p-3 text-center">
+                <div className="text-lg font-bold text-blue-400">{stat.value}</div>
+                <div className="text-xs text-gray-400">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Market Insight */}
+          <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <DollarSign className="w-4 h-4 text-green-400" />
+              <span className="text-sm font-semibold text-green-400">Market Insight</span>
+            </div>
+            <p className="text-gray-300 text-sm">
+              Flight sim audiences spend <strong className="text-white">$2K–$12K</strong> on their setups.
+              Highest hardware spend in gaming. High intent, high value, low competition.
+            </p>
+          </div>
+
+          {/* Community Links */}
+          <div>
+            <h3 className="text-sm font-semibold text-gray-300 mb-2 flex items-center gap-2">
+              <Users className="w-4 h-4" />
+              Community Links
+            </h3>
+            <div className="flex flex-wrap gap-3 text-sm">
+              <ExtLink href="https://youtube.com/user/eagledynamicstv">YouTube</ExtLink>
+              <ExtLink href="https://instagram.com/digitalcombatsimulator">Instagram</ExtLink>
+              <ExtLink href="https://discord.gg/6tydSKb5fx">Discord</ExtLink>
+              <ExtLink href="https://facebook.com/EagleDynamics">Facebook</ExtLink>
+              <ExtLink href="https://forum.dcs.world">Forums</ExtLink>
+            </div>
+          </div>
+
+          {/* Top Videos */}
+          <div>
+            <h3 className="text-sm font-semibold text-gray-300 mb-2 flex items-center gap-2">
+              <Video className="w-4 h-4" />
+              Top 3 Videos
+            </h3>
+            <ul className="space-y-1 text-sm text-gray-300">
+              <li>
+                <ExtLink href="https://youtube.com/user/eagledynamicstv">
+                  DCS 2025 AND BEYOND
+                </ExtLink>{' '}
+                — <span className="text-white font-medium">1.9M views</span>
+              </li>
+              <li>
+                <ExtLink href="https://youtube.com/user/eagledynamicstv">
+                  DCS SUMMER SALE 2026
+                </ExtLink>{' '}
+                — <span className="text-white font-medium">60K views</span>
+              </li>
+              <li>
+                <ExtLink href="https://youtube.com/user/eagledynamicstv">
+                  F-100D SUPER SABRE
+                </ExtLink>{' '}
+                — <span className="text-white font-medium">34K views</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Terry Insight */}
+          <div className="bg-purple-950/40 border border-purple-800/50 rounded-lg p-4">
+            <div className="flex items-center gap-2 mb-1">
+              <Brain className="w-4 h-4 text-purple-400" />
+              <span className="text-sm font-semibold text-purple-400">Terry&apos;s Insight (AI Agent)</span>
+            </div>
+            <p className="text-gray-300 text-sm italic">
+              &ldquo;Flight sim is the most monetisable niche in gaming — high intent, high spend, low agency competition.
+              First-mover advantage is enormous.&rdquo;
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────── */}
+      {/* SECTION 2: THE PLAYERS */}
+      {/* ─────────────────────────────────────────────── */}
+      <section className="space-y-6">
+        <div className="flex items-center gap-3">
+          <span className="text-4xl font-black text-gray-600">02</span>
+          <div>
+            <h2 className="text-xl font-bold flex items-center gap-2">
+              <Users className="w-5 h-5 text-blue-400" />
+              THE PLAYERS
+            </h2>
+            <p className="text-sm text-gray-400">Who&apos;s involved — both sides with full detail</p>
+          </div>
+        </div>
+
+        {/* Creator Side */}
+        <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-4">
+          <h3 className="text-lg font-bold text-green-400 flex items-center gap-2">
+            <Video className="w-5 h-5" />
+            Creator — Jacob Tabor
+          </h3>
+
+          <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-300">
+            <div className="space-y-2">
+              <p><span className="text-gray-500">Email:</span> jacob_tabor@outlook.com</p>
+              <p><span className="text-gray-500">Meeting:</span> Jul 3 2026 @ 11am</p>
+              <p><span className="text-gray-500">Connection:</span> DCS community creator</p>
+              <p><span className="text-gray-500">Personal Channels:</span> TBD (confirm in meeting)</p>
+            </div>
+            <div className="space-y-2">
+              <p><span className="text-gray-500">Ecosystem Access:</span> 167K YT + 113K IG + 65K Discord</p>
+              <p><span className="text-gray-500">Prior Brand Deals:</span> None known — first-mover opportunity</p>
+            </div>
+          </div>
+
+          <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4 space-y-2">
+            <p className="text-sm font-semibold text-gray-300">Goals (likely):</p>
+            <p className="text-sm text-gray-400">
+              Monetise content, get free gear, build brand relationships, grow audience
+            </p>
+            <p className="text-sm font-semibold text-gray-300 mt-3">What he needs to hear:</p>
+            <p className="text-sm text-green-400 italic">
+              &ldquo;Non-exclusive, free gear, paid in 4 days, keep gear even if you leave.&rdquo;
+            </p>
+          </div>
+        </div>
+
+        {/* Brand Side */}
+        <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-4">
+          <h3 className="text-lg font-bold text-blue-400 flex items-center gap-2">
+            <Package className="w-5 h-5" />
+            Brand — P1 Sim Gear (Player1)
+          </h3>
+
+          <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-300">
+            <div className="space-y-2">
+              <p><span className="text-gray-500">Contact:</span> Neil</p>
+              <p>
+                <span className="text-gray-500">Website:</span>{' '}
+                <ExtLink href="https://p1simgear.com.au">p1simgear.com.au</ExtLink>
+              </p>
+              <p><span className="text-gray-500">Location:</span> Queensland, Australia</p>
+              <p><span className="text-gray-500">Phone:</span> 0488 385 870</p>
+            </div>
+          </div>
+
+          {/* Products */}
+          <div>
+            <h4 className="text-sm font-semibold text-gray-300 mb-2">Products &amp; Pricing</h4>
+            <div className="space-y-2">
+              {[
+                { name: 'Fighter Pilot Pack', price: '$3,099', url: 'https://p1simgear.com.au/products/fighter-pilot-pack' },
+                { name: 'VIRPIL WarBRD-D HOSAS Bundle', price: '$2,149', url: 'https://p1simgear.com.au/products/virpil-warbrd-d-hosas-bundle-alpha-prime-edition' },
+                { name: 'Trak Racer TR8 Pro Flight', price: '$1,129', url: 'https://p1simgear.com.au/products/trak-racer-tr8-pro-flight-simulator-cockpit-flight-seat' },
+                { name: 'Full Custom Rig (estimate)', price: '~$10,000', url: '' },
+              ].map((product) => (
+                <div key={product.name} className="flex items-center justify-between bg-gray-800 rounded-lg px-4 py-2 text-sm">
+                  <span className="text-gray-300">
+                    {product.url ? (
+                      <ExtLink href={product.url}>{product.name}</ExtLink>
+                    ) : (
+                      product.name
+                    )}
+                  </span>
+                  <span className="font-bold text-white">{product.price}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Commerce Metrics */}
+          <div className="grid md:grid-cols-2 gap-3">
+            {[
+              { label: 'ARPU Estimate', value: '$3,000–$10,000 per customer' },
+              { label: 'Margin Estimate', value: '30–50% on hardware retail' },
+              { label: 'ROI Requirement', value: 'Break even at 2–3 rig sales/month' },
+              { label: 'Repeat Purchase', value: 'Low — upsell via accessories/upgrades' },
+            ].map((metric) => (
+              <div key={metric.label} className="bg-gray-800/50 rounded-lg p-3">
+                <div className="text-xs text-gray-500">{metric.label}</div>
+                <div className="text-sm text-gray-300">{metric.value}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4 space-y-2">
+            <p className="text-sm font-semibold text-gray-300">Goals (likely):</p>
+            <p className="text-sm text-gray-400">
+              Sell more flight sim bundles, reach the DCS community, become the go-to AU retailer for flight sim hardware
+            </p>
+            <p className="text-sm font-semibold text-gray-300 mt-3">What Neil needs to hear:</p>
+            <p className="text-sm text-blue-400 italic">
+              &ldquo;Creator with direct access to 167K flight sim enthusiasts for 70% below market rate.
+              Tracked via promo code — you see every sale.&rdquo;
+            </p>
+          </div>
+        </div>
+
+        {/* Your Value */}
+        <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-3">
+          <h3 className="text-lg font-bold text-yellow-400 flex items-center gap-2">
+            <Zap className="w-5 h-5" />
+            Your Value (Mobileyes)
+          </h3>
+          <ul className="space-y-2 text-sm text-gray-300 list-disc list-inside">
+            <li>You connect Jacob&apos;s audience to Neil&apos;s products</li>
+            <li>You handle everything: brief, links, verification, payment, reporting</li>
+            <li>You take 34% effective margin (commission + agency fee)</li>
+            <li>You build a reusable engine: this model works for ANY hardware brand × creator pairing</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────── */}
+      {/* SECTION 3: THE DEAL */}
+      {/* ─────────────────────────────────────────────── */}
+      <section className="space-y-6">
+        <div className="flex items-center gap-3">
+          <span className="text-4xl font-black text-gray-600">03</span>
+          <div>
+            <h2 className="text-xl font-bold flex items-center gap-2">
+              <DollarSign className="w-5 h-5 text-blue-400" />
+              THE DEAL
+            </h2>
+            <p className="text-sm text-gray-400">How it works — the brief Jacob would follow</p>
+          </div>
+        </div>
+
+        {/* Content Brief */}
+        <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-5">
+          <h3 className="text-md font-bold text-gray-200">Content Brief</h3>
+          <div className="bg-gray-800/50 border-l-4 border-blue-500 rounded-r-lg p-4">
+            <p className="text-sm text-gray-300 italic">
+              &ldquo;For your audience of 167K on YouTube and 113K on Instagram, we need 4 posts over July — one per week.
+              Post at your normal time to keep engagement high. Between paid posts, keep doing normal DCS combat content.
+              Your audience shouldn&apos;t feel a shift.&rdquo;
+            </p>
+          </div>
+
+          {/* Monthly Calendar */}
+          <div>
+            <h4 className="text-sm font-semibold text-gray-300 mb-3">Monthly Content Calendar</h4>
+            <div className="space-y-3">
+              {[
+                { week: 'Week 1', title: 'GEAR BREAKDOWN', desc: 'Show your P1 flight setup, what each piece does, how it improves DCS gameplay' },
+                { week: 'Week 2', title: 'SKILL SESSION', desc: 'DCS tutorial/combat using P1 gear — technique-focused, gear visible' },
+                { week: 'Week 3', title: 'NORMAL DCS CONTENT', desc: 'Regular missions/combat — no hard sell, gear naturally present' },
+                { week: 'Week 4', title: 'REVEAL/UPGRADE', desc: 'Unbox new P1 gear or show a rig upgrade' },
+              ].map((week) => (
+                <div key={week.week} className="flex gap-4 items-start bg-gray-800 rounded-lg p-3">
+                  <span className="text-xs font-bold text-blue-400 whitespace-nowrap min-w-[60px]">{week.week}</span>
+                  <div>
+                    <span className="text-sm font-semibold text-white">{week.title}</span>
+                    <p className="text-xs text-gray-400 mt-0.5">{week.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Attribution */}
+          <div>
+            <h4 className="text-sm font-semibold text-gray-300 mb-2">Attribution Requirements</h4>
+            <ul className="space-y-1 text-sm text-gray-400 list-disc list-inside">
+              <li>Promo code: <span className="font-mono text-green-400 bg-gray-800 px-2 py-0.5 rounded">JACOBDCS</span> (in video description + pinned comment)</li>
+              <li>UTM links provided by Mobileyes (copy-paste into description)</li>
+              <li>Post at your normal schedule — consistency matters more than timing</li>
+            </ul>
+          </div>
+
+          {/* Financials */}
+          <div>
+            <h4 className="text-sm font-semibold text-gray-300 mb-3 flex items-center gap-2">
+              <DollarSign className="w-4 h-4 text-green-400" />
+              Financials at $8K/month
+            </h4>
+            <div className="grid md:grid-cols-2 gap-3">
+              <div className="bg-gray-800 rounded-lg p-4 space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-400">Neil pays</span>
+                  <span className="font-bold text-white">$8,000</span>
+                </div>
+                <p className="text-xs text-gray-500">Creator $6K + Agency fee $1.5K + Product ~$500</p>
+              </div>
+              <div className="bg-gray-800 rounded-lg p-4 space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-400">Jacob gets</span>
+                  <span className="font-bold text-green-400">$4,800/month</span>
+                </div>
+                <p className="text-xs text-gray-500">80% of $6K creator fee</p>
+              </div>
+              <div className="bg-gray-800 rounded-lg p-4 space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-400">You keep</span>
+                  <span className="font-bold text-yellow-400">$2,700/month</span>
+                </div>
+                <p className="text-xs text-gray-500">Commission $1,200 + Agency $1,500</p>
+              </div>
+              <div className="bg-gray-800 rounded-lg p-4 space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-400">Affiliate</span>
+                  <span className="font-bold text-purple-400">$1K/rig (50/50)</span>
+                </div>
+                <p className="text-xs text-gray-500">JACOBDCS on Fighter Pilot Pack &amp; VIRPIL</p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-3">
+              Payment: Jacob paid within 4 business days of each post verification.
+            </p>
+          </div>
+
+          {/* Dazza Insight */}
+          <div className="bg-green-950/30 border border-green-800/50 rounded-lg p-4">
+            <div className="flex items-center gap-2 mb-1">
+              <Brain className="w-4 h-4 text-green-400" />
+              <span className="text-sm font-semibold text-green-400">Dazza&apos;s Insight (AI Agent)</span>
+            </div>
+            <p className="text-gray-300 text-sm italic">
+              &ldquo;At $8K, Neil breaks even at 2.5 rig sales/month. With 47K avg views and 2.5% CTR into a high-intent audience,
+              this should hit 3–4 sales conservatively. Push the affiliate angle — it&apos;s pure upside for everyone with zero risk.&rdquo;
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────── */}
+      {/* SECTION 3.5: INTEGRATION & TRACKING */}
+      {/* ─────────────────────────────────────────────── */}
+      <section className="space-y-6">
+        <div className="flex items-center gap-3">
+          <span className="text-4xl font-black text-gray-600">03b</span>
+          <div>
+            <h2 className="text-xl font-bold flex items-center gap-2">
+              <Target className="w-5 h-5 text-blue-400" />
+              INTEGRATION &amp; TRACKING
+            </h2>
+            <p className="text-sm text-gray-400">What drives people from sim → store — and how we get paid</p>
+          </div>
+        </div>
+
+        <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-5">
+          {/* Integration Methods Checklist */}
+          <h3 className="text-md font-bold text-gray-200">Integration Types (Confirm with Jacob)</h3>
+          <p className="text-xs text-gray-500">Check what Jacob is willing to do. Each method has different tracking capability.</p>
+
+          <div className="space-y-3">
+            {[
+              { id: 'promo_desc', method: 'Promo Code in Description', viable: true, tracking: 'High', note: 'JACOBDCS in video description — trackable via Shopify. This is your primary attribution.', revenue: true },
+              { id: 'promo_spoken', method: 'Promo Code Spoken in Video', viable: true, tracking: 'High', note: '"Use code JACOBDCS at checkout" — drives immediate action. Viewers remember codes better when spoken.', revenue: true },
+              { id: 'pinned_comment', method: 'Pinned Comment with Link', viable: true, tracking: 'High', note: 'UTM-tagged link pinned in YouTube comments. Stays visible. Easy click-through.', revenue: true },
+              { id: 'chat_command', method: 'Chat Command (Live Streams)', viable: true, tracking: 'Medium', note: '!gear or !p1 bot command in Twitch/Kick/YouTube Live chat. Good for live but not tracked unless UTM.', revenue: false },
+              { id: 'link_bio', method: 'Link in Bio / About', viable: true, tracking: 'Medium', note: 'Permanent UTM link in YouTube About section or Instagram bio. Low effort, passive.', revenue: true },
+              { id: 'desc_link', method: 'Video Description Link', viable: true, tracking: 'High', note: 'UTM-tagged link in every video description. Standard practice. High click-through for engaged viewers.', revenue: true },
+              { id: 'qr_code', method: 'QR Code On-Screen', viable: false, tracking: 'Low', note: 'QR codes don&apos;t work well for sim/PC audiences — they&apos;re already on a computer, not scanning with phones.', revenue: false },
+              { id: 'landing_page', method: 'Dedicated Landing Page', viable: true, tracking: 'High', note: 'p1simgear.com.au/jacob — custom URL for him. Tracks all traffic. Premium feel. Ask Neil to set this up.', revenue: true },
+              { id: 'discord_pin', method: 'Discord Server Pin', viable: true, tracking: 'Medium', note: 'If Jacob has access to DCS Discord, pin affiliate link in relevant channels. 65K members see it.', revenue: true },
+            ].map((item) => (
               <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`py-4 px-2 text-sm font-medium border-b-2 transition-colors ${
-                  activeTab === tab.id
-                    ? 'border-blue-500 text-blue-400'
-                    : 'border-transparent text-gray-400 hover:text-white'
-                }`}
+                key={item.id}
+                onClick={() => toggleCheck(item.id)}
+                className={`w-full flex items-start gap-3 p-3 rounded-lg text-left transition ${integrationChecks[item.id] ? 'bg-green-900/30 border border-green-700' : item.viable ? 'bg-gray-800 hover:bg-gray-750' : 'bg-gray-800/40 opacity-60'}`}
               >
-                {tab.label}
+                <div className={`mt-0.5 w-5 h-5 rounded flex items-center justify-center text-xs font-bold flex-shrink-0 transition ${integrationChecks[item.id] ? 'bg-green-500 text-white' : item.viable ? 'bg-gray-600 text-gray-400' : 'bg-red-600/50 text-red-200'}`}>
+                  {integrationChecks[item.id] ? '✓' : item.viable ? '○' : '✗'}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className={`text-sm font-medium ${integrationChecks[item.id] ? 'text-green-300' : 'text-white'}`}>{item.method}</span>
+                    <span className={`text-[10px] px-1.5 py-0.5 rounded ${item.tracking === 'High' ? 'bg-green-900 text-green-400' : item.tracking === 'Medium' ? 'bg-yellow-900 text-yellow-400' : 'bg-red-900 text-red-400'}`}>
+                      {item.tracking} tracking
+                    </span>
+                    {item.revenue && <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-900 text-purple-400">💰 Revenue</span>}
+                    {integrationChecks[item.id] && <span className="text-[10px] px-1.5 py-0.5 rounded bg-green-800 text-green-300">CONFIRMED ✓</span>}
+                  </div>
+                  <p className="text-xs text-gray-400 mt-1">{item.note}</p>
+                </div>
               </button>
             ))}
           </div>
+
+          {/* What Actually Drives Sales from Sim */}
+          <div className="bg-blue-950/30 border border-blue-800/50 rounded-lg p-4 mt-4">
+            <h4 className="text-sm font-semibold text-blue-400 mb-2">What Actually Drives Purchases from Flight Sim Audiences</h4>
+            <div className="space-y-2 text-sm text-gray-300">
+              <p>1. <strong className="text-white">Spoken recommendation + code</strong> — &ldquo;I fly with P1 gear, code JACOBDCS for tracking&rdquo; in the first 30 seconds</p>
+              <p>2. <strong className="text-white">Gear visible in use</strong> — audience sees the HOTAS/wheel/pedals working during gameplay</p>
+              <p>3. <strong className="text-white">Honest comparison</strong> — &ldquo;I switched from X to this, here&apos;s why&rdquo; content converts highest</p>
+              <p>4. <strong className="text-white">Description link</strong> — people check the description after watching, click through to see price</p>
+              <p>5. <strong className="text-white">Repeat exposure</strong> — seeing P1 gear in every video over weeks builds purchase intent without hard selling</p>
+            </div>
+          </div>
+
+          {/* Analytics You Need to See */}
+          <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4 mt-4">
+            <h4 className="text-sm font-semibold text-gray-300 mb-3 flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-green-400" />
+              Analytics You Track (How You Get Paid)
+            </h4>
+            <div className="grid md:grid-cols-2 gap-3">
+              <div className="space-y-2 text-sm">
+                <p className="font-medium text-white">From Neil (Shopify API — daily sync):</p>
+                <ul className="space-y-1 text-gray-400 text-xs list-disc list-inside">
+                  <li>Orders with code JACOBDCS (count + revenue)</li>
+                  <li>Products purchased (which rigs convert)</li>
+                  <li>Average order value</li>
+                  <li>Refund rate</li>
+                  <li>Attributed revenue → your affiliate cut</li>
+                </ul>
+              </div>
+              <div className="space-y-2 text-sm">
+                <p className="font-medium text-white">From Jacob (YouTube Analytics — monthly):</p>
+                <ul className="space-y-1 text-gray-400 text-xs list-disc list-inside">
+                  <li>Views per post</li>
+                  <li>Click-through rate on description links</li>
+                  <li>Watch time (did they see the P1 integration?)</li>
+                  <li>Audience retention at integration point</li>
+                  <li>Comments mentioning P1/gear</li>
+                </ul>
+              </div>
+            </div>
+            <div className="mt-4 p-3 bg-gray-900 rounded-lg">
+              <p className="text-xs text-gray-500">
+                <strong className="text-yellow-400">Your revenue trigger:</strong> Every order with JACOBDCS code = you earn affiliate commission.
+                The daily Shopify sync (built into your platform at <code className="text-gray-400">/api/cron/affiliate-sync</code>) pulls this automatically.
+                Neil gives you the API key → you see sales in real-time → you get paid.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────── */}
+      {/* SECTION 4: THE STRATEGY */}
+      {/* ─────────────────────────────────────────────── */}
+      <section className="space-y-6">
+        <div className="flex items-center gap-3">
+          <span className="text-4xl font-black text-gray-600">04</span>
+          <div>
+            <h2 className="text-xl font-bold flex items-center gap-2">
+              <TrendingUp className="w-5 h-5 text-blue-400" />
+              THE STRATEGY
+            </h2>
+            <p className="text-sm text-gray-400">Why it compounds — learnings feed the next deal</p>
+          </div>
         </div>
 
-        {/* Tab Content */}
-        <div className="p-6">
-          {/* Overview Tab */}
-          {activeTab === 'overview' && (
-            <div className="space-y-6">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Creator Info */}
-                <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Video className="w-5 h-5 text-red-400" />
-                    <h3 className="text-lg font-semibold">Creator: Jacob Tabor</h3>
-                  </div>
-                  <div className="space-y-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Email</span>
-                      <span>{collabData.creator.email}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Location</span>
-                      <span>{collabData.creator.location}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">YouTube Subs</span>
-                      <span className="text-green-400 font-medium">{collabData.creator.youtube.subscribers}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Videos</span>
-                      <span>{collabData.creator.youtube.videos}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Total Views</span>
-                      <span className="text-blue-400 font-medium">{collabData.creator.youtube.totalViews}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Joined</span>
-                      <span>{collabData.creator.joined}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Instagram</span>
-                      <span>{collabData.creator.instagram.followers} followers · {collabData.creator.instagram.posts} posts</span>
-                    </div>
-                    <div className="mt-4 pt-4 border-t border-gray-700">
-                      <p className="text-gray-400 text-xs mb-2">Featured Video</p>
-                      <div className="bg-gray-900 rounded-lg p-3">
-                        <p className="font-medium">{collabData.creator.featuredVideo.title}</p>
-                        <p className="text-green-400 text-sm">{collabData.creator.featuredVideo.views} views</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        {/* What We Learn */}
+        <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-5">
+          <h3 className="text-md font-bold text-gray-200">What We Learn From This Collab</h3>
+          <ul className="space-y-2 text-sm text-gray-300 list-disc list-inside">
+            <li>Actual conversion rate from flight sim content → hardware purchase</li>
+            <li>Which content type converts best (gear breakdown vs skill session vs reveal)</li>
+            <li>Jacob&apos;s true reach and influence within the DCS community</li>
+            <li>Whether Discord drives additional unpaid sales</li>
+            <li>P1&apos;s actual margins and willingness to scale spend</li>
+          </ul>
 
-                {/* Brand Info */}
-                <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Package className="w-5 h-5 text-purple-400" />
-                    <h3 className="text-lg font-semibold">Brand: P1 Sim Gear</h3>
-                  </div>
-                  <div className="space-y-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Contact</span>
-                      <span>{collabData.brand.contact}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Location</span>
-                      <span>{collabData.brand.location}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Website</span>
-                      <span className="text-blue-400">{collabData.brand.website}</span>
-                    </div>
-                    <div className="mt-4 pt-4 border-t border-gray-700">
-                      <p className="text-gray-400 text-xs mb-2">Products</p>
-                      <div className="space-y-2">
-                        {collabData.brand.products.map((product, i) => (
-                          <div key={i} className="flex justify-between bg-gray-900 rounded-lg p-2 px-3">
-                            <span>{product.name}</span>
-                            <span className="text-green-400 font-medium">{product.price}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Discord Data */}
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                <div className="flex items-center gap-3 mb-4">
-                  <Users className="w-5 h-5 text-indigo-400" />
-                  <h3 className="text-lg font-semibold">DCS Discord Community</h3>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-gray-900 rounded-lg p-4 text-center">
-                    <p className="text-2xl font-bold text-indigo-400">{collabData.creator.discord.members.toLocaleString()}</p>
-                    <p className="text-gray-400 text-sm">Total Members</p>
-                  </div>
-                  <div className="bg-gray-900 rounded-lg p-4 text-center">
-                    <p className="text-2xl font-bold text-green-400">{collabData.creator.discord.online.toLocaleString()}</p>
-                    <p className="text-gray-400 text-sm">Online Now</p>
-                  </div>
-                  <div className="bg-gray-900 rounded-lg p-4 text-center">
-                    <p className="text-2xl font-bold text-blue-400">{collabData.creator.facebook}</p>
-                    <p className="text-gray-400 text-sm">Facebook Page</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Deal Structure Tab */}
-          {activeTab === 'deal' && (
-            <div className="space-y-6">
-              <div className="flex items-center gap-2 mb-2">
-                <DollarSign className="w-5 h-5 text-green-400" />
-                <h3 className="text-lg font-semibold">Deal Type: {collabData.dealType}</h3>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* Sponsored Content */}
-                <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Star className="w-5 h-5 text-yellow-400" />
-                    <h4 className="font-semibold">Sponsored Content</h4>
-                  </div>
-                  <div className="space-y-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Brand Pays</span>
-                      <span className="text-green-400 font-medium">${collabData.sponsored.brandPays.toLocaleString()}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Agency Fee</span>
-                      <span>${collabData.sponsored.agencyFee}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Commission (20%)</span>
-                      <span>${collabData.sponsored.commission}</span>
-                    </div>
-                    <div className="border-t border-gray-700 pt-3">
-                      <div className="flex justify-between">
-                        <span className="text-gray-400">Jacob Gets</span>
-                        <span className="text-blue-400 font-medium">${collabData.sponsored.jacobGets.toLocaleString()}</span>
-                      </div>
-                      <div className="flex justify-between mt-2">
-                        <span className="text-gray-400">Joel Keeps</span>
-                        <span className="text-purple-400 font-medium">${collabData.sponsored.joelKeeps}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Affiliate */}
-                <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                  <div className="flex items-center gap-2 mb-4">
-                    <TrendingUp className="w-5 h-5 text-green-400" />
-                    <h4 className="font-semibold">Affiliate Revenue</h4>
-                  </div>
-                  <div className="space-y-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Per Premium Rig ($10K+)</span>
-                      <span className="text-green-400 font-medium">${collabData.affiliate.perPremiumRig.toLocaleString()}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Split</span>
-                      <span>50/50</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Jacob Split</span>
-                      <span className="text-blue-400">${collabData.affiliate.jacobSplit}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Joel Split</span>
-                      <span className="text-purple-400">${collabData.affiliate.joelSplit}</span>
-                    </div>
-                    <div className="border-t border-gray-700 pt-3">
-                      <div className="flex justify-between">
-                        <span className="text-gray-400">Est. Sales/Month</span>
-                        <span className="font-medium">{collabData.affiliate.estimatedPerMonth}</span>
-                      </div>
-                      <div className="flex justify-between mt-2">
-                        <span className="text-gray-400">Monthly Revenue</span>
-                        <span className="text-green-400 font-bold">$1,000/mo</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Retainer (Scale) */}
-                <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Zap className="w-5 h-5 text-orange-400" />
-                    <h4 className="font-semibold">Retainer (Scale)</h4>
-                  </div>
-                  <div className="space-y-3 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Brand Pays/mo</span>
-                      <span className="text-green-400 font-medium">${collabData.retainer.brandPays.toLocaleString()}/mo</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Agency Fee</span>
-                      <span>${collabData.retainer.agencyFee}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-400">Commission</span>
-                      <span>${collabData.retainer.commission}</span>
-                    </div>
-                    <div className="border-t border-gray-700 pt-3">
-                      <div className="flex justify-between">
-                        <span className="text-gray-400">Jacob Gets/mo</span>
-                        <span className="text-blue-400 font-medium">${collabData.retainer.jacobGets.toLocaleString()}/mo</span>
-                      </div>
-                      <div className="flex justify-between mt-2">
-                        <span className="text-gray-400">Joel Keeps/mo</span>
-                        <span className="text-purple-400 font-medium">${collabData.retainer.joelKeeps.toLocaleString()}/mo</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Analytics Tab */}
-          {activeTab === 'analytics' && (
-            <div className="space-y-6">
-              <div className="flex items-center gap-2 mb-2">
-                <BarChart3 className="w-5 h-5 text-blue-400" />
-                <h3 className="text-lg font-semibold">Platform Analytics</h3>
-              </div>
-
-              {/* Platform Metrics Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-gray-800/50 rounded-xl p-5 border border-gray-700">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Video className="w-4 h-4 text-red-400" />
-                    <span className="text-sm text-gray-400">YouTube</span>
-                  </div>
-                  <p className="text-2xl font-bold">{collabData.creator.youtube.subscribers}</p>
-                  <p className="text-gray-400 text-xs mt-1">subscribers</p>
-                  <p className="text-green-400 text-sm mt-2">{collabData.creator.youtube.totalViews} total views</p>
-                </div>
-                <div className="bg-gray-800/50 rounded-xl p-5 border border-gray-700">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Users className="w-4 h-4 text-pink-400" />
-                    <span className="text-sm text-gray-400">Instagram</span>
-                  </div>
-                  <p className="text-2xl font-bold">{collabData.creator.instagram.followers}</p>
-                  <p className="text-gray-400 text-xs mt-1">followers</p>
-                  <p className="text-blue-400 text-sm mt-2">{collabData.creator.instagram.posts} posts</p>
-                </div>
-                <div className="bg-gray-800/50 rounded-xl p-5 border border-gray-700">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Users className="w-4 h-4 text-indigo-400" />
-                    <span className="text-sm text-gray-400">Discord</span>
-                  </div>
-                  <p className="text-2xl font-bold">{collabData.creator.discord.members.toLocaleString()}</p>
-                  <p className="text-gray-400 text-xs mt-1">members</p>
-                  <p className="text-green-400 text-sm mt-2">{collabData.creator.discord.online.toLocaleString()} online</p>
-                </div>
-                <div className="bg-gray-800/50 rounded-xl p-5 border border-gray-700">
-                  <div className="flex items-center gap-2 mb-3">
-                    <ExternalLink className="w-4 h-4 text-blue-400" />
-                    <span className="text-sm text-gray-400">Facebook</span>
-                  </div>
-                  <p className="text-lg font-bold">Eagle Dynamics</p>
-                  <p className="text-gray-400 text-xs mt-1">{collabData.creator.facebook}</p>
-                </div>
-              </div>
-
-              {/* Audience Quality */}
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                <h4 className="font-semibold mb-4">Audience Quality Assessment</h4>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="text-center">
-                    <p className="text-3xl font-bold text-green-400">97%</p>
-                    <p className="text-gray-400 text-sm">Real Engagement</p>
-                    <p className="text-gray-500 text-xs mt-1">DCS niche = high intent audience</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-3xl font-bold text-blue-400">$2K+</p>
-                    <p className="text-gray-400 text-sm">Avg Spend on Peripherals</p>
-                    <p className="text-gray-500 text-xs mt-1">Flight sim enthusiasts invest heavily</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-3xl font-bold text-purple-400">14yr</p>
-                    <p className="text-gray-400 text-sm">Channel History</p>
-                    <p className="text-gray-500 text-xs mt-1">Since Mar 2011 - established authority</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* P1 Product Fit */}
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                <h4 className="font-semibold mb-4">P1 Product-Audience Fit</h4>
-                <div className="space-y-3">
-                  {collabData.brand.products.map((product, i) => (
-                    <div key={i} className="flex items-center justify-between bg-gray-900 rounded-lg p-3">
-                      <span>{product.name}</span>
-                      <div className="flex items-center gap-3">
-                        <span className="text-green-400 font-medium">{product.price}</span>
-                        <div className="bg-green-400/20 text-green-400 text-xs px-2 py-1 rounded-full">High Fit</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Recent Video Performance */}
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                <h4 className="font-semibold mb-4">Recent Video Performance</h4>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between bg-gray-900 rounded-lg p-3">
-                    <span className="font-medium">{collabData.creator.featuredVideo.title}</span>
-                    <span className="text-green-400 font-bold">{collabData.creator.featuredVideo.views} views</span>
-                  </div>
-                  {collabData.creator.recentVideos.map((video, i) => (
-                    <div key={i} className="flex items-center justify-between bg-gray-900 rounded-lg p-3">
-                      <span>{video.title}</span>
-                      <span className="text-blue-400">{video.views} views</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Strategy Tab */}
-          {activeTab === 'strategy' && (
-            <div className="space-y-6">
-              {/* Gateway Value */}
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                <div className="flex items-center gap-2 mb-4">
-                  <Star className="w-5 h-5 text-yellow-400" />
-                  <h4 className="font-semibold">Gateway Value</h4>
-                </div>
-                <p className="text-gray-300">
-                  Jacob = gateway to the entire DCS creator community. First successful collab opens doors to dozens of flight sim creators globally.
-                  DCS audience spends $2K+ on peripherals making them premium buyers for P1 Sim Gear products.
-                </p>
-              </div>
-
-              {/* First-Mover Advantage */}
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                <div className="flex items-center gap-2 mb-4">
-                  <Zap className="w-5 h-5 text-orange-400" />
-                  <h4 className="font-semibold">First-Mover Advantage</h4>
-                </div>
-                <p className="text-gray-300">
-                  No other agency in Australia is operating in the flight sim creator space. This is a first-mover opportunity
-                  to establish dominance in AU flight sim agency management before anyone else enters.
-                </p>
-              </div>
-
-              {/* Discord Channel Opportunity */}
-              <div className="bg-gradient-to-r from-indigo-900/50 to-purple-900/50 rounded-xl p-6 border border-indigo-700">
-                <div className="flex items-center gap-2 mb-4">
-                  <Users className="w-5 h-5 text-indigo-400" />
-                  <h4 className="font-semibold">Discord Channel Opportunity</h4>
-                </div>
-                <p className="text-gray-300 mb-3">
-                  Jason (Joel&apos;s mate) just started at Discord. 65K DCS Discord members = massive influencer marketing channel.
-                </p>
-                <div className="bg-gray-900/50 rounded-lg p-4 space-y-2 text-sm">
-                  <p className="text-indigo-300">• Sponsored server events with P1 Sim Gear</p>
-                  <p className="text-indigo-300">• P1 gear giveaways to drive engagement</p>
-                  <p className="text-indigo-300">• Affiliate links in pinned channels</p>
-                  <p className="text-indigo-300">• Direct access to 65K flight sim enthusiasts</p>
-                </div>
-              </div>
-
-              {/* Meeting Prep Checklist */}
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                <div className="flex items-center gap-2 mb-4">
-                  <BarChart3 className="w-5 h-5 text-blue-400" />
-                  <h4 className="font-semibold">Meeting Prep Checklist - Jul 3 2026</h4>
-                </div>
-                <div className="space-y-3 text-sm">
-                  <label className="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" className="rounded border-gray-600 bg-gray-800" />
-                    <span>Prepare P1 Sim Gear product showcase deck</span>
-                  </label>
-                  <label className="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" className="rounded border-gray-600 bg-gray-800" />
-                    <span>Draft hybrid deal proposal (sponsored + affiliate)</span>
-                  </label>
-                  <label className="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" className="rounded border-gray-600 bg-gray-800" />
-                    <span>Research Jacob&apos;s recent content for talking points</span>
-                  </label>
-                  <label className="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" className="rounded border-gray-600 bg-gray-800" />
-                    <span>Confirm Neil (P1) availability for co-call</span>
-                  </label>
-                  <label className="flex items-center gap-3 cursor-pointer">
-                    <input type="checkbox" className="rounded border-gray-600 bg-gray-800" />
-                    <span>Prepare Discord opportunity pitch (Jason connection)</span>
-                  </label>
-                </div>
-              </div>
-
-              {/* Next Steps */}
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
-                <div className="flex items-center gap-2 mb-4">
-                  <TrendingUp className="w-5 h-5 text-green-400" />
-                  <h4 className="font-semibold">Next Steps</h4>
-                </div>
-                <div className="space-y-3 text-sm">
-                  <div className="flex items-start gap-3">
-                    <span className="bg-blue-500/20 text-blue-400 text-xs px-2 py-1 rounded-full whitespace-nowrap">Step 1</span>
-                    <span className="text-gray-300">Lock in Jul 3 meeting with Jacob - confirm via email</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="bg-blue-500/20 text-blue-400 text-xs px-2 py-1 rounded-full whitespace-nowrap">Step 2</span>
-                    <span className="text-gray-300">Send P1 Sim Gear product samples for review content</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="bg-blue-500/20 text-blue-400 text-xs px-2 py-1 rounded-full whitespace-nowrap">Step 3</span>
-                    <span className="text-gray-300">Connect with Jason at Discord re: DCS server partnership</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="bg-blue-500/20 text-blue-400 text-xs px-2 py-1 rounded-full whitespace-nowrap">Step 4</span>
-                    <span className="text-gray-300">Draft affiliate tracking setup for p1simgear.com.au</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="bg-blue-500/20 text-blue-400 text-xs px-2 py-1 rounded-full whitespace-nowrap">Step 5</span>
-                    <span className="text-gray-300">Scale to retainer model after 3 successful sponsored posts</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+          <h3 className="text-md font-bold text-gray-200 pt-2">How Learnings Feed the Platform</h3>
+          <ul className="space-y-2 text-sm text-gray-300 list-disc list-inside">
+            <li>Conversion data updates our ROI projection engine for future hardware deals</li>
+            <li>Content performance trains Terry on what &ldquo;good&rdquo; looks like for flight sim creators</li>
+            <li>Rate data confirms our pricing tier for the &ldquo;flight sim&rdquo; vertical</li>
+            <li>If successful: Jacob becomes our gateway to sign 5–10 more DCS creators</li>
+            <li>If successful: P1 becomes proof point to pitch Virpil, Winwing, VKB, Thrustmaster</li>
+          </ul>
         </div>
-      </div>
+
+        {/* The Flywheel */}
+        <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-4">
+          <h3 className="text-md font-bold text-gray-200 flex items-center gap-2">
+            <Zap className="w-4 h-4 text-yellow-400" />
+            The Flywheel
+          </h3>
+          <div className="bg-gray-800 rounded-lg p-4">
+            <p className="text-sm text-gray-300 leading-relaxed">
+              Jacob × P1 → <span className="text-white font-medium">proves model</span> → signs more DCS creators →
+              pitches more hardware brands → <span className="text-blue-400 font-medium">becomes THE flight sim agency</span> →
+              builds into sim racing (same audience crossover) → <span className="text-green-400 font-medium">scales across all sim verticals</span>
+            </p>
+          </div>
+        </div>
+
+        {/* Discord Opportunity */}
+        <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 space-y-4">
+          <h3 className="text-md font-bold text-gray-200 flex items-center gap-2">
+            <Users className="w-4 h-4 text-indigo-400" />
+            Discord Opportunity (Jason Connection)
+          </h3>
+          <ul className="space-y-2 text-sm text-gray-300 list-disc list-inside">
+            <li>65K DCS Discord members = massive untapped channel</li>
+            <li>Jason (Joel&apos;s mate) just started at Discord</li>
+            <li>Future play: Sponsored server events, P1 gear giveaways, affiliate links in pinned channels</li>
+            <li>This is a SEPARATE revenue stream on top of the content deal</li>
+          </ul>
+        </div>
+
+        {/* CEO & CMO Insights */}
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="bg-blue-950/30 border border-blue-800/50 rounded-lg p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <Brain className="w-4 h-4 text-blue-400" />
+              <span className="text-sm font-semibold text-blue-400">CEO Insight</span>
+            </div>
+            <p className="text-gray-300 text-sm italic">
+              &ldquo;This single collab, if it works, unlocks an entire vertical. The flight sim hardware market has
+              NO agency representation in Australia. You are first. Every deal after this one is easier because you have proof.&rdquo;
+            </p>
+          </div>
+          <div className="bg-pink-950/30 border border-pink-800/50 rounded-lg p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <Brain className="w-4 h-4 text-pink-400" />
+              <span className="text-sm font-semibold text-pink-400">CMO Insight</span>
+            </div>
+            <p className="text-gray-300 text-sm italic">
+              &ldquo;The language for this audience is precision, authenticity, and performance. They don&apos;t respond to hype —
+              they respond to genuine reviews from someone who uses the gear daily in the most demanding sim on the market.
+              Jacob&apos;s content style must be &apos;I use this, here&apos;s why&apos; not &apos;BUY THIS NOW&apos;.&rdquo;
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
-      <div className="mt-8 bg-gray-900/50 rounded-xl border border-gray-800 p-4">
-        <div className="flex items-center justify-between text-sm text-gray-500">
-          <div className="flex items-center gap-4">
-            <span>Access: <code className="bg-gray-800 px-2 py-1 rounded text-gray-400">/founder</code> route</span>
-            <span>Auth: <code className="bg-gray-800 px-2 py-1 rounded text-gray-400">FOUNDER_USERNAME</code> + <code className="bg-gray-800 px-2 py-1 rounded text-gray-400">FOUNDER_PASSWORD</code></span>
-          </div>
-          <span className="text-gray-600">Gamefluence Collabs v1.0</span>
-        </div>
-      </div>
+      <footer className="border-t border-gray-800 pt-6 pb-12 text-center">
+        <p className="text-xs text-gray-500">
+          Mobileyes Collabs — Reference Document — Last updated July 2026
+        </p>
+      </footer>
     </div>
   );
 }
