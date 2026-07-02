@@ -38,6 +38,29 @@ import ProductTeamDashboard from '@/components/admin/ProductTeamDashboard';
 
 export default function AdminPage() {
   const [activeTab, setActiveTab] = useState('overview');
+  const [dismissedFeatures, setDismissedFeatures] = useState<string[]>([]);
+
+  const NEW_FEATURES = [
+    { id: 'collabs_jul2026', label: '💰 Collabs Dashboard', desc: 'Jacob × P1 Sim Gear deal — analytics, pricing, strategy', link: '/dashboard/collabs' },
+    { id: 'agents_jul2026', label: '🤖 AI Agents (Terry + Dazza)', desc: 'Terry scouts talent, Dazza prices deals, C-Suite advises', link: '/dashboard/agents' },
+    { id: 'talent_jul2026', label: '🎬 Mobileyes Talent Roster', desc: 'Talent management, briefs, pipeline, batch upload', link: '/dashboard/talent' },
+    { id: 'batch_jul2026', label: '📤 Batch Contact Upload', desc: 'CSV import for both Gamefluence + Mobileyes pipelines', link: '/dashboard/batch-upload' },
+    { id: 'services_jul2026', label: '🏗️ Site: Service Lines', desc: 'Live-Ops Creator System + UA + Cross-Promo on homepage', link: '/' },
+    { id: 'privacy_jul2026', label: '🔒 Mobileyes Privacy Policy', desc: 'AU Privacy Act compliant — live at /mobileyes-privacy', link: '/mobileyes-privacy' },
+  ];
+
+  useEffect(() => {
+    const dismissed = JSON.parse(localStorage.getItem('dismissedFeatures') || '[]');
+    setDismissedFeatures(dismissed);
+  }, []);
+
+  const dismissFeature = (id: string) => {
+    const updated = [...dismissedFeatures, id];
+    setDismissedFeatures(updated);
+    localStorage.setItem('dismissedFeatures', JSON.stringify(updated));
+  };
+
+  const visibleFeatures = NEW_FEATURES.filter(f => !dismissedFeatures.includes(f.id));
   const [systemStats, setSystemStats] = useState({
     uptime: '99.8%',
     activeUsers: 1247,
@@ -192,6 +215,39 @@ export default function AdminPage() {
               More
             </TabsTrigger>
           </TabsList>
+
+          {/* What's New — Dismissible feature announcements */}
+          {visibleFeatures.length > 0 && (
+            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-4 mb-4">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-sm font-bold text-indigo-900 flex items-center gap-2">
+                  ✨ What&apos;s New ({visibleFeatures.length})
+                </h3>
+                <button 
+                  onClick={() => visibleFeatures.forEach(f => dismissFeature(f.id))}
+                  className="text-xs text-indigo-500 hover:text-indigo-700"
+                >
+                  Dismiss all
+                </button>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                {visibleFeatures.map(feature => (
+                  <div key={feature.id} className="flex items-center justify-between bg-white rounded-lg p-3 border border-indigo-100">
+                    <a href={feature.link} className="flex-1 min-w-0">
+                      <div className="text-sm font-medium text-gray-900 truncate">{feature.label}</div>
+                      <div className="text-xs text-gray-500 truncate">{feature.desc}</div>
+                    </a>
+                    <button 
+                      onClick={() => dismissFeature(feature.id)}
+                      className="ml-2 text-gray-400 hover:text-gray-600 text-xs flex-shrink-0"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Quick Links — Mobileyes & Operations */}
           <div className="space-y-3 px-1">
