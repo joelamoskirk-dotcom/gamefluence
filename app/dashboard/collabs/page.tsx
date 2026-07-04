@@ -91,7 +91,7 @@ function OverviewTab() {
           <div>
             <h2 className="text-2xl font-bold">Jacob Tabor × P1 Sim Gear</h2>
             <p className="text-blue-100 mt-1">Flight Sim Creator Partnership — DCS Community</p>
-            <p className="text-blue-200 text-sm mt-2">Call: Jul 3, 2026 @ 11:00 AM · 20 min structure</p>
+            <p className="text-blue-200 text-sm mt-2">✅ Call complete Jul 3 — KEEN. Sending agreement.</p>
           </div>
           <div className="text-right">
             <p className="text-3xl font-bold">$2,700</p>
@@ -111,37 +111,44 @@ function OverviewTab() {
 
       {/* Jacob's Reach */}
       <div className="bg-white rounded-xl border border-gray-200 p-6">
-        <h3 className="font-bold text-gray-900 mb-4">Jacob&apos;s DCS Ecosystem</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <MetricCard icon="🎬" label="YouTube" value="167K" sub="subscribers" />
-          <MetricCard icon="📸" label="Instagram" value="113K" sub="followers" />
-          <MetricCard icon="💬" label="Discord" value="65.7K" sub="members (12.8K online)" />
-          <MetricCard icon="👁️" label="Video Views" value="34K–60K" sub="avg per video" />
+        <h3 className="font-bold text-gray-900 mb-4">Jacob&apos;s Ecosystem (Confirmed on Call)</h3>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <MetricCard icon="📸" label="Instagram" value="750K" sub="followers" />
+          <MetricCard icon="🎵" label="TikTok" value="750K" sub="followers" />
+          <MetricCard icon="🎬" label="YouTube" value="250K" sub="subs (the funnel)" />
+          <MetricCard icon="🔥" label="Shorts" value="1M+" sub="imps per short" />
+          <MetricCard icon="💰" label="Short Rev" value="$3K" sub="per short earned" />
+        </div>
+        <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+          <p className="text-xs text-amber-800"><strong>Day job:</strong> RAAF (Royal Australian Air Force). Any early-access DCS builds need clearance before release. Standard DCS content is fine.</p>
         </div>
       </div>
 
       {/* Key Lines — what to say */}
       <div className="bg-white rounded-xl border border-gray-200 p-6">
         <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-          <Phone className="w-5 h-5 text-blue-600" /> Key Lines (visible on call)
+          <Phone className="w-5 h-5 text-green-600" /> Call Outcomes & Next Steps
         </h3>
         <div className="space-y-3">
-          <KeyLine label="Opener" line="I run Mobileyes — we find hardware brand deals for creators in the sim space. I&apos;ve been watching DCS content." />
-          <KeyLine label="Pitch" line="AU flight sim hardware retailer wants to reach the DCS audience through someone who uses this gear every day." />
-          <KeyLine label="Fee" line="Around $4,800/month for 4 posts, plus affiliate on top." />
-          <KeyLine label="Safety" line="Non-exclusive. 14 days notice. You own all content. Your reputation comes first." />
-          <KeyLine label="Close" line="Worst case: free flight sim gear. Give me 14 days notice if it&apos;s not for you. Keep the gear." />
+          <KeyLine label="Status" line="Keen to proceed. Sending representation agreement." />
+          <KeyLine label="Content" line="2 shorts/month (every 2 weeks) + 1 long-form/month. Must include gameplay." />
+          <KeyLine label="Rule" line="No rig shilling. All content must integrate with DCS gameplay naturally." />
+          <KeyLine label="Wants" line="Force feedback stick, entry level kits, DCS-branded pack idea." />
+          <KeyLine label="Affiliates" line="Asked about it — positive. Accepted 20% management fee." />
+          <KeyLine label="Next" line="Send agreement → Neil brief → Ship force feedback stick → First short by Jul 14-18." />
         </div>
       </div>
 
-      {/* Quick Positioning */}
-      <div className="bg-amber-50 border border-amber-200 rounded-xl p-6">
-        <h3 className="font-bold text-amber-900 mb-2">🎯 Your Positioning</h3>
-        <p className="text-amber-800 text-sm">
-          You&apos;re a talent manager for sim creators. You&apos;ve been watching DCS content. You have a hardware brand ready.
-          His job: keep doing what he&apos;s already doing. You handle the rest. Don&apos;t say &quot;influencer marketing.&quot;
-          Say &quot;we make your content pay.&quot;
-        </p>
+      {/* Competitive Intel */}
+      <div className="bg-white rounded-xl border border-gray-200 p-6">
+        <h3 className="font-bold text-gray-900 mb-3">Competitive Intel (From Jacob)</h3>
+        <div className="space-y-2 text-sm">
+          <p className="text-gray-700">• <strong>Thrustmaster</strong> — has existing collab. P1 must differentiate.</p>
+          <p className="text-gray-700">• <strong>Wind Control</strong> — Chinese brand offered a selling opp. Not enthusiastic.</p>
+          <p className="text-gray-700">• <strong>VKB</strong> — bought himself. Likes it. Could be option or conflict.</p>
+          <p className="text-gray-700">• <strong>Grinelli Designs</strong> — played Flight Sim Expo with them.</p>
+        </div>
+        <p className="text-xs text-blue-600 mt-3">P1 angle: AU-local, custom DCS-branded gear, force feedback, entry level kits — things Thrustmaster won&apos;t do.</p>
       </div>
     </div>
   );
@@ -151,58 +158,69 @@ function OverviewTab() {
 function CreativeMockupsTab() {
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-bold text-gray-900">Content Plan — 4 Posts/Month</h2>
-      <p className="text-gray-600 text-sm">Each card is a content mockup. Jacob sees this as &quot;what I&apos;d make anyway.&quot;</p>
+      <h2 className="text-xl font-bold text-gray-900">Revised Content Plan — Based on Call</h2>
+      <p className="text-gray-600 text-sm">Jacob&apos;s rule: all content must include gameplay. No standalone rig shilling. Shorts are his strength.</p>
 
       <div className="grid md:grid-cols-2 gap-5">
-        {/* Week 1 */}
+        {/* Short 1 */}
         <ContentMockup
           week={1}
-          type="Gear Breakdown"
-          title="My DCS Flight Sim Setup — Full Walkthrough"
-          description="BTS of his rig. What each piece does. How it improves gameplay. P1 gear featured naturally."
-          integration="P1 Fighter Pilot Pack visible — 'this is what I fly with'"
-          thumbnail="🎮 Setup reveal + gear close-ups"
-          expectedViews="45K–60K"
+          type="Short-Form (Paid)"
+          title="DCS Night Carrier Landing — POV with P1 Gear"
+          description="15-60s short. Hands on P1 HOTAS, cockpit view, gameplay footage. Gear visible naturally. Link in bio."
+          integration="P1 gear visible in use. 'My setup' tag in caption. Link in bio."
+          thumbnail="✈️ Cockpit POV + hands on gear + carrier landing"
+          expectedViews="1M+ impressions"
         />
-        {/* Week 2 */}
-        <ContentMockup
-          week={2}
-          type="Skill Session"
-          title="DCS F-16 Night Landing — Technique Breakdown"
-          description="Combat/flight tutorial using the gear. Focused on technique. P1 gear visible in use."
-          integration="Gear visible, brief mention + link in description"
-          thumbnail="✈️ Cockpit POV + hands on HOTAS"
-          expectedViews="34K–47K"
-        />
-        {/* Week 3 */}
+        {/* Short 2 */}
         <ContentMockup
           week={3}
-          type="Organic (Free)"
-          title="DCS Multiplayer — Full Mission (No Script)"
-          description="Regular DCS gameplay. No hard sell. Gear naturally present. Maintains trust."
-          integration="No integration — pure engagement. Audience retention play."
-          thumbnail="💥 Combat footage + multiplayer comms"
-          expectedViews="34K–40K"
+          type="Short-Form (Paid)"
+          title="DCS Dogfight — Full Deflection Kill Compilation"
+          description="15-60s short. Combat gameplay with P1 gear in frame. High energy edit. Cross-posted IG/TT/YT."
+          integration="Gear in frame during gameplay. Promo code in caption."
+          thumbnail="💥 Gun camera + hands on stick + kill feed"
+          expectedViews="1M+ impressions"
         />
-        {/* Week 4 */}
+        {/* Long-form */}
         <ContentMockup
           week={4}
-          type="Reveal / Upgrade"
-          title="Unboxing P1's New [Product] — First Impressions"
-          description="Dedicated P1 feature. Honest review. Product showcase. High purchase intent."
-          integration="Full product showcase with honest review"
-          thumbnail="📦 Unboxing cinematic + first flight test"
-          expectedViews="50K–80K"
+          type="Long-Form (Paid)"
+          title="First Flight with Force Feedback — Full Mission"
+          description="10-15min. Genuine first reaction to force feedback stick. Full DCS mission with gear in use. NOT a product review."
+          integration="Natural gameplay integration. P1 force feedback stick as the story. Affiliate link in description + pinned comment."
+          thumbnail="🎮 First flight reaction + full mission gameplay"
+          expectedViews="50K–100K views"
+        />
+        {/* Camera Reveal Opportunity */}
+        <ContentMockup
+          week={2}
+          type="Bonus (Organic)"
+          title="New Camera Setup Reveal + Rig Tour"
+          description="Jacob has a new camera coming. Setup reveal content showing full rig including P1 gear. No hard sell."
+          integration="Organic brand visibility — P1 gear is just part of the rig. No paid integration needed."
+          thumbnail="📷 Camera BTS + full setup + rig visible"
+          expectedViews="200K–500K"
         />
       </div>
 
       <div className="bg-blue-50 border border-blue-200 rounded-xl p-5">
-        <h3 className="font-semibold text-blue-900 mb-2">Content Ratio</h3>
+        <h3 className="font-semibold text-blue-900 mb-2">Monthly Reach Projection</h3>
         <p className="text-blue-800 text-sm">
-          4 paid posts + 4–8 organic posts per month = only 33–50% sponsored. Audience doesn&apos;t feel sold to.
-          The paid integrations sit alongside genuine gameplay. This is why it converts.
+          2 shorts (2M+ impressions) + 1 long-form (50K–100K views) = <strong>2.1M–2.2M monthly reach minimum</strong>.
+          That&apos;s 4x what we originally projected. His shorts alone are worth the $8K.
         </p>
+      </div>
+
+      <div className="bg-red-50 border border-red-200 rounded-xl p-5">
+        <h3 className="font-semibold text-red-900 mb-2">⚠️ Content Rules (Non-Negotiable)</h3>
+        <ul className="text-sm text-red-800 space-y-1">
+          <li>• ALL content must include genuine DCS gameplay</li>
+          <li>• No standalone product reviews / unboxings without gameplay context</li>
+          <li>• Gear must be shown in-use, not just sitting on a desk</li>
+          <li>• Early access DCS builds need RAAF approval before publishing</li>
+          <li>• Long-form must be easy to produce — his opportunity cost is $3K+ per short forgone</li>
+        </ul>
       </div>
     </div>
   );
