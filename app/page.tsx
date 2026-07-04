@@ -30,8 +30,10 @@ export default function Home() {
           className="absolute inset-0 w-full h-full object-cover"
           poster="/hero-poster.jpg"
         >
-          {/* Replace with your commissioned APAC gaming video */}
-          <source src="https://cdn.coverr.co/videos/coverr-a-group-of-friends-playing-video-games-1584/1080p.mp4" type="video/mp4" />
+          {/* Purple gaming setup — Pexels free stock (ID 36459927) */}
+          <source src="https://videos.pexels.com/video-files/36459927/36459927-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+          {/* Fallback: friends playing video games */}
+          <source src="https://videos.pexels.com/video-files/7914860/7914860-uhd_2560_1440_25fps.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
