@@ -4,19 +4,21 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { ChevronRight, Download, Phone, DollarSign, Users, TrendingUp, Target, Zap, Award, BarChart3, ExternalLink, CheckCircle2, Circle, Clock, Star, Rocket, Shield } from 'lucide-react';
 import { COLLABS, EXPANSION_CREATORS, LEARNINGS, getActiveCollabs, getTotalMonthlyRevenue } from '@/lib/collabs-data';
+import { generateInsights, buildJacobValueCase, getWhatsFocusedOn } from '@/lib/collabz-strategy-engine';
 
-type TabId = 'overview' | 'creative' | 'kpis' | 'expansion' | 'closers' | 'affiliate' | 'paid-amp' | 'revenue' | 'learnings';
+type TabId = 'overview' | 'strategy' | 'creative' | 'kpis' | 'expansion' | 'closers' | 'affiliate' | 'paid-amp' | 'revenue' | 'learnings';
 
 const TABS: { id: TabId; num: number; label: string; icon: React.ReactNode }[] = [
   { id: 'overview', num: 1, label: 'Deal Overview', icon: <Target className="w-4 h-4" /> },
-  { id: 'creative', num: 2, label: 'Creative Mockups', icon: <Zap className="w-4 h-4" /> },
-  { id: 'kpis', num: 3, label: 'KPIs & Metrics', icon: <BarChart3 className="w-4 h-4" /> },
-  { id: 'expansion', num: 4, label: 'Expansion Creators', icon: <Users className="w-4 h-4" /> },
-  { id: 'closers', num: 5, label: 'Closers & Objections', icon: <Award className="w-4 h-4" /> },
-  { id: 'affiliate', num: 6, label: 'Affiliate Engine', icon: <DollarSign className="w-4 h-4" /> },
-  { id: 'paid-amp', num: 7, label: 'Paid Amplification', icon: <Rocket className="w-4 h-4" /> },
-  { id: 'revenue', num: 8, label: 'P1 Revenue Sizing', icon: <TrendingUp className="w-4 h-4" /> },
-  { id: 'learnings', num: 9, label: 'Learnings', icon: <Star className="w-4 h-4" /> },
+  { id: 'strategy', num: 2, label: 'Strategy Engine', icon: <Shield className="w-4 h-4" /> },
+  { id: 'creative', num: 3, label: 'Creative Mockups', icon: <Zap className="w-4 h-4" /> },
+  { id: 'kpis', num: 4, label: 'KPIs & Metrics', icon: <BarChart3 className="w-4 h-4" /> },
+  { id: 'expansion', num: 5, label: 'Expansion Creators', icon: <Users className="w-4 h-4" /> },
+  { id: 'closers', num: 6, label: 'Closers & Objections', icon: <Award className="w-4 h-4" /> },
+  { id: 'affiliate', num: 7, label: 'Affiliate Engine', icon: <DollarSign className="w-4 h-4" /> },
+  { id: 'paid-amp', num: 8, label: 'Paid Amplification', icon: <Rocket className="w-4 h-4" /> },
+  { id: 'revenue', num: 9, label: 'Revenue Sizing', icon: <TrendingUp className="w-4 h-4" /> },
+  { id: 'learnings', num: 10, label: 'Learnings', icon: <Star className="w-4 h-4" /> },
 ];
 
 export default function CollabsV4Page() {
@@ -27,7 +29,7 @@ export default function CollabsV4Page() {
       {/* Top Nav */}
       <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 px-4 sm:px-8 py-3 flex items-center justify-between shadow-sm">
         <div className="flex items-center gap-3">
-          <span className="font-bold text-lg text-gray-900">Mobileyes Collabs v4</span>
+          <span className="font-bold text-lg text-gray-900">CollabZ</span>
           <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">LIVE</span>
         </div>
         <div className="flex gap-3 text-sm items-center">
@@ -71,6 +73,7 @@ export default function CollabsV4Page() {
       {/* Content Area */}
       <div className="max-w-6xl mx-auto px-4 sm:px-8 py-6">
         {activeTab === 'overview' && <OverviewTab />}
+        {activeTab === 'strategy' && <StrategyTab />}
         {activeTab === 'creative' && <CreativeMockupsTab />}
         {activeTab === 'kpis' && <KPIsTab />}
         {activeTab === 'expansion' && <ExpansionCreatorsTab />}
@@ -157,7 +160,123 @@ function OverviewTab() {
   );
 }
 
-// ─── TAB 2: CREATIVE MOCKUPS ────────────────────────────────────────────
+// ─── TAB 2: STRATEGY ENGINE ──────────────────────────────────────────────
+function StrategyTab() {
+  const insights = generateInsights();
+  const valueCase = buildJacobValueCase();
+  const focus = getWhatsFocusedOn();
+
+  return (
+    <div className="space-y-6">
+      <h2 className="text-xl font-bold text-gray-900">Strategy Engine — What&apos;s Working &amp; Where to Focus</h2>
+
+      {/* Focus Areas */}
+      <div className="bg-white rounded-xl border border-gray-200 p-6">
+        <h3 className="font-bold text-gray-900 mb-4">🎯 Current Focus (Priority Order)</h3>
+        <div className="space-y-3">
+          {focus.map((f, i) => (
+            <div key={i} className={`p-4 rounded-lg border ${
+              f.status === 'on-track' ? 'border-green-200 bg-green-50' :
+              f.status === 'blocked' ? 'border-red-200 bg-red-50' :
+              'border-amber-200 bg-amber-50'
+            }`}>
+              <div className="flex justify-between items-start">
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">{f.area}</p>
+                  <p className="text-xs text-gray-600 mt-1">{f.recommendation}</p>
+                </div>
+                <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
+                  f.status === 'on-track' ? 'bg-green-200 text-green-800' :
+                  f.status === 'blocked' ? 'bg-red-200 text-red-800' :
+                  'bg-amber-200 text-amber-800'
+                }`}>{f.status}</span>
+              </div>
+              {f.metric && <p className="text-xs text-gray-500 mt-2 italic">Metric: {f.metric}</p>}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Value Case for Neil */}
+      <div className="bg-gradient-to-r from-indigo-600 to-blue-700 rounded-xl p-6 text-white">
+        <h3 className="font-bold text-lg mb-3">Why $8K is a Steal — Neil&apos;s Value Case</h3>
+        <div className="grid md:grid-cols-3 gap-4 mb-4">
+          <div className="text-center p-3 bg-white/10 rounded-lg">
+            <p className="text-2xl font-bold">{valueCase.audienceValue.totalReach.toLocaleString()}</p>
+            <p className="text-xs text-blue-200">Total followers</p>
+          </div>
+          <div className="text-center p-3 bg-white/10 rounded-lg">
+            <p className="text-2xl font-bold">${(valueCase.audienceValue.totalMonthlyImpressionValue / 1000).toFixed(1)}K</p>
+            <p className="text-xs text-blue-200">Monthly impression value</p>
+          </div>
+          <div className="text-center p-3 bg-white/10 rounded-lg">
+            <p className="text-2xl font-bold">$3.80</p>
+            <p className="text-xs text-blue-200">Effective CPM (market: $8-15)</p>
+          </div>
+        </div>
+        <p className="text-blue-100 text-sm">{valueCase.audienceValue.discount} — Neil gets $17K+ in impression value for $8K. His audience is high-intent hardware buyers, not casual viewers.</p>
+      </div>
+
+      {/* Narrative Angle */}
+      <div className="bg-white rounded-xl border border-gray-200 p-6">
+        <h3 className="font-bold text-gray-900 mb-3">📖 Content Narrative: &quot;{valueCase.narrativeAngle.headline}&quot;</h3>
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <p className="font-semibold text-blue-900 text-sm mb-1">For Neil (brand)</p>
+            <p className="text-xs text-blue-800">{valueCase.narrativeAngle.forBrand}</p>
+          </div>
+          <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+            <p className="font-semibold text-green-900 text-sm mb-1">For Jacob (creator)</p>
+            <p className="text-xs text-green-800">{valueCase.narrativeAngle.forCreator}</p>
+          </div>
+        </div>
+        <p className="text-sm text-gray-600 mt-3 italic">&quot;{valueCase.narrativeAngle.contentHook}&quot;</p>
+      </div>
+
+      {/* Strategic Insights */}
+      <div className="bg-white rounded-xl border border-gray-200 p-6">
+        <h3 className="font-bold text-gray-900 mb-4">🧠 Engine Insights</h3>
+        <div className="space-y-3">
+          {insights.filter(i => i.priority === 'critical' || i.priority === 'high').map((insight) => (
+            <div key={insight.id} className={`p-4 rounded-lg border ${
+              insight.priority === 'critical' ? 'border-red-200 bg-red-50' : 'border-blue-200 bg-blue-50'
+            }`}>
+              <div className="flex items-start gap-2">
+                <span className={`text-xs px-2 py-0.5 rounded font-bold mt-0.5 ${
+                  insight.priority === 'critical' ? 'bg-red-200 text-red-800' : 'bg-blue-200 text-blue-800'
+                }`}>{insight.type}</span>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">{insight.title}</p>
+                  <p className="text-xs text-gray-600 mt-1">{insight.insight}</p>
+                  <p className="text-xs text-gray-500 mt-2 italic">→ {insight.action}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Attribution Strategy */}
+      <div className="bg-white rounded-xl border border-gray-200 p-6">
+        <h3 className="font-bold text-gray-900 mb-3">🔗 Attribution-First Strategy</h3>
+        <div className="p-4 bg-green-50 border border-green-200 rounded-lg mb-4">
+          <p className="font-semibold text-green-900 text-sm">Goal: {valueCase.attributionStrategy.firstSaleGoal}</p>
+        </div>
+        <div className="space-y-2">
+          <p className="text-sm text-gray-700"><strong>Primary:</strong> {valueCase.attributionStrategy.primaryMethod}</p>
+          {valueCase.attributionStrategy.secondaryMethods.map((m, i) => (
+            <p key={i} className="text-sm text-gray-600">• {m}</p>
+          ))}
+          <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+            <p className="text-sm text-amber-800"><strong>Premium touch:</strong> {valueCase.attributionStrategy.personalTouchIdea}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── TAB 3: CREATIVE MOCKUPS ────────────────────────────────────────────
 function CreativeMockupsTab() {
   return (
     <div className="space-y-6">
