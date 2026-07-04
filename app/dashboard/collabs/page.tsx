@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { ChevronRight, Download, Phone, DollarSign, Users, TrendingUp, Target, Zap, Award, BarChart3, ExternalLink, CheckCircle2, Circle, Clock, Star, Rocket, Shield } from 'lucide-react';
+import { COLLABS, EXPANSION_CREATORS, LEARNINGS, getActiveCollabs, getTotalMonthlyRevenue } from '@/lib/collabs-data';
 
-type TabId = 'overview' | 'creative' | 'kpis' | 'expansion' | 'closers' | 'affiliate' | 'paid-amp' | 'revenue';
+type TabId = 'overview' | 'creative' | 'kpis' | 'expansion' | 'closers' | 'affiliate' | 'paid-amp' | 'revenue' | 'learnings';
 
 const TABS: { id: TabId; num: number; label: string; icon: React.ReactNode }[] = [
   { id: 'overview', num: 1, label: 'Deal Overview', icon: <Target className="w-4 h-4" /> },
@@ -15,6 +16,7 @@ const TABS: { id: TabId; num: number; label: string; icon: React.ReactNode }[] =
   { id: 'affiliate', num: 6, label: 'Affiliate Engine', icon: <DollarSign className="w-4 h-4" /> },
   { id: 'paid-amp', num: 7, label: 'Paid Amplification', icon: <Rocket className="w-4 h-4" /> },
   { id: 'revenue', num: 8, label: 'P1 Revenue Sizing', icon: <TrendingUp className="w-4 h-4" /> },
+  { id: 'learnings', num: 9, label: 'Learnings', icon: <Star className="w-4 h-4" /> },
 ];
 
 export default function CollabsV4Page() {
@@ -76,6 +78,7 @@ export default function CollabsV4Page() {
         {activeTab === 'affiliate' && <AffiliateTab />}
         {activeTab === 'paid-amp' && <PaidAmpTab />}
         {activeTab === 'revenue' && <RevenueTab />}
+        {activeTab === 'learnings' && <LearningsTab />}
       </div>
     </div>
   );
@@ -696,6 +699,97 @@ function RevenueTab() {
           At $3,150/month, the Jacob × P1 deal alone covers a meaningful chunk of living expenses from a single phone call.
           The vertical scaling opportunity (3 creators × 2 brands) gets you to $180K/year from flight sim alone —
           before gaming, racing sim, or APAC expansion.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ─── TAB 9: LEARNINGS ────────────────────────────────────────────────────
+function LearningsTab() {
+  const collab = COLLABS[0]; // Jacob × P1
+  const categories = [...new Set(LEARNINGS.map(l => l.category))];
+
+  return (
+    <div className="space-y-6">
+      <h2 className="text-xl font-bold text-gray-900">Learnings — Accumulated Intelligence</h2>
+      <p className="text-gray-600 text-sm">Every deal teaches something. This feeds into future campaigns automatically.</p>
+
+      {/* Stats */}
+      <div className="grid grid-cols-3 gap-4">
+        <div className="bg-white rounded-xl border border-gray-200 p-4 text-center">
+          <p className="text-2xl font-bold text-gray-900">{LEARNINGS.length}</p>
+          <p className="text-xs text-gray-500">Total learnings</p>
+        </div>
+        <div className="bg-white rounded-xl border border-gray-200 p-4 text-center">
+          <p className="text-2xl font-bold text-gray-900">{categories.length}</p>
+          <p className="text-xs text-gray-500">Categories</p>
+        </div>
+        <div className="bg-white rounded-xl border border-gray-200 p-4 text-center">
+          <p className="text-2xl font-bold text-gray-900">{COLLABS.length}</p>
+          <p className="text-xs text-gray-500">Deals tracked</p>
+        </div>
+      </div>
+
+      {/* By category */}
+      {categories.map(cat => (
+        <div key={cat} className="bg-white rounded-xl border border-gray-200 p-5">
+          <h3 className="font-bold text-gray-900 mb-3 capitalize">{cat.replace('-', ' ')}</h3>
+          <div className="space-y-2">
+            {LEARNINGS.filter(l => l.category === cat).map((l, i) => (
+              <div key={i} className="flex gap-3 items-start p-3 bg-gray-50 rounded-lg">
+                <Star className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-sm text-gray-800">{l.learning}</p>
+                  <p className="text-xs text-gray-400 mt-1">{l.deal} · {l.date}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      {/* Call Notes */}
+      <div className="bg-white rounded-xl border border-gray-200 p-5">
+        <h3 className="font-bold text-gray-900 mb-3">Call Notes Log</h3>
+        {collab.callNotes.map((note, i) => (
+          <div key={i} className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <p className="font-semibold text-blue-900 text-sm mb-2">{note.date} — {note.summary}</p>
+            <ul className="space-y-1">
+              {note.keyPoints.map((point, j) => (
+                <li key={j} className="text-xs text-blue-800 flex gap-2">
+                  <span>•</span><span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      {/* Timeline */}
+      <div className="bg-white rounded-xl border border-gray-200 p-5">
+        <h3 className="font-bold text-gray-900 mb-3">Deal Timeline</h3>
+        <div className="space-y-2">
+          {collab.timeline.map((item, i) => (
+            <div key={i} className="flex items-center gap-3 p-2">
+              {item.done ? (
+                <CheckCircle2 className="w-4 h-4 text-green-500" />
+              ) : (
+                <Circle className="w-4 h-4 text-gray-300" />
+              )}
+              <span className={`text-sm ${item.done ? 'text-gray-500 line-through' : 'text-gray-800'}`}>{item.milestone}</span>
+              <span className="text-xs text-gray-400 ml-auto">{item.date}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+        <h3 className="font-semibold text-green-900 mb-2">🧠 How This Works</h3>
+        <p className="text-green-800 text-sm">
+          All data lives in <code className="bg-green-200 px-1 rounded text-xs">lib/collabs-data.ts</code>.
+          The collabs page, briefs, ROI projections, and future campaigns all read from this single file.
+          Update once → flows everywhere.
         </p>
       </div>
     </div>
