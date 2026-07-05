@@ -23,17 +23,14 @@ export default function Home() {
     <main className="flex min-h-screen flex-col pb-16 sm:pb-0">
 
       {/* ── HERO: Video Background ── */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-        {/* Video background — swap src with your 30s APAC gaming loop */}
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-gradient-to-br from-[#0D0D0D] via-[#1a0533] to-[#0D0D0D]">
+        {/* Video loads lazily — text renders immediately */}
         <video
           autoPlay muted loop playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster="/hero-poster.jpg"
+          preload="none"
         >
-          {/* Purple gaming setup — Pexels free stock (ID 36459927) */}
-          <source src="https://videos.pexels.com/video-files/36459927/36459927-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-          {/* Fallback: friends playing video games */}
-          <source src="https://videos.pexels.com/video-files/7914860/7914860-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+          <source src="https://www.pexels.com/download/video/8128283/" type="video/mp4" />
         </video>
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />

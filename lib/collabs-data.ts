@@ -143,6 +143,36 @@ export const LEARNINGS: { date: string; deal: string; learning: string; category
     learning: 'Verify audience size on the call. Our research said 167K YT — actual was 250K YT + 750K IG + 750K TT. Always confirm.',
     category: 'research',
   },
+  {
+    date: '2026-07-03',
+    deal: 'APAC Campaign Learnings',
+    learning: 'Short-form content drives discovery and awareness (top of funnel). Long-form YouTube drives actual purchase decisions for high-ticket items ($1K+). Structure KPIs accordingly.',
+    category: 'content-strategy',
+  },
+  {
+    date: '2026-07-03',
+    deal: 'APAC Campaign Learnings',
+    learning: 'For hardware/high-AOV products: measure shorts on reach/impressions, measure long-form on clicks/promo code/attributed revenue. Different content = different KPIs.',
+    category: 'attribution',
+  },
+  {
+    date: '2026-07-03',
+    deal: 'APAC Campaign Learnings',
+    learning: 'Retargeting video viewers within 7 days with product ads closes the gap between "watched" and "bought." Requires GA4 + Google Ads on brand site.',
+    category: 'attribution',
+  },
+  {
+    date: '2026-07-03',
+    deal: 'APAC Campaign Learnings',
+    learning: 'Personalised buyer experiences (setup calls, exclusive access) turn $3K purchases into $10K feelings. First 3 buyers get VIP treatment = social proof + word-of-mouth.',
+    category: 'conversion',
+  },
+  {
+    date: '2026-07-03',
+    deal: 'APAC Campaign Learnings',
+    learning: 'The "unmasking" narrative works better than product reviews. Audiences want to discover what creators use — not be sold to. Frame brand integration as revelation, not promotion.',
+    category: 'messaging',
+  },
 ];
 
 // ─── ACTIVE COLLABS ─────────────────────────────────────────────────────

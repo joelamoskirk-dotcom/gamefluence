@@ -44,32 +44,39 @@ export interface ROIProjection {
 export class ROIProjectionEngine {
 
   static projectJacobP1(): ROIProjection {
-    // Real data from screenshots:
-    const avgViews = 47000; // average of 60K and 34K recent videos
-    const subs = 167000;
-    const discordMembers = 65759;
+    // UPDATED with real data from Jul 3 call:
+    // Jacob confirmed: 750K IG, 750K TT, 250K YT
+    // Shorts: 1M+ impressions each, $3K revenue per short
+    // Long-form: 50K-100K views
+    const avgViewsLongForm = 75000; // midpoint of 50K-100K
+    const shortFormImpressions = 1000000; // per short
+    const shortsPerMonth = 2;
+    const longFormPerMonth = 1;
 
-    // Conservative assumptions for first-time brand deal
-    const ctr = 2.5; // 2.5% CTR (flight sim audience is high-intent)
-    const conversionRate = 0.8; // 0.8% of clicks buy ($3K is a considered purchase)
-    const avgOrderValue = 3099; // Fighter Pilot Pack as anchor product
-    const postsPerMonth = 4;
+    // Conservative assumptions for flight sim hardware
+    const ctr = 2.5; // 2.5% CTR (high-intent audience)
+    const conversionRate = 0.8; // 0.8% of clicks buy
+    const avgOrderValue = 3099; // Fighter Pilot Pack
+    const postsPerMonth = 3; // 2 shorts + 1 long-form
 
-    const totalImpressions = avgViews * postsPerMonth;
-    const clicks = Math.round(totalImpressions * (ctr / 100));
+    // Total monthly impressions across all content
+    const totalImpressions = (shortsPerMonth * shortFormImpressions) + avgViewsLongForm;
+    // Only long-form drives direct purchase (shorts drive awareness)
+    const purchaseImpressions = avgViewsLongForm;
+    const clicks = Math.round(purchaseImpressions * (ctr / 100));
     const sales = Math.round(clicks * (conversionRate / 100));
     const monthlyRevenue = sales * avgOrderValue;
 
     const brandSpend = 8000;
-    const productSupply = 750; // avg monthly
+    const productSupply = 750;
     const totalInvestment = brandSpend + productSupply;
 
     const roi = ((monthlyRevenue - totalInvestment) / totalInvestment) * 100;
     const revenuePerDollar = monthlyRevenue / totalInvestment;
 
     // Mobileyes take
-    const mobileyesMonthly = 2700; // commission ($1,200) + agency fee ($1,500)
-    const affiliatePassive = sales * (avgOrderValue * 0.10 * 0.50); // 10% affiliate, 50% your split
+    const mobileyesMonthly = 2700;
+    const affiliatePassive = sales * (avgOrderValue * 0.10 * 0.50);
 
     return {
       collabId: 'collab_jacob_p1',
@@ -102,25 +109,30 @@ export class ROIProjectionEngine {
 
       confidence: 'medium',
       assumptions: [
-        `Average ${avgViews.toLocaleString()} views per video (based on recent DCS content performance)`,
-        `${ctr}% CTR — conservative for high-intent flight sim hardware audience`,
-        `${conversionRate}% conversion rate — considered purchase but trusted creator recommendation`,
+        `2 shorts/month × 1M+ impressions each = 2M+ awareness impressions (top of funnel)`,
+        `1 long-form/month × 75K views = purchase-intent audience (bottom of funnel)`,
+        `${ctr}% CTR on long-form — conservative for high-intent flight sim hardware audience`,
+        `${conversionRate}% conversion rate — considered $3K purchase but trusted creator recommendation`,
         `$${avgOrderValue.toLocaleString()} AOV — Fighter Pilot Pack as anchor product`,
-        'Discord community (65K) provides additional unpaid reach not modelled',
-        'No paid media amplification assumed — organic only',
+        'Total reach: 1.75M followers (750K IG + 750K TT + 250K YT)',
+        'Shorts drive awareness, long-form drives purchase decisions (APAC learning applied)',
+        'No paid media amplification assumed — organic only in month 1',
       ],
       risks: [
-        'Jacob has no prior brand deal track record — conversion rate is estimated',
+        'Jacob works for RAAF — content scheduling needs flexibility',
+        'Only 1 long-form per 8 weeks organically — may need incentive for monthly',
+        'Thrustmaster existing collab — P1 must differentiate (AU-local, force feedback, entry kits)',
+        'Seasonal variation + RAAF commitments could affect posting consistency',
         'DCS audience may already own flight gear — repeat purchase rate unknown',
-        'Seasonal variation (holiday spikes, quiet periods)',
-        'If Jacob posts inconsistently, reach drops linearly',
       ],
       upside: [
-        'DCS Discord (65K members) = additional free distribution channel not modelled',
-        'Flight sim audience word-of-mouth is extremely strong — one viral review could 10x',
-        'Jacob becomes a referral source for other flight sim creators → more roster talent',
-        'Affiliate continues earning even if retainer ends',
-        'P1 could expand to racing sim gear through same relationship',
+        'Shorts reach 1M+ impressions EACH — brand awareness far exceeds $8K value',
+        'Force feedback stick = genuine excitement = best-ever "first flight" content',
+        'DCS-branded P1 pack idea from Jacob = co-branded viral product',
+        'Flight Sim Expo appearances = physical brand presence + content',
+        'Gateway to entire flight sim creator vertical — zero agency competition in AU',
+        'Personalised setup call for buyers = premium experience + word-of-mouth',
+        'Jacob can help quit RAAF if scaled to 2+ brand deals',
       ],
     };
   }
