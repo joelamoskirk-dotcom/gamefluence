@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 
 const MARKETS = [
+  { id: 'australia', flag: '🇦🇺', name: 'Australia', creators: '45+', topGame: 'DCS / Racing Sim' },
+  { id: 'new-zealand', flag: '🇳🇿', name: 'New Zealand', creators: '22+', topGame: 'Fortnite / Racing' },
   { id: 'indonesia', flag: '🇮🇩', name: 'Indonesia', creators: '65+', topGame: 'Mobile Legends' },
   { id: 'philippines', flag: '🇵🇭', name: 'Philippines', creators: '52+', topGame: 'Mobile Legends' },
   { id: 'vietnam', flag: '🇻🇳', name: 'Vietnam', creators: '48+', topGame: 'Arena of Valor' },
@@ -28,9 +30,8 @@ export default function Home() {
         <video
           autoPlay muted loop playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          preload="none"
         >
-          <source src="https://www.pexels.com/download/video/8128283/" type="video/mp4" />
+          <source src="/hero-gaming.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
