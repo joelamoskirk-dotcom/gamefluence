@@ -2,243 +2,326 @@
 
 import React, { useState } from 'react';
 import FounderGuard from '@/components/FounderGuard';
-import { Send, Eye, Edit3, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, Eye, Edit3, CheckCircle, AlertCircle, ArrowRight, Clock, User, Building2 } from 'lucide-react';
 
-interface EmailDraft {
+type StepStatus = 'pending' | 'ready' | 'sent' | 'done';
+type Recipient = 'creator' | 'brand';
+
+interface WorkflowStep {
   id: string;
+  order: number;
   label: string;
+  recipient: Recipient;
+  status: StepStatus;
+  description: string;
   to: string;
   subject: string;
   body: string;
+  dependsOn?: string;
 }
 
-const DRAFTS: EmailDraft[] = [
+const WORKFLOW_STEPS: WorkflowStep[] = [
   {
-    id: 'jacob-summary',
-    label: 'Jacob — Meeting Summary + Next Steps',
+    id: 'creator-summary',
+    order: 1,
+    label: 'Meeting Summary',
+    recipient: 'creator',
+    status: 'ready',
+    description: 'Send Jacob the call summary with content ideas, agreements, and next steps.',
     to: 'jacob_tabor@outlook.com',
     subject: 'Our chat — summary + next steps | Mobileyes',
     body: `Hey Jacob,
 
-Great chat today. Here's a summary of what we discussed, the content ideas, and next steps for you to review.
+Great chat today. Here's a quick summary of what we discussed and the plan forward.
 
 ---
 
 WHAT WE AGREED
 
-1. Long-form frequency: 1 video every 1–2 months. No pressure beyond that — quality over quantity.
-2. Affiliate-first approach: Low-risk monetization. Links in descriptions, pinned comments. You earn a cut on any sales your audience drives. Zero extra work.
-3. Non-exclusive partnership: 20% commission on revenue. Leave anytime with 14 days notice. No lock-in.
-4. Pilot project: One "rig rundown" video featuring new flight sim equipment. We start there and see how it feels.
+1. Long-form frequency: 1 video every 1–2 months. Quality over quantity.
+2. Affiliate-first approach: Low-risk. Links in descriptions. You earn a cut on sales. Zero extra work.
+3. Non-exclusive: 20% commission. Leave anytime, 14 days notice.
+4. Pilot project: One "rig rundown" video. We start there and see how it feels.
 
 ---
 
-CONTENT IDEAS (From Our Discussion)
+CONTENT IDEAS
 
-• Custom rig rundown — showcase a new flight sim rig, your setup, how each piece integrates with DCS gameplay
-• Organic integration — any brand content must feel like natural gameplay. Use analogies between real military tech and the gear
-• Face reveal timing — when you're ready, it's a powerful content moment. No rush.
-• Flight Sim Expo appearances — physical presence + content = powerful brand partnership angle
-• Facebook expansion — you mentioned considering it for additional reach
+• Custom rig rundown — showcase new flight sim gear in use during DCS gameplay
+• Organic integration — brand content feels like natural gameplay, not an ad
+• Military tech analogies — your RAAF background makes gear recs uniquely credible
+• Flight Sim Expo content — physical presence + video = powerful
 
 ---
 
-CONTENT ETHICS (What I Heard)
+YOUR RULES (Noted & Respected)
 
-✅ Ads must be organically integrated into DCS gameplay
-✅ Both you AND your audience should benefit from any deal
-❌ No "scummy" products or pure cash grabs
-❌ No burdensome production requirements (no more hand-cam situations)
-✅ Your trust with your audience comes first. Always.
+✅ Must include genuine DCS gameplay
+✅ Both you AND your audience benefit
+❌ No "scummy" products
+❌ No forced formats (no more hand-cam situations)
+✅ Audience trust comes first. Always.
 
 ---
 
 THE PILOT
 
-• What: A rig rundown video featuring flight sim equipment from an AU-based hardware retailer
-• How: They ship you gear. You try it. You make a video showing it in use during real DCS gameplay.
-• Your commitment: One video. See how it goes. No multi-month lock-in.
-• Revenue: Affiliate on any sales + we're working on a retainer structure for ongoing
+• One rig rundown video featuring P1 Sim Gear equipment
+• They ship you gear. You try it. You make a video with it in DCS.
+• One video. See how it goes. No lock-in.
+• Revenue: affiliate on sales + working on retainer for ongoing
 
 ---
 
 NEXT STEPS
 
-For me (Joel):
-□ Send you the non-exclusive representation agreement (coming today)
-□ Brief the hardware partner and get gear shipping confirmed
-□ Set up affiliate tracking / promo code
+From me:
+□ Send you the non-exclusive agreement (next email)
+□ Brief the hardware partner + confirm gear shipping
+□ Set up affiliate tracking
 
-For you (Jacob):
-□ Review the agreement when it arrives (quick read, no lock-in)
-□ Share Discord contacts for any DCS creators you'd recommend
-□ Let me know your availability window for the pilot video once gear arrives
+From you:
+□ Review + sign the agreement (2 min, no lock-in)
+□ Share any DCS creator Discord contacts you'd recommend
+□ Let me know availability once gear arrives
 
 ---
 
-The bigger picture: if this works, you've got ongoing retainer income, compounding affiliate revenue, and a route out of corporate if/when you decide content is the full-time move. But zero pressure — start with one video and see how it feels.
+If this pilot works: ongoing income, compounding affiliate, and a route out of corporate when you're ready. But zero pressure — one video first.
 
-Questions? Just reply here or message me anytime.
+Questions? Reply here anytime.
 
 Cheers,
 Joel Kirk
 Mobileyes · admin@mobileyes.live`,
   },
   {
-    id: 'jacob-agreement',
-    label: 'Jacob — Talent Agreement Link',
+    id: 'creator-agreement',
+    order: 2,
+    label: 'Talent Agreement',
+    recipient: 'creator',
+    status: 'pending',
+    description: 'Send the agreement link + payment details form. Send after Step 1.',
     to: 'jacob_tabor@outlook.com',
-    subject: 'Mobileyes Talent Agreement — quick sign | Joel',
+    subject: 'Mobileyes Agreement — quick sign | Joel',
+    dependsOn: 'creator-summary',
     body: `Hey Jacob,
 
-As discussed — here's the talent representation agreement for you to review and sign:
+Following up from the summary — here's the agreement to review and sign:
 
-https://gamefluence.com.au/talent-signup
+👉 https://gamefluence.com.au/talent-signup
 
 Key points:
-• Non-exclusive — you can work with anyone else
+• Non-exclusive — work with anyone else
 • 20% commission on deals we bring you
 • 14 days notice to exit anytime
 • You own all your content, always
 
-Takes about 2 minutes to fill in. Once signed, I'll get the gear partner confirmed and shipping sorted.
+Takes ~2 minutes. Once signed, I'll get Neil confirmed and gear shipping sorted.
 
-After signing, there's a quick payment details form so we can pay you fast:
-https://gamefluence.com.au/pay-details?email=jacob_tabor@outlook.com
+After signing, there's a quick payment form so we can pay you fast:
+👉 https://gamefluence.com.au/pay-details?email=jacob_tabor@outlook.com
 
-No rush — but the hardware partner is ready to move, so the sooner we lock in, the sooner gear ships.
+The hardware partner is ready to move — the sooner we lock in, the sooner gear ships your way.
 
 Cheers,
 Joel`,
   },
   {
-    id: 'neil-brief',
-    label: 'Neil — Pilot Campaign Reverse Brief',
+    id: 'brand-brief',
+    order: 3,
+    label: 'Pilot Brief',
+    recipient: 'brand',
+    status: 'pending',
+    description: 'Send Neil the reverse brief for the pilot campaign. Send after Jacob signs.',
     to: '',
     subject: 'P1 × Jacob Tabor — Pilot Campaign Brief | Mobileyes',
+    dependsOn: 'creator-agreement',
     body: `Hey Neil,
 
-Following our conversations — I've spoken with Jacob and he's keen to do a pilot video.
+Good news — Jacob is keen. He's reviewing the agreement now.
 
-Here's the plan:
+Here's the pilot plan:
 
-THE PILOT
-• One "rig rundown" video — Jacob showcases a P1 flight sim setup in use during DCS gameplay
-• Not a scripted ad — genuine content showing the gear integrated with flying
-• His audience (250K YT, 750K IG, 750K TT) = serious flight sim hardware buyers
+THE VIDEO
+• One "rig rundown" — Jacob showcases P1 gear in use during DCS gameplay
+• Not scripted — genuine content, his style, his audience
+• His reach: 250K YouTube + 750K IG + 750K TikTok = serious flight sim buyers
 
-WHAT WE NEED FROM YOU
-• Confirm you're keen on the pilot approach
-• Confirm which P1 products to ship (Fighter Pilot Pack recommended)
-• Set up promo code "JACOBDCS" in your Shopify
-• Ship to Jacob in Port Stephens, NSW (I'll provide address once he signs)
+WHAT I NEED FROM YOU
+1. Confirm you're keen on the pilot approach
+2. Confirm which products to ship (Fighter Pilot Pack recommended)
+3. Set up promo code "JACOBDCS" in Shopify
+4. Ship to Port Stephens, NSW (address coming once he signs)
 
-YOUR INVESTMENT
-• Product supply: ~$3,099 (Fighter Pilot Pack — Jacob keeps it)
+YOUR COST (Pilot Only)
+• Product supply: ~$3,099 (Jacob keeps — cost of acquisition)
 • Pilot management fee: $750 (one-time)
 • Total: ~$3,849
 
 WHAT YOU GET
-• One video reaching 250K+ potential viewers
-• Permanent affiliate link in the video description
+• Video reaching 250K+ potential viewers
+• Permanent affiliate link earning forever
 • Promo code attribution — see exactly which sales come from Jacob
-• Proof of concept — if it drives $5K+ in sales within 30 days, we scale to monthly retainer
+• Proof of concept — if it works, we scale to monthly retainer
 
-No long-term commitment. Ship gear, one video, measure results. If it works, we grow it.
+No long-term commitment. One video. Measure results. Grow from there.
 
-Let me know if you're good to go and I'll get Jacob signed this week.
+Let me know if you're good to go.
 
 Cheers,
 Joel Kirk
 Mobileyes · admin@mobileyes.live`,
   },
+  {
+    id: 'brand-confirm',
+    order: 4,
+    label: 'Gear Shipping Confirm',
+    recipient: 'brand',
+    status: 'pending',
+    description: 'Confirm shipping details with Neil once Jacob is signed.',
+    to: '',
+    subject: 'Jacob signed — shipping details for P1 gear | Mobileyes',
+    dependsOn: 'brand-brief',
+    body: `Hey Neil,
+
+Jacob has signed the agreement. Ready to ship gear.
+
+SHIPPING DETAILS
+• Name: Jacob Tabor
+• Location: Port Stephens / Newcastle area, NSW
+• [I'll confirm exact address with Jacob and update you]
+
+WHAT TO SHIP
+• Fighter Pilot Pack (or confirmed product)
+• Include any setup instructions or quick-start guide
+
+PROMO CODE
+• Please set up "JACOBDCS" in Shopify — no discount required, tracking only
+• Or if you want to offer 5% buyer incentive, that works too
+
+Once gear arrives, Jacob will produce the rig rundown within 2–4 weeks (flexible — his schedule).
+
+I'll keep you posted on progress.
+
+Cheers,
+Joel`,
+  },
+  {
+    id: 'creator-pay-confirm',
+    order: 5,
+    label: 'Payment Confirmed',
+    recipient: 'creator',
+    status: 'pending',
+    description: 'Confirm payment details received + gear is shipping.',
+    to: 'jacob_tabor@outlook.com',
+    subject: 'All set — gear on its way | Mobileyes',
+    dependsOn: 'brand-confirm',
+    body: `Hey Jacob,
+
+Quick update:
+
+✅ Agreement signed — you're officially represented
+✅ Payment details received — you'll be paid within 4 business days of post verification
+✅ Gear confirmed — P1 is shipping the Fighter Pilot Pack to you
+
+Once it arrives, take your time. No deadline. When you're ready to film, let me know and I'll make sure the tracking links + promo code are live.
+
+The brief is simple: plug it in, fly with it, film a rig rundown. Your style, your way. If you love the gear, say so. If something could be better, say that too. Authentic = converts.
+
+Talk soon,
+Joel`,
+  },
 ];
 
 export default function SendEmailPage() {
-  const [selectedDraft, setSelectedDraft] = useState<EmailDraft>(DRAFTS[0]);
-  const [to, setTo] = useState(DRAFTS[0].to);
-  const [subject, setSubject] = useState(DRAFTS[0].subject);
-  const [body, setBody] = useState(DRAFTS[0].body);
+  const [steps, setSteps] = useState<WorkflowStep[]>(WORKFLOW_STEPS);
+  const [activeStep, setActiveStep] = useState<WorkflowStep>(WORKFLOW_STEPS[0]);
+  const [to, setTo] = useState(WORKFLOW_STEPS[0].to);
+  const [subject, setSubject] = useState(WORKFLOW_STEPS[0].subject);
+  const [body, setBody] = useState(WORKFLOW_STEPS[0].body);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
   const [mode, setMode] = useState<'edit' | 'preview'>('edit');
 
-  const loadDraft = (draft: EmailDraft) => {
-    setSelectedDraft(draft);
-    setTo(draft.to);
-    setSubject(draft.subject);
-    setBody(draft.body);
+  const loadStep = (step: WorkflowStep) => {
+    setActiveStep(step);
+    setTo(step.to);
+    setSubject(step.subject);
+    setBody(step.body);
     setSent(false);
     setError('');
   };
 
   const handleSend = async () => {
-    if (!to || !subject || !body) {
-      setError('All fields are required');
-      return;
-    }
-    setSending(true);
-    setError('');
+    if (!to || !subject || !body) { setError('All fields required'); return; }
+    setSending(true); setError('');
     try {
-      const res = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ to, subject, body }),
-      });
+      const res = await fetch('/api/send-email', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ to, subject, body }) });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Failed to send');
+      if (!res.ok) throw new Error(data.error || 'Failed');
       setSent(true);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Send failed');
-    } finally {
-      setSending(false);
-    }
+      setSteps(prev => prev.map(s => s.id === activeStep.id ? { ...s, status: 'sent' as StepStatus } : s));
+    } catch (err) { setError(err instanceof Error ? err.message : 'Failed'); }
+    finally { setSending(false); }
   };
 
   return (
     <FounderGuard requireFounder>
       <div className="min-h-screen bg-[#0D0D0D] text-white p-4 sm:p-8">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-2xl font-bold mb-6">Send Email</h1>
+        <div className="max-w-5xl mx-auto">
+          <h1 className="text-2xl font-bold mb-2">Email Workflow</h1>
+          <p className="text-gray-400 text-sm mb-6">Process-driven emails. Each step unlocks the next. Edit before sending.</p>
 
-          {/* Draft Selector */}
-          <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
-            {DRAFTS.map(d => (
-              <button key={d.id} onClick={() => loadDraft(d)}
-                className={`px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition ${
-                  selectedDraft.id === d.id ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-[#161616] border border-white/10 text-white/60 hover:text-white'
-                }`}>{d.label}</button>
-            ))}
+          {/* Pipeline */}
+          <div className="bg-[#161616] border border-white/10 rounded-xl p-4 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-[10px] font-mono text-purple-400 uppercase tracking-wider">Deal Pipeline — Jacob × P1</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-5 gap-2">
+              {steps.map((step) => (
+                <button key={step.id} onClick={() => loadStep(step)}
+                  className={`p-3 rounded-lg text-left transition border ${
+                    activeStep.id === step.id ? 'border-purple-500/50 bg-purple-500/10' :
+                    step.status === 'sent' ? 'border-green-500/30 bg-green-500/5' :
+                    'border-white/5 bg-white/5 hover:bg-white/10'
+                  }`}>
+                  <div className="flex items-center gap-1.5 mb-1">
+                    {step.recipient === 'creator' ? <User className="w-3 h-3 text-blue-400" /> : <Building2 className="w-3 h-3 text-amber-400" />}
+                    <span className="text-[10px] font-mono text-gray-500">{step.order}</span>
+                  </div>
+                  <p className="text-xs font-medium text-white/90 leading-tight">{step.label}</p>
+                  <p className="text-[10px] mt-1 text-gray-500">
+                    {step.status === 'sent' ? '✓ Sent' : step.status === 'ready' ? '● Ready' : '○ Pending'}
+                  </p>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Active Step Info */}
+          <div className="flex items-center gap-3 mb-4">
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${activeStep.recipient === 'creator' ? 'bg-blue-500/20' : 'bg-amber-500/20'}`}>
+              {activeStep.recipient === 'creator' ? <User className="w-4 h-4 text-blue-400" /> : <Building2 className="w-4 h-4 text-amber-400" />}
+            </div>
+            <div>
+              <p className="text-sm font-medium">Step {activeStep.order}: {activeStep.label}</p>
+              <p className="text-xs text-gray-400">{activeStep.description}</p>
+            </div>
           </div>
 
           {/* Mode Toggle */}
           <div className="flex gap-2 mb-4">
-            <button onClick={() => setMode('edit')} className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-medium ${mode === 'edit' ? 'bg-white/10 text-white' : 'text-white/40'}`}>
-              <Edit3 className="w-3 h-3" /> Edit
-            </button>
-            <button onClick={() => setMode('preview')} className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-medium ${mode === 'preview' ? 'bg-white/10 text-white' : 'text-white/40'}`}>
-              <Eye className="w-3 h-3" /> Preview
-            </button>
+            <button onClick={() => setMode('edit')} className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-medium ${mode === 'edit' ? 'bg-white/10 text-white' : 'text-white/40'}`}><Edit3 className="w-3 h-3" /> Edit</button>
+            <button onClick={() => setMode('preview')} className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-medium ${mode === 'preview' ? 'bg-white/10 text-white' : 'text-white/40'}`}><Eye className="w-3 h-3" /> Preview</button>
           </div>
 
           {mode === 'edit' ? (
             <div className="space-y-4">
-              <div>
-                <label className="block text-xs text-gray-400 mb-1">To</label>
-                <input value={to} onChange={e => setTo(e.target.value)}
-                  className="w-full bg-[#161616] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500" placeholder="email@example.com" />
-              </div>
-              <div>
-                <label className="block text-xs text-gray-400 mb-1">Subject</label>
-                <input value={subject} onChange={e => setSubject(e.target.value)}
-                  className="w-full bg-[#161616] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500" />
-              </div>
-              <div>
-                <label className="block text-xs text-gray-400 mb-1">Body</label>
-                <textarea value={body} onChange={e => setBody(e.target.value)} rows={20}
-                  className="w-full bg-[#161616] border border-white/10 rounded-lg px-4 py-3 text-white font-mono text-sm leading-relaxed focus:outline-none focus:border-purple-500 resize-y" />
-              </div>
+              <div><label className="block text-xs text-gray-400 mb-1">To</label><input value={to} onChange={e => setTo(e.target.value)} className="w-full bg-[#161616] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500" /></div>
+              <div><label className="block text-xs text-gray-400 mb-1">Subject</label><input value={subject} onChange={e => setSubject(e.target.value)} className="w-full bg-[#161616] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500" /></div>
+              <div><label className="block text-xs text-gray-400 mb-1">Body</label><textarea value={body} onChange={e => setBody(e.target.value)} rows={18} className="w-full bg-[#161616] border border-white/10 rounded-lg px-4 py-3 text-white font-mono text-sm leading-relaxed focus:outline-none focus:border-purple-500 resize-y" /></div>
             </div>
           ) : (
             <div className="bg-[#161616] border border-white/10 rounded-xl p-6">
@@ -248,15 +331,12 @@ export default function SendEmailPage() {
             </div>
           )}
 
-          {/* Status */}
           {error && <div className="mt-4 p-3 bg-red-500/10 border border-red-500/30 rounded-lg flex items-center gap-2"><AlertCircle className="w-4 h-4 text-red-400" /><span className="text-red-400 text-sm">{error}</span></div>}
-          {sent && <div className="mt-4 p-3 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-400" /><span className="text-green-400 text-sm">Email sent successfully to {to}</span></div>}
+          {sent && <div className="mt-4 p-3 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-400" /><span className="text-green-400 text-sm">Sent to {to} ✓</span></div>}
 
-          {/* Send Button */}
           <button onClick={handleSend} disabled={sending || sent}
             className="mt-6 w-full bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white font-semibold py-4 rounded-xl transition flex items-center justify-center gap-2">
-            <Send className="w-4 h-4" />
-            {sending ? 'Sending...' : sent ? 'Sent ✓' : 'Send Email'}
+            <Send className="w-4 h-4" /> {sending ? 'Sending...' : sent ? 'Sent ✓' : `Send to ${activeStep.recipient === 'creator' ? 'Jacob' : 'Neil'}`}
           </button>
         </div>
       </div>
