@@ -89,7 +89,7 @@ export class ROIProjectionEngine {
       totalMonthlyInvestment: totalInvestment,
 
       postsPerMonth,
-      avgViewsPerPost: avgViews,
+      avgViewsPerPost: avgViewsLongForm,
       totalMonthlyImpressions: totalImpressions,
       estimatedCTR: ctr,
       estimatedClicks: clicks,
