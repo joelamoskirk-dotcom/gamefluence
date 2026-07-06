@@ -7,19 +7,22 @@ export default function CreatorsPage() {
     <main className="container mx-auto px-4 py-12">
       {/* Hero */}
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <h1 className="text-4xl font-bold mb-4">
-          We Match You With the Right Creators
+        <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-full px-4 py-1.5 mb-6 text-sm text-green-700">
+          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+          Accepting AU &amp; APAC creators
+        </div>
+        <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+          Get Paid to Game
         </h1>
-        <p className="text-lg text-gray-600 mb-8">
-          Our roster is private. We use AI-powered matching to connect your brand with
-          verified APAC gaming creators who fit your campaign goals, audience, and budget.
+        <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          We connect gaming creators with brands who pay properly and fast. No chasing invoices. No content you wouldn&apos;t make anyway. Non-exclusive. 4-day payment. Keep your audience, keep your style.
         </p>
         <div className="flex justify-center gap-4">
-          <Link href="/get-started">
-            <Button>Get Matched</Button>
+          <Link href="/talent-signup">
+            <Button>Apply Now — 2 Minutes</Button>
           </Link>
-          <Link href="/creator-signup">
-            <Button variant="outline">Join as Creator</Button>
+          <Link href="/get-started">
+            <Button variant="outline">I&apos;m a Brand</Button>
           </Link>
         </div>
       </div>

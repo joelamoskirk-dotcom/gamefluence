@@ -99,48 +99,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SERVICES (G-06) ── */}
+      {/* ── SERVICES ── */}
       <section className="py-16 bg-[#0D0D0D]">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-3">What We Operate</h2>
-          <p className="text-white/50 text-center mb-10 max-w-xl mx-auto text-sm">
-            Three service lines. Repeatable. Measured. Always-on.
+          <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-3">How We Move the Needle</h2>
+          <p className="text-white/50 text-center mb-12 max-w-2xl mx-auto text-sm">
+            Built by a team that scaled Kick to 100M users and ran UA at King (Candy Crush) and Amazon Games. Not theory — operating playbooks.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div className="bg-[#161616] border border-white/10 rounded-xl p-6">
-              <div className="inline-block bg-purple-500/20 text-purple-400 text-xs font-mono px-2 py-1 rounded mb-4">LIVE-OPS</div>
-              <h3 className="text-white font-bold text-lg mb-3">Live-Ops Creator System</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="bg-[#161616] border border-white/10 rounded-xl p-6 hover:border-purple-500/30 transition">
+              <div className="inline-block bg-pink-500/20 text-pink-400 text-xs font-mono px-2 py-1 rounded mb-4">01 · CREATOR CAMPAIGNS</div>
+              <h3 className="text-white font-bold text-lg mb-3">Gaming Influencers for Reach &amp; Awareness</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Every content drop becomes a creator campaign. We match gaming creators to your update, deep link their audiences straight into the new content, and read out results within 7 days. Repeatable, measured, always-on.
+                Your new title needs eyeballs from the right audience. We match you with gaming creators who actually play your genre, brief them properly, and attribute every install back to the source. Not spray-and-pray — targeted, measured, repeatable.
               </p>
             </div>
 
-            <div className="bg-[#161616] border border-white/10 rounded-xl p-6">
-              <div className="inline-block bg-purple-500/20 text-purple-400 text-xs font-mono px-2 py-1 rounded mb-4">UA</div>
-              <h3 className="text-white font-bold text-lg mb-3">UA &amp; Measurement</h3>
+            <div className="bg-[#161616] border border-white/10 rounded-xl p-6 hover:border-purple-500/30 transition">
+              <div className="inline-block bg-blue-500/20 text-blue-400 text-xs font-mono px-2 py-1 rounded mb-4">02 · UA &amp; MEASUREMENT</div>
+              <h3 className="text-white font-bold text-lg mb-3">User Acquisition with Verified MMP Attribution</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Attribution stood up properly — MMP configuration, deep-link infrastructure, incrementality testing, and incremental ad channels you&apos;ve never bought. You keep the stack; we operate it.
+                10+ years running UA at scale. MMP configuration done right (AppsFlyer, Adjust, Singular). Deep-link infrastructure, incrementality testing, SKAN compliance, and channels your competitors haven&apos;t found yet. You keep the stack — we operate it and prove what works.
               </p>
             </div>
 
-            <div className="bg-[#161616] border border-white/10 rounded-xl p-6">
-              <div className="inline-block bg-purple-500/20 text-purple-400 text-xs font-mono px-2 py-1 rounded mb-4">GROWTH</div>
-              <h3 className="text-white font-bold text-lg mb-3">Cross-Promo &amp; Portfolio Growth</h3>
+            <div className="bg-[#161616] border border-white/10 rounded-xl p-6 hover:border-purple-500/30 transition">
+              <div className="inline-block bg-green-500/20 text-green-400 text-xs font-mono px-2 py-1 rounded mb-4">03 · CROSS-PROMO &amp; PORTFOLIO</div>
+              <h3 className="text-white font-bold text-lg mb-3">Your Players Are Your Cheapest Installs</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Your existing players are your cheapest installs. House placements, audience syncs and creator-led cross-promotion across your portfolio — costed on measured uplift.
+                House placements, audience syncs, creator-led cross-promotion across your portfolio. We build the system that turns Game A players into Game B installs — costed on measured uplift, not guesswork. If you&apos;ve got multiple titles, this is where the compounding starts.
+              </p>
+            </div>
+
+            <div className="bg-[#161616] border border-white/10 rounded-xl p-6 hover:border-purple-500/30 transition">
+              <div className="inline-block bg-amber-500/20 text-amber-400 text-xs font-mono px-2 py-1 rounded mb-4">04 · iGAMING &amp; MARKET ENTRY</div>
+              <h3 className="text-white font-bold text-lg mb-3">Consultancy for New Markets &amp; Regulation</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                Entering APAC? Launching in a regulated market? We handle the hard stuff: iGaming licensing advisory, creative localisation, regulatory compliance, and technical implementation. From market research to live operations — one partner, end to end.
               </p>
             </div>
           </div>
 
-          {/* G-09: APAC proof strip */}
-          <div className="mt-10 text-center">
-            <div className="inline-flex items-center gap-3 text-white/40 text-xs font-mono tracking-wide">
-              <span>Vietnam-first APAC operation</span>
+          {/* Proof strip */}
+          <div className="mt-12 text-center">
+            <div className="inline-flex items-center gap-3 text-white/40 text-xs font-mono tracking-wide flex-wrap justify-center">
+              <span>Ex-Amazon Games</span>
               <span className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-              <span>HCMC creator network</span>
+              <span>Ex-King (Candy Crush)</span>
               <span className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-              <span>AU HQ</span>
+              <span>Scaled Kick to 100M</span>
+              <span className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
+              <span>AU HQ · APAC Network</span>
             </div>
           </div>
         </div>
@@ -174,14 +184,15 @@ export default function Home() {
       {/* ── HOW IT WORKS ── */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">How Agencies Use Gamefluence</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3">Launch in Under 5 Minutes</h2>
+          <p className="text-gray-500 text-center mb-12 max-w-xl mx-auto text-sm">No 6-week onboarding. No "let&apos;s schedule a sync." Brief us, we match creators, you launch.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {[
-              { step: '1', icon: '🎯', title: 'Submit Brief', desc: 'Select market, genre, budget. Our AI analyses your brief against historical campaign data.' },
-              { step: '2', icon: '🤖', title: 'AI Matches Creators', desc: 'Machine learning scores every creator on ROI history, engagement, audience quality and brand safety.' },
-              { step: '3', icon: '💳', title: 'Pay & Launch', desc: 'Secure Stripe checkout. On-platform creators activate instantly. Others enter smart outreach.' },
-              { step: '4', icon: '📊', title: 'Track & Optimise', desc: 'Real-time attribution via AppsFlyer, Adjust, UTM or promo codes. Every install tracked.' },
+              { step: '1', icon: '🎯', title: 'Drop Your Brief', desc: 'Market, genre, budget, timeline. Our system scores your brief against live creator performance data.' },
+              { step: '2', icon: '🤖', title: 'We Match & Vet', desc: 'AI + human curation. Every creator vetted on actual ROI history, audience quality, and brand safety. No bots.' },
+              { step: '3', icon: '🚀', title: 'Go Live', desc: 'Creators activate within days. Deep-linked, tracked, attributed. You see results in real-time, not a PDF next month.' },
+              { step: '4', icon: '📊', title: 'Prove It Worked', desc: 'MMP-verified attribution. Per-creator CPI, ROAS, incrementality. Exportable for your board deck or client report.' },
             ].map(s => (
               <div key={s.step} className="text-center">
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-2xl mx-auto mb-4">{s.icon}</div>
