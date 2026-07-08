@@ -363,6 +363,45 @@ export const COLLABS: Collab[] = [
 
 // ─── EXPANSION ROSTER ───────────────────────────────────────────────────
 
+// ─── UPCOMING CALLS (Ready for post-call learnings) ─────────────────────
+
+export interface UpcomingCall {
+  id: string;
+  contact: string;
+  company?: string;
+  date: string;
+  context: string;
+  objectives: string[];
+  feedBackTo: string[];
+  status: 'scheduled' | 'completed' | 'cancelled';
+  callNotes?: { date: string; summary: string; keyPoints: string[] };
+  learnings?: string[];
+}
+
+export const UPCOMING_CALLS: UpcomingCall[] = [
+  {
+    id: 'call_ceri_hutton',
+    contact: 'Ceri Hutton',
+    date: '2026-07-TBD',
+    context: 'Impact gaming discussion — government attribution, live-ops creator integration, investability thesis. Full call script at proposals/ceri-hutton-call-script.md. Research at SCREEN_FUNDING_ANALYSIS.md.',
+    objectives: [
+      'Validate impact gaming thesis — does "attribution for government" resonate?',
+      'Understand Ceri\'s network and position in gaming/investment/policy ecosystem',
+      'Find the first pilot — one funded game with full attribution = the case study',
+      'Explore partnership angles: advisory, introductions, government consulting',
+      'Get feedback on gaming vs gambling framing — does it help or hurt?',
+      'Learn: who else should we be talking to?',
+    ],
+    feedBackTo: [
+      'Impact Gaming news article (app/news/[id]/page.tsx → id 4)',
+      'Collabs data layer (lib/collabs-data.ts → LEARNINGS array)',
+      'Screen Funding Analysis (SCREEN_FUNDING_ANALYSIS.md)',
+      'Ceri call script (proposals/ceri-hutton-call-script.md)',
+    ],
+    status: 'scheduled',
+  },
+];
+
 export const EXPANSION_CREATORS: ExpansionCreator[] = [
   {
     name: 'Growling Sidewinder',
@@ -452,4 +491,21 @@ export function getAllLearnings(): typeof LEARNINGS {
 
 export function getRecentLearnings(count: number = 5): typeof LEARNINGS {
   return [...LEARNINGS].sort((a, b) => b.date.localeCompare(a.date)).slice(0, count);
+}
+
+export function getUpcomingCallById(id: string): UpcomingCall | undefined {
+  return UPCOMING_CALLS.find(c => c.id === id);
+}
+
+export function getScheduledCalls(): UpcomingCall[] {
+  return UPCOMING_CALLS.filter(c => c.status === 'scheduled');
+}
+
+export function completeCall(id: string, notes: { summary: string; keyPoints: string[] }, learnings: string[]): void {
+  const call = UPCOMING_CALLS.find(c => c.id === id);
+  if (call) {
+    call.status = 'completed';
+    call.callNotes = { date: new Date().toISOString().split('T')[0], ...notes };
+    call.learnings = learnings;
+  }
 }

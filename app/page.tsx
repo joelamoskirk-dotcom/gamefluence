@@ -39,15 +39,15 @@ export default function Home() {
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 mb-6 text-sm text-white">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            Gaming creator campaigns across APAC
+            Now operating in 9 APAC markets
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-4xl mx-auto">
-            Gaming Creator Marketing <span className="text-accent">Across Asia-Pacific</span>
+            Creator-Driven UA <span className="text-accent">For Gaming Studios</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Connect your brand with authentic gaming creators in Vietnam, Thailand, Indonesia, Philippines, New Zealand &amp; Australia. AI-powered matching. Real attribution.
+            Influencer campaigns, user acquisition, and attribution — built by a team that scaled Kick to 100M users and ran UA at King and Amazon Games.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-12">
@@ -63,13 +63,14 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Market flags ticker */}
-          <div className="flex justify-center gap-6 text-sm text-white/60">
-            {MARKETS.map(m => (
+          {/* Market flags */}
+          <div className="flex justify-center gap-4 flex-wrap text-sm text-white/60">
+            {MARKETS.slice(0, 6).map(m => (
               <span key={m.id} className="flex items-center gap-1.5">
-                <span className="text-xl">{m.flag}</span> {m.name}
+                <span className="text-lg">{m.flag}</span> {m.name}
               </span>
             ))}
+            <span className="text-white/40">+3 more</span>
           </div>
         </div>
       </section>
@@ -104,7 +105,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-3">How We Move the Needle</h2>
           <p className="text-white/50 text-center mb-12 max-w-2xl mx-auto text-sm">
-            Built by a team that scaled Kick to 100M users and ran UA at King (Candy Crush) and Amazon Games. Not theory — operating playbooks.
+            Four services. All measured. You keep your stack — we operate it and prove what works.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -141,16 +142,19 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Proof strip */}
-          <div className="mt-12 text-center">
-            <div className="inline-flex items-center gap-3 text-white/40 text-xs font-mono tracking-wide flex-wrap justify-center">
-              <span>Ex-Amazon Games</span>
-              <span className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-              <span>Ex-King (Candy Crush)</span>
-              <span className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-              <span>Scaled Kick to 100M</span>
-              <span className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-              <span>AU HQ · APAC Network</span>
+          {/* Credential strip */}
+          <div className="mt-12 border-t border-white/10 pt-6">
+            <p className="text-center text-[10px] uppercase tracking-[0.2em] text-white/30 mb-4">Founded by 20 years across</p>
+            <div className="flex items-center justify-center gap-10 text-white/50 flex-wrap">
+              <span className="text-sm font-semibold tracking-wide">King</span>
+              <span className="text-sm font-semibold tracking-wide">Amazon Games</span>
+              <span className="text-sm font-semibold tracking-wide">Prime Gaming</span>
+              <span className="text-sm font-semibold tracking-wide">Amazon Appstore</span>
+              <span className="text-sm font-semibold tracking-wide">Kick</span>
+              <span className="text-sm font-semibold tracking-wide">IGN</span>
+              <span className="text-sm font-semibold tracking-wide">Twitch</span>
+              <span className="text-sm font-semibold tracking-wide">AppsFlyer</span>
+              <span className="text-sm font-semibold tracking-wide">InMobi</span>
             </div>
           </div>
         </div>

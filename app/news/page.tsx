@@ -4,6 +4,46 @@ import { Calendar, User, ArrowRight } from 'lucide-react';
 
 const blogPosts = [
   {
+    id: 8,
+    title: 'Real Influence in a World of Fake Ads: Why Performance Marketing Needs Authenticity to Convert',
+    excerpt: 'Performance marketing is a mix of art and science. For real influence and real audience, you must be real. Discovery is stifled by incumbents, AI ads are collapsing, and the creative community will rise up against inauthenticity. Here\'s the formula that actually converts.',
+    content: '',
+    author: 'Joel Kirk',
+    date: '2026-07-08',
+    category: 'Creator Marketing',
+    featured: true
+  },
+  {
+    id: 7,
+    title: 'If You Can\'t Measure It, You Can\'t Fund It: The Case for Creator Attribution in Gaming',
+    excerpt: 'Government grants, publisher deals, and studio budgets all share one problem: zero post-release performance data. MMP-verified creator attribution changes the equation for everyone.',
+    content: '',
+    author: 'Joel Kirk',
+    date: '2026-07-08',
+    category: 'Measurement & Attribution',
+    featured: false
+  },
+  {
+    id: 4,
+    title: 'Impact Gaming: Where Influence Meets Performance',
+    excerpt: 'After 10+ years in gaming UA and creator marketing, we\'re building the attribution layer that proves games are investable. From government grants to live-ops alignment — this is how you make every feature, character, and map matter.',
+    content: '',
+    author: 'Joel Kirk',
+    date: '2026-07-07',
+    category: 'Impact Gaming',
+    featured: false
+  },
+  {
+    id: 5,
+    title: 'Content Clipping & Cross-Platform Distribution: The Future of Creator UA',
+    excerpt: 'How automated content clipping and redistribution across portfolios drives additional engagement, extends creator value, and builds a compounding UA engine for studios.',
+    content: '',
+    author: 'Joel Kirk',
+    date: '2026-07-07',
+    category: 'Product & Strategy',
+    featured: false
+  },
+  {
     id: 1,
     title: 'Welcome to Gamefluence: Revolutionizing Gaming Influencer Marketing',
     excerpt: 'Our vision and mission to become the go-to platform for gaming brands and influencers worldwide.',
@@ -48,7 +88,7 @@ const blogPosts = [
     author: 'Gamefluence Team',
     date: '2024-07-22',
     category: 'Company News',
-    featured: true
+    featured: false
   },
   {
     id: 2,

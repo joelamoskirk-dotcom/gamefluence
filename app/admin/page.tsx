@@ -32,6 +32,9 @@ import {
 } from 'lucide-react';
 import SystemStatusDashboard from '@/components/admin/SystemStatusDashboard';
 import BulletproofActions from '@/lib/bulletproof-actions';
+import ContentClippingDashboard from '@/components/admin/ContentClippingDashboard';
+import UACampaignDashboard from '@/components/admin/UACampaignDashboard';
+import RevenueStreamsDashboard from '@/components/admin/RevenueStreamsDashboard';
 import CreatorOutreachDashboard from '@/components/admin/CreatorOutreachDashboard';
 import StressTestRunner from '@/components/admin/StressTestRunner';
 import ProductTeamDashboard from '@/components/admin/ProductTeamDashboard';
@@ -273,6 +276,21 @@ export default function AdminPage() {
                 <a href="/brief-accept" className="inline-flex items-center gap-1.5 px-3 py-2 bg-gray-700 text-white rounded-lg text-xs font-medium hover:bg-gray-800 transition shadow-sm">
                   ✅ Brief Accept
                 </a>
+              </div>
+            </div>
+            {/* REVENUE: Internal tools for making money */}
+            <div>
+              <p className="text-[10px] font-medium text-gray-500 uppercase tracking-wider mb-1.5">Revenue Tools (Internal)</p>
+              <div className="flex flex-wrap gap-2">
+                <button onClick={() => setActiveTab('revenue')} className="inline-flex items-center gap-1.5 px-3 py-2 bg-green-600 text-white rounded-lg text-xs font-medium hover:bg-green-700 transition shadow-sm">
+                  💰 Revenue Streams
+                </button>
+                <button onClick={() => setActiveTab('ua-campaigns')} className="inline-flex items-center gap-1.5 px-3 py-2 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition shadow-sm">
+                  📱 UA Campaigns (DT)
+                </button>
+                <button onClick={() => setActiveTab('clipping')} className="inline-flex items-center gap-1.5 px-3 py-2 bg-purple-600 text-white rounded-lg text-xs font-medium hover:bg-purple-700 transition shadow-sm">
+                  ✂️ Content Clipping
+                </button>
               </div>
             </div>
             <div className="text-[10px] text-yellow-700 bg-yellow-50 border border-yellow-200 rounded px-2 py-1 inline-block">
@@ -599,6 +617,18 @@ export default function AdminPage() {
           
           <TabsContent value="advisors">
             <AIAdvisorDashboard />
+          </TabsContent>
+
+          <TabsContent value="revenue">
+            <RevenueStreamsDashboard />
+          </TabsContent>
+
+          <TabsContent value="ua-campaigns">
+            <UACampaignDashboard />
+          </TabsContent>
+
+          <TabsContent value="clipping">
+            <ContentClippingDashboard />
           </TabsContent>
           
           <TabsContent value="settings">
