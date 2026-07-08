@@ -37,11 +37,6 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
 
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 mb-6 text-sm text-white">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            Now operating in 9 APAC markets
-          </div>
-
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-4xl mx-auto">
             Creator-Driven UA <span className="text-accent">For Gaming Studios</span>
           </h1>
@@ -71,31 +66,6 @@ export default function Home() {
               </span>
             ))}
             <span className="text-white/40">+3 more</span>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CURRENTLY OPERATING (G-07) ── */}
-      <section className="py-10 bg-[#0D0D0D]">
-        <div className="container mx-auto px-4">
-          <p className="text-[10px] font-mono tracking-[0.2em] text-white/50 mb-4 uppercase">Currently Operating</p>
-          <div className="bg-[#161616] border border-white/10 rounded-xl p-6">
-            <div className="flex items-center gap-3 mb-2">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-xs font-mono text-green-400/80 uppercase tracking-wider">Live</span>
-            </div>
-            {/* Feature-flagged: swap to named case study when caseStudyApproved = true */}
-            {process.env.NEXT_PUBLIC_CASE_STUDY_APPROVED === 'true' ? (
-              <div>
-                <h3 className="text-white font-bold text-lg">Roadburn Games — Gumball 3000: World Tour</h3>
-                <p className="text-white/60 text-sm mt-1">Live-ops creator system + UA + measurement. Full case study available.</p>
-              </div>
-            ) : (
-              <div>
-                <h3 className="text-white font-bold text-lg">Arcade racing portfolio</h3>
-                <p className="text-white/60 text-sm mt-1">Live-ops creator system + UA + measurement. Case study coming soon.</p>
-              </div>
-            )}
           </div>
         </div>
       </section>
