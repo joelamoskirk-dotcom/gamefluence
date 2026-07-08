@@ -90,9 +90,9 @@ export default function Home() {
 
             <div className="bg-[#161616] border border-white/10 rounded-xl p-6 hover:border-purple-500/30 transition">
               <div className="inline-block bg-blue-500/20 text-blue-400 text-xs font-mono px-2 py-1 rounded mb-4">02 · UA &amp; MEASUREMENT</div>
-              <h3 className="text-white font-bold text-lg mb-3">User Acquisition with Verified MMP Attribution</h3>
+              <h3 className="text-white font-bold text-lg mb-3">User Acquisition Across Mobile &amp; Steam</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                10+ years running UA at scale. MMP configuration done right (AppsFlyer, Adjust, Singular). Deep-link infrastructure, incrementality testing, SKAN compliance, and channels your competitors haven&apos;t found yet. You keep the stack — we operate it and prove what works.
+                10+ years running UA at scale across mobile and PC. MMP configuration done right (AppsFlyer, Adjust, Singular). Steam wishlist campaigns, deep-link infrastructure, incrementality testing, SKAN compliance, and channels your competitors haven&apos;t found yet. You keep the stack — we operate it and prove what works.
               </p>
             </div>
 
