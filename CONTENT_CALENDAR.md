@@ -24,6 +24,17 @@ Phil's playbook: The lead article is the **pillar piece** — it establishes the
 ## WEEKLY DEEP-DIVES (one per week from July 15 onwards)
 
 ### Week 2 — July 15
+**"Beyond the Wishlist: What Happens When Only 15% Buy (and What to Do About It)"**
+- The wishlist conversion myth: average Steam wishlist-to-purchase is ~15%
+- What happens to the other 85%? They're gone — unless you have a post-wishlist strategy
+- Community insights and advocacy: turning wishlisters into advocates before launch
+- Retargeting engaged users across platforms (YouTube viewers → Discord → Steam)
+- The live-ops gap: your launch day is day 1 of revenue, not the finish line
+- Creator content as ongoing re-engagement, not one-off launch push
+- Angle: Contrarian to the "just get wishlists" advice every indie studio hears
+- Links back to: Pillar article + ties into the "discovery is stifled" thesis
+
+### Week 3 — July 22
 **"Discovery Is Deliberately Stifled: How App Stores Keep Indie Games Invisible"**
 - Deep-dive on the Sensor Tower / Newzoo data
 - How the top 10% capture 90%+ of revenue
@@ -33,7 +44,7 @@ Phil's playbook: The lead article is the **pillar piece** — it establishes the
 - Angle: Data-heavy, reference Sensor Tower / Newzoo publicly available stats
 - Links back to: Pillar article section on "The Discovery Problem Nobody Talks About"
 
-### Week 3 — July 22
+### Week 4 — July 29
 **"AI Ads Are Collapsing: Why CTR on Generated Creative Is Falling Off a Cliff"**
 - The pattern-matching problem — users have seen 10,000 identical AI ads
 - Examples of AI ad fatigue (same voiceover, same hooks, same format)
@@ -43,7 +54,7 @@ Phil's playbook: The lead article is the **pillar piece** — it establishes the
 - Angle: Contrarian — everyone's rushing to AI creative, here's why that's wrong for gaming
 - Links back to: Pillar section on "The AI Ad Problem"
 
-### Week 4 — July 29
+### Week 5 — August 5
 **"It's Not Just Who. It's Who Converts: The Case for Mid-Tier Creator Partnerships"**
 - Why follower count is a vanity metric
 - Data on mid-tier (50K-500K) outperforming mega-creators for gaming
@@ -53,7 +64,7 @@ Phil's playbook: The lead article is the **pillar piece** — it establishes the
 - Angle: Tactical — helps studios pick better creators
 - Links back to: Pillar section on "It's Not Just Who. It's Who Converts."
 
-### Week 5 — August 5
+### Week 6 — August 12
 **"The iGaming Playbook: What Gaming Studios Should Steal (and What They Shouldn't)"**
 - How iGaming perfected the performance marketing mechanics
 - Attribution, deep linking, CPA optimisation, incrementality — all proven here first
@@ -63,7 +74,7 @@ Phil's playbook: The lead article is the **pillar piece** — it establishes the
 - Angle: Borrowed credibility — sophisticated operators know this, now gaming gets it too
 - Links back to: Pillar section on "The iGaming Exception"
 
-### Week 6 — August 12
+### Week 7 — August 19
 **"Creators Who've Never Worked With Gaming: The Biggest Untapped UA Channel"**
 - The over-saturation problem with "gaming influencer" lists
 - Finding creators outside the obvious: tech reviewers, comedy, lifestyle, music
@@ -73,7 +84,7 @@ Phil's playbook: The lead article is the **pillar piece** — it establishes the
 - Angle: Opportunity-focused — shows studios a channel their competitors haven't found
 - Links back to: Pillar section on "Finding New Creators — Outside the Obvious"
 
-### Week 7 — August 19
+### Week 8 — August 26
 **"Content-First Creators: Why the Best Partners Don't Chase Brand Deals"**
 - Lessons from scaling Kick to 100M users
 - Creators who obsess over content quality > creators who optimise for sponsorships
@@ -84,7 +95,7 @@ Phil's playbook: The lead article is the **pillar piece** — it establishes the
 - Links back to: Pillar section on "Creators Who Focus on Content First"
 - Kick credibility plays heavily here
 
-### Week 8 — August 26
+### Week 9 — September 2
 **"From Halfbrick to Kick: The Proof That Real Creator Marketing Works at Scale"**
 - Halfbrick case study deep-dive: 98% UA growth, 1B+ downloads, The Drum published
 - IAB rewarded video playbook: why opt-in > force-fed (and how that applies to creator content)
@@ -93,7 +104,7 @@ Phil's playbook: The lead article is the **pillar piece** — it establishes the
 - Angle: Social proof — the "here's why you should trust us" piece
 - Links back to: Pillar section on "The Proof: Halfbrick, IAB, and Kick"
 
-### Week 9 — September 2
+### Week 10 — September 9
 **"51 ANZ Games Just Launched at Frosty Fest. Here's Why Most Won't Find Their Audience."**
 - The Frosty Fest + discovery problem piece (written AFTER Amy call)
 - 14,000 games on Steam annually, half earn less than $500 lifetime
@@ -103,7 +114,7 @@ Phil's playbook: The lead article is the **pillar piece** — it establishes the
 - Angle: Timely, locally relevant, positions us as the solution for ANZ indie scene
 - NOTE: Write after Amy call for proper context
 
-### Week 10 — September 9
+### Week 11 — September 16
 **"The Measurement Article: If You Can't Measure It, You Can't Fund It"**
 - Already written (#7) — can repurpose/reshare or write a v2 with updated data
 - OR: New piece specifically on Screen Australia / government funding angle
