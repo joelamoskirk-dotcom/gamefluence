@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
+import LogoMarquee from '@/components/ui/LogoMarquee';
 
 const MARKETS = [
   { id: 'australia', flag: '🇦🇺', name: 'Australia', creators: '45+', topGame: 'DCS / Racing Sim' },
@@ -112,20 +113,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Credential strip */}
+          {/* Credential strip — infinite scrolling marquee */}
           <div className="mt-12 border-t border-white/10 pt-6">
-            <p className="text-center text-[10px] uppercase tracking-[0.2em] text-white/30 mb-4">Founded by 20 years across</p>
-            <div className="flex items-center justify-center gap-10 text-white/50 flex-wrap">
-              <span className="text-sm font-semibold tracking-wide">King</span>
-              <span className="text-sm font-semibold tracking-wide">Amazon Games</span>
-              <span className="text-sm font-semibold tracking-wide">Prime Gaming</span>
-              <span className="text-sm font-semibold tracking-wide">Amazon Appstore</span>
-              <span className="text-sm font-semibold tracking-wide">Kick</span>
-              <span className="text-sm font-semibold tracking-wide">IGN</span>
-              <span className="text-sm font-semibold tracking-wide">Twitch</span>
-              <span className="text-sm font-semibold tracking-wide">AppsFlyer</span>
-              <span className="text-sm font-semibold tracking-wide">InMobi</span>
-            </div>
+            <LogoMarquee />
           </div>
         </div>
       </section>

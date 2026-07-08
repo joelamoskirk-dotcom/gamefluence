@@ -27,13 +27,13 @@ module.exports = {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'bounce-slow': 'bounce 2s infinite',
         'spin-slow': 'spin 8s linear infinite',
-        'marquee': 'marquee 15s linear infinite',
+        'marquee': 'marquee 30s linear infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
       },
       keyframes: {
         marquee: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(-100%)' },
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
         glow: {
           '0%': { 
