@@ -77,6 +77,7 @@ const PROOF_POINTS = [
   },
 ];
 
+
 const WHO_THIS_IS_FOR = [
   { label: 'Gaming studios launching new titles', desc: 'You need installs from the right players, not just impressions.' },
   { label: 'Publishers with multi-title portfolios', desc: 'Cross-promo between your games. Compound your existing audience.' },
