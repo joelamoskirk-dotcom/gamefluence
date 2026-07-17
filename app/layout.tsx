@@ -5,6 +5,7 @@ import DataInitializer from '@/components/DataInitializer'
 import SecurityProvider from '@/components/SecurityProvider'
 import MobileMenu from '@/components/ui/MobileMenu'
 import Footer from '@/components/ui/Footer'
+import { SpotlightTourProvider } from '@/components/ui/SpotlightTour'
 
 const inter = Inter({ subsets: ['latin', 'latin-ext', 'vietnamese'] })
 
@@ -78,6 +79,12 @@ export default function RootLayout({
                                     <Link href="/get-started" className="text-gray-600 hover:text-gray-900 text-responsive transition-colors">
                                         For Brands
                                     </Link>
+                                    <Link href="/about" className="text-gray-600 hover:text-gray-900 text-responsive transition-colors">
+                                        About
+                                    </Link>
+                                    <Link href="/news" className="text-gray-600 hover:text-gray-900 text-responsive transition-colors">
+                                        News
+                                    </Link>
                                 </div>
                             </div>
                             <div className="flex items-center space-x-2 sm:space-x-4">
@@ -137,7 +144,9 @@ export default function RootLayout({
                 </div>
                 <DataInitializer>
                     <SecurityProvider>
-                        {children}
+                        <SpotlightTourProvider>
+                            {children}
+                        </SpotlightTourProvider>
                     </SecurityProvider>
                 </DataInitializer>
                 <Footer />

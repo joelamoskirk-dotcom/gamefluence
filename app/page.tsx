@@ -27,15 +27,24 @@ export default function Home() {
 
       {/* ── HERO: Video Background ── */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-gradient-to-br from-[#0D0D0D] via-[#1a0533] to-[#0D0D0D]">
-        {/* Video loads lazily — text renders immediately */}
+        {/* Desktop video (16:9) — hidden on mobile */}
         <video
           autoPlay muted loop playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover hidden sm:block"
+          poster=""
         >
-          <source src="/hero-gaming.mp4" type="video/mp4" />
+          <source src="/videos/hero-loop-desktop.mp4" type="video/mp4" />
+        </video>
+        {/* Mobile video (9:16) — hidden on desktop */}
+        <video
+          autoPlay muted loop playsInline
+          className="absolute inset-0 w-full h-full object-cover sm:hidden"
+          poster=""
+        >
+          <source src="/videos/hero-loop-mobile.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
 
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-4xl mx-auto">

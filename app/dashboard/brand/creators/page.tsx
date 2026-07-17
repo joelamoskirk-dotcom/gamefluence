@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
-import { ArrowLeft, Check, Shield, Users, TrendingUp, DollarSign, Filter, Search } from 'lucide-react';
+import { ArrowLeft, Check, Shield, Users, TrendingUp, DollarSign, Filter, Search, LayoutGrid, List } from 'lucide-react';
 import CountUp from 'react-countup';
+import CreatorProfileCard, { type CreatorCardData } from '@/components/creator/CreatorProfileCard';
 
 // Mock creators with relevance scoring and brand safety
 const creators = [
@@ -99,6 +100,24 @@ export default function CreatorSelection() {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState('relevance');
   const [filterBrandSafety, setFilterBrandSafety] = useState(80);
+  const [viewMode, setViewMode] = useState<'cards' | 'list'>('cards');
+
+  // Enhanced card data for visual view
+  const creatorCardData: CreatorCardData[] = creators.map(c => ({
+    id: c.id,
+    name: c.name,
+    handle: c.id.replace(/-/g, '_'),
+    platform: c.platforms[0] as 'youtube' | 'twitch' | 'tiktok' | 'instagram',
+    followerCount: c.followers,
+    engagementRate: c.engagement,
+    gamefluenceScore: Math.round((c.relevanceScore * 0.4 + c.brandSafetyScore * 0.3 + c.engagement * 3) ),
+    contentMatchPercent: c.relevanceScore,
+    topGames: c.topGames,
+    tier: c.followers > 400000 ? 'diamond' : c.followers > 250000 ? 'platinum' : c.followers > 150000 ? 'gold' : 'silver',
+    market: 'APAC',
+    avgViews: c.recentPerformance.avgViews,
+    recentGrowth: Math.round(Math.random() * 15 + 2),
+  }));
 
   // Sort creators by relevance score (default)
   const sortedCreators = [...creators]
@@ -161,6 +180,22 @@ export default function CreatorSelection() {
           <h1 className="text-3xl font-bold">Select Creators</h1>
           <p className="text-gray-600">Creators ranked by relevance to your campaign brief</p>
         </div>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setViewMode('cards')}
+            className={`p-2 rounded-lg border transition-colors ${viewMode === 'cards' ? 'bg-primary text-white border-primary' : 'border-gray-300 text-gray-500 hover:bg-gray-50'}`}
+            title="Card view"
+          >
+            <LayoutGrid className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => setViewMode('list')}
+            className={`p-2 rounded-lg border transition-colors ${viewMode === 'list' ? 'bg-primary text-white border-primary' : 'border-gray-300 text-gray-500 hover:bg-gray-50'}`}
+            title="List view"
+          >
+            <List className="w-4 h-4" />
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -220,6 +255,29 @@ export default function CreatorSelection() {
 
         {/* Creator List */}
         <div className="lg:col-span-2">
+          {/* Enhanced Card View */}
+          {viewMode === 'cards' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {sortedCreators.map(creator => {
+                const cardData = creatorCardData.find(c => c.id === creator.id);
+                if (!cardData) return null;
+                return (
+                  <div
+                    key={creator.id}
+                    onClick={() => toggleCreator(creator.id)}
+                    className={`cursor-pointer rounded-xl transition-all ${
+                      selectedCreators.includes(creator.id) ? 'ring-2 ring-primary ring-offset-2' : ''
+                    }`}
+                  >
+                    <CreatorProfileCard creator={cardData} />
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Classic List View */}
+          {viewMode === 'list' && (
           <div className="space-y-4">
             {sortedCreators.map((creator) => (
               <div 
@@ -300,6 +358,7 @@ export default function CreatorSelection() {
               </div>
             ))}
           </div>
+          )}
         </div>
 
         {/* Campaign Summary */}
