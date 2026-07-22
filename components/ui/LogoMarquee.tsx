@@ -7,14 +7,11 @@ const LOGOS = [
   'Amazon Games',
   'Prime Gaming',
   'Activision Blizzard',
-  'Kick',
   'IGN',
   'Twitch',
   'AppsFlyer',
   'InMobi',
   'AWS',
-  'IAB',
-  'Halfbrick',
 ];
 
 export default function LogoMarquee() {
