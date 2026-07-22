@@ -48,11 +48,11 @@ export default function Home() {
 
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-4xl mx-auto">
-            Creator-Driven UA <span className="text-accent">For Gaming Studios</span>
+            Creator-Driven User Acquisition <span className="text-accent">for Gaming Brands</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Influencer campaigns, user acquisition, and attribution — built by a team that scaled Kick to 100M users and ran UA at King and Amazon Games.
+            Influencer campaigns, performance measurement, and full-funnel attribution — built by a team that scaled Kick to 100M users, launched Candy Crush Friends Saga to 10M installs, and ran gaming partnerships at AWS.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-12">

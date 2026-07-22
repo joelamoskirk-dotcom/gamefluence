@@ -126,13 +126,13 @@ export default function RootLayout({
                             <svg className="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
                             </svg>
-                            <span>Dashboard</span>
+                            <span>Results</span>
                         </Link>
                         <Link href="/dashboard/analytics" className="mobile-nav-item">
                             <svg className="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
                             </svg>
-                            <span>Analytics</span>
+                            <span>Insights</span>
                         </Link>
                         <Link href="/dashboard/market-intelligence" className="mobile-nav-item">
                             <svg className="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 20 20">

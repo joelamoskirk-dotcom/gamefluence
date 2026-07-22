@@ -95,7 +95,7 @@ export default function AboutPage() {
           <div className="text-center">
             <p className="text-[10px] uppercase tracking-[0.2em] text-white/40 mb-4">Gaming Creator Marketing &amp; UA</p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              We get gaming studios<br />
+              We get gaming brands<br />
               <span className="text-accent">more players, faster.</span>
             </h1>
             <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-8">
