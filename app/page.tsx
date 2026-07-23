@@ -2,18 +2,6 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import LogoMarquee from '@/components/ui/LogoMarquee';
 
-const MARKETS = [
-  { id: 'australia', flag: '🇦🇺', name: 'Australia', creators: '45+', topGame: 'DCS / Racing Sim' },
-  { id: 'new-zealand', flag: '🇳🇿', name: 'New Zealand', creators: '22+', topGame: 'Fortnite / Racing' },
-  { id: 'indonesia', flag: '🇮🇩', name: 'Indonesia', creators: '65+', topGame: 'Mobile Legends' },
-  { id: 'philippines', flag: '🇵🇭', name: 'Philippines', creators: '52+', topGame: 'Mobile Legends' },
-  { id: 'vietnam', flag: '🇻🇳', name: 'Vietnam', creators: '48+', topGame: 'Arena of Valor' },
-  { id: 'thailand', flag: '🇹🇭', name: 'Thailand', creators: '38+', topGame: 'Valorant / RoV' },
-  { id: 'malaysia', flag: '🇲🇾', name: 'Malaysia', creators: '28+', topGame: 'Mobile Legends' },
-  { id: 'singapore', flag: '🇸🇬', name: 'Singapore', creators: '17+', topGame: 'Valorant' },
-  { id: 'south-korea', flag: '🇰🇷', name: 'South Korea', creators: '32+', topGame: 'League of Legends' },
-];
-
 const ATTRIBUTION_PARTNERS = [
   { name: 'AppsFlyer OneLink', desc: 'Deep linking & attribution' },
   { name: 'Adjust', desc: 'Multi-touch attribution' },
@@ -48,11 +36,11 @@ export default function Home() {
 
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-4xl mx-auto">
-            Creator-Driven User Acquisition <span className="text-accent">for Gaming Brands</span>
+            Creator-Driven User Acquisition <span className="text-accent">For Gaming</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Influencer campaigns, performance measurement, and full-funnel attribution — built by a team that scaled Kick to 100M users, launched Candy Crush Friends Saga to 10M installs, and ran gaming partnerships at AWS.
+            Performance marketing for gaming — creator campaigns, user acquisition, and full-funnel attribution from influence to outcome.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 mb-12">
@@ -68,88 +56,77 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Market flags */}
-          <div className="flex justify-center gap-4 flex-wrap text-sm text-white/60">
-            {MARKETS.slice(0, 6).map(m => (
-              <span key={m.id} className="flex items-center gap-1.5">
-                <span className="text-lg">{m.flag}</span> {m.name}
-              </span>
-            ))}
-            <span className="text-white/40">+3 more</span>
+          {/* Market flags — lightweight context */}
+          <div className="flex justify-center gap-3 sm:gap-4 flex-wrap text-sm text-white/60">
+            <span className="flex items-center gap-1.5"><span className="text-lg">🇦🇺</span> Australia</span>
+            <span className="flex items-center gap-1.5"><span className="text-lg">🇳🇿</span> New Zealand</span>
+            <span className="flex items-center gap-1.5"><span className="text-lg">🇮🇩</span> Indonesia</span>
+            <span className="flex items-center gap-1.5"><span className="text-lg">🇻🇳</span> Vietnam</span>
+            <span className="flex items-center gap-1.5"><span className="text-lg">🇹🇭</span> Thailand</span>
+            <span className="flex items-center gap-1.5"><span className="text-lg">🇵🇭</span> Philippines</span>
+            <span className="flex items-center gap-1.5"><span className="text-lg">🇲🇾</span> Malaysia</span>
+            <span className="flex items-center gap-1.5"><span className="text-lg">🇸🇬</span> Singapore</span>
+            <span className="flex items-center gap-1.5"><span className="text-lg">🇰🇷</span> South Korea</span>
           </div>
         </div>
       </section>
 
-      {/* ── SERVICES ── */}
+      {/* ── OUR SERVICES ── */}
       <section className="py-16 bg-[#0D0D0D]">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-3">How We Move the Needle</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-3">Our Services</h2>
           <p className="text-white/50 text-center mb-12 max-w-2xl mx-auto text-sm">
-            Four services. All measured. You keep your stack — we operate it and prove what works.
+            Three services. All measured. All attributed.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            <div className="bg-[#161616] border border-white/10 rounded-xl p-6 hover:border-purple-500/30 transition">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="bg-[#161616] border border-white/10 rounded-xl p-6 hover:border-pink-500/30 transition">
               <div className="inline-block bg-pink-500/20 text-pink-400 text-xs font-mono px-2 py-1 rounded mb-4">01 · CREATOR CAMPAIGNS</div>
               <h3 className="text-white font-bold text-lg mb-3">Gaming Influencers for Reach &amp; Awareness</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Your new title needs eyeballs from the right audience. We match you with gaming creators who actually play your genre, brief them properly, and attribute every install back to the source. Not spray-and-pray — targeted, measured, repeatable.
+                We match you with gaming creators who actually play your genre, brief them properly, and attribute every install back to the source. Targeted, measured, repeatable.
               </p>
+              <div className="mt-4 pt-4 border-t border-white/5">
+                <p className="text-xs text-white/40 uppercase tracking-wide">Customer Outcome</p>
+                <p className="text-sm text-white/80 font-medium mt-1">More players from the right audiences — with proof of which creator drove each install.</p>
+              </div>
             </div>
 
-            <div className="bg-[#161616] border border-white/10 rounded-xl p-6 hover:border-purple-500/30 transition">
+            <div className="bg-[#161616] border border-white/10 rounded-xl p-6 hover:border-blue-500/30 transition">
               <div className="inline-block bg-blue-500/20 text-blue-400 text-xs font-mono px-2 py-1 rounded mb-4">02 · UA &amp; MEASUREMENT</div>
               <h3 className="text-white font-bold text-lg mb-3">User Acquisition Across Mobile &amp; Steam</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                10+ years running UA at scale across mobile and PC. MMP configuration done right (AppsFlyer, Adjust, Singular). Steam wishlist campaigns, deep-link infrastructure, incrementality testing, SKAN compliance, and channels your competitors haven&apos;t found yet. You keep the stack — we operate it and prove what works.
+                MMP configuration done right (AppsFlyer, Adjust, Singular). Steam wishlist campaigns, deep-link infrastructure, incrementality testing, and channels your competitors haven&apos;t found yet.
               </p>
+              <div className="mt-4 pt-4 border-t border-white/5">
+                <p className="text-xs text-white/40 uppercase tracking-wide">Customer Outcome</p>
+                <p className="text-sm text-white/80 font-medium mt-1">Lower CPI, higher-quality installs, and a measurement stack that proves what&apos;s actually working.</p>
+              </div>
             </div>
 
-            <div className="bg-[#161616] border border-white/10 rounded-xl p-6 hover:border-purple-500/30 transition">
-              <div className="inline-block bg-green-500/20 text-green-400 text-xs font-mono px-2 py-1 rounded mb-4">03 · CROSS-PROMO &amp; PORTFOLIO</div>
-              <h3 className="text-white font-bold text-lg mb-3">Your Players Are Your Cheapest Installs</h3>
+            <div className="bg-[#161616] border border-white/10 rounded-xl p-6 hover:border-green-500/30 transition">
+              <div className="inline-block bg-green-500/20 text-green-400 text-xs font-mono px-2 py-1 rounded mb-4">03 · CROSS-PROMO &amp; RETARGETING</div>
+              <h3 className="text-white font-bold text-lg mb-3">Your Existing Players Drive New Installs</h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                House placements, audience syncs, creator-led cross-promotion across your portfolio. We build the system that turns Game A players into Game B installs — costed on measured uplift, not guesswork. If you&apos;ve got multiple titles, this is where the compounding starts.
+                House placements, audience syncs, creator-led cross-promotion, and retargeting across your portfolio. We build the system that turns Game A players into Game B installs — costed on measured uplift.
               </p>
+              <div className="mt-4 pt-4 border-t border-white/5">
+                <p className="text-xs text-white/40 uppercase tracking-wide">Customer Outcome</p>
+                <p className="text-sm text-white/80 font-medium mt-1">Compound growth across your titles — your cheapest installs come from players you already have.</p>
+              </div>
             </div>
+          </div>
 
-            <div className="bg-[#161616] border border-white/10 rounded-xl p-6 hover:border-purple-500/30 transition">
-              <div className="inline-block bg-amber-500/20 text-amber-400 text-xs font-mono px-2 py-1 rounded mb-4">04 · iGAMING &amp; MARKET ENTRY</div>
-              <h3 className="text-white font-bold text-lg mb-3">Consultancy for New Markets &amp; Regulation</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
-                Entering APAC? Launching in a regulated market? We handle the hard stuff: iGaming licensing advisory, creative localisation, regulatory compliance, and technical implementation. From market research to live operations — one partner, end to end.
-              </p>
-            </div>
+          {/* Foundation strip */}
+          <div className="mt-12 max-w-3xl mx-auto text-center border-t border-white/10 pt-8">
+            <p className="text-white/50 text-sm leading-relaxed">
+              Built on two decades across app marketing, digital performance, and attribution — from configuring the measurement to running the campaigns it tracks. By gamers, attribution specialists, and performance marketers.
+            </p>
           </div>
 
           {/* Credential strip — infinite scrolling marquee */}
-          <div className="mt-12 border-t border-white/10 pt-6">
+          <div className="mt-8 border-t border-white/10 pt-6">
             <LogoMarquee />
-          </div>
-        </div>
-      </section>
-
-      {/* ── MARKET CARDS ── */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3">Choose Your Market</h2>
-          <p className="text-gray-500 text-center mb-10 max-w-xl mx-auto">
-            Select a market to start your campaign. Our AI matches you with the highest-performing local gaming creators.
-          </p>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {MARKETS.map(m => (
-              <Link key={m.id} href="/get-started">
-                <div className="bg-white rounded-xl border border-gray-200 p-5 hover:border-primary hover:shadow-lg transition-all cursor-pointer group">
-                  <div className="text-3xl mb-3">{m.flag}</div>
-                  <h3 className="font-bold text-lg group-hover:text-primary transition-colors">{m.name}</h3>
-                  <div className="mt-3 space-y-1 text-sm text-gray-500">
-                    <div className="flex justify-between"><span>Creators</span><span className="font-medium text-gray-900">{m.creators}</span></div>
-                    <div className="flex justify-between"><span>Top Game</span><span className="font-medium text-gray-900">{m.topGame}</span></div>
-                  </div>
-                </div>
-              </Link>
-            ))}
           </div>
         </div>
       </section>
@@ -158,7 +135,7 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3">Launch in Under 5 Minutes</h2>
-          <p className="text-gray-500 text-center mb-12 max-w-xl mx-auto text-sm">No 6-week onboarding. No "let&apos;s schedule a sync." Brief us, we match creators, you launch.</p>
+          <p className="text-gray-500 text-center mb-12 max-w-xl mx-auto text-sm">No 6-week onboarding. No &quot;let&apos;s schedule a sync.&quot; Brief us, we match creators, you launch.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {[
@@ -225,7 +202,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto text-center">
             {[
               { value: '280+', label: 'Creators in Network' },
-              { value: '7', label: 'APAC Markets' },
+              { value: '9', label: 'APAC Markets' },
               { value: '24hr', label: 'Campaign Activation' },
               { value: '5.8x', label: 'Avg Campaign ROI' },
             ].map(s => (
