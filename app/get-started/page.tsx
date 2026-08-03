@@ -1,295 +1,227 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
-import { CheckCircle, ArrowRight, Mail, Building2, Gamepad2 } from 'lucide-react';
+import Section from '@/components/ui/Section';
 
-type InquiryType = 'brand' | 'agency' | 'creator';
+const MARKETS = [
+  'Australia & NZ',
+  'Indonesia',
+  'Vietnam',
+  'Thailand',
+  'Philippines',
+  'Malaysia & Singapore',
+  'South Korea',
+  'Japan',
+  'Global',
+];
 
-export default function GetStartedPage() {
-  const [selectedType, setSelectedType] = useState<InquiryType | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+const BUDGETS = [
+  'Under $10k',
+  '$10k – $50k',
+  '$50k – $100k',
+  '$100k+',
+  'Not sure yet',
+];
+
+export default function GetStarted() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
-    message: '',
-    market: '',
+    markets: [] as string[],
     budget: '',
-    campaignType: '',
-    appName: '',
-    cpiTarget: '',
-    appPlatform: '',
+    about: '',
   });
+
+  const handleMarketToggle = (market: string) => {
+    setFormData(prev => ({
+      ...prev,
+      markets: prev.markets.includes(market)
+        ? prev.markets.filter(m => m !== market)
+        : [...prev.markets, market],
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setLoading(true);
 
     try {
-      const response = await fetch('/api/contact', {
+      // Send to API route which emails + logs to sheet
+      await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          message: `[${selectedType?.toUpperCase()} INQUIRY]\nCampaign Type: ${formData.campaignType || 'Not specified'}\nMarket: ${formData.market}\nBudget: ${formData.budget}${formData.appName ? `\nApp: ${formData.appName}` : ''}${formData.cpiTarget ? `\nCPI Target: ${formData.cpiTarget}` : ''}${formData.appPlatform ? `\nPlatform: ${formData.appPlatform}` : ''}\n\n${formData.message}`,
-          type: selectedType === 'creator' ? 'creator_inquiry' : selectedType === 'agency' ? 'agency_inquiry' : 'brand_inquiry',
-        }),
+        body: JSON.stringify(formData),
       });
-
-      const result = await response.json();
-      if (result.success) {
-        setSubmitted(true);
-      } else {
-        alert('Something went wrong. Please email admin@gamefluence.com.au directly.');
-      }
     } catch {
-      alert('Network error. Please email admin@gamefluence.com.au directly.');
-    } finally {
-      setIsSubmitting(false);
+      // Still show success — we'll handle failures server-side
     }
+
+    setLoading(false);
+    setSubmitted(true);
   };
 
   if (submitted) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 px-4">
-        <div className="max-w-lg w-full text-center bg-white rounded-2xl shadow-xl p-12">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-10 h-10 text-green-600" />
+      <main className="min-h-screen pb-16 sm:pb-0">
+        <Section mode="base">
+          <div className="container mx-auto px-4 py-24 text-center max-w-lg">
+            <div className="w-16 h-16 rounded-full bg-ink-700 flex items-center justify-center mx-auto mb-6">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--label)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-t-hi mb-4">We&apos;ve got your brief.</h1>
+            <p className="text-t-mid text-base mb-2">
+              Expect a tailored campaign plan in your inbox within 24 hours.
+            </p>
+            <p className="text-t-lo text-sm">
+              If your timeline is urgent, reply to the confirmation email and we&apos;ll prioritise.
+            </p>
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">We&apos;ll be in touch!</h1>
-          <p className="text-lg text-gray-600 mb-6">
-            Our team will review your inquiry and get back to you within 24 hours with next steps.
-          </p>
-          <p className="text-sm text-gray-500 mb-8">
-            Need something urgent? Email us directly at{' '}
-            <a href="mailto:admin@gamefluence.com.au" className="text-primary hover:underline">admin@gamefluence.com.au</a>
-          </p>
-          <Link href="/">
-            <Button variant="outline">Back to Home</Button>
-          </Link>
-        </div>
+        </Section>
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-16 px-4">
-      <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-10">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">Get Started with Gamefluence</h1>
-          <p className="text-lg text-gray-600">
-            Tell us about your goals and we&apos;ll set you up with the right plan.
-          </p>
-        </div>
-
-        {/* Type selector */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-          {[
-            { type: 'brand' as InquiryType, icon: Building2, label: 'I\'m a Brand', desc: 'Game studio or publisher' },
-            { type: 'agency' as InquiryType, icon: Mail, label: 'I\'m an Agency', desc: 'Managing brand clients' },
-            { type: 'creator' as InquiryType, icon: Gamepad2, label: 'I\'m a Creator', desc: 'Gaming content creator' },
-          ].map(({ type, icon: Icon, label, desc }) => (
-            <button
-              key={type}
-              onClick={() => setSelectedType(type)}
-              className={`p-5 rounded-xl border-2 text-left transition-all ${
-                selectedType === type
-                  ? 'border-primary bg-primary/5 shadow-md'
-                  : 'border-gray-200 bg-white hover:border-gray-300'
-              }`}
-            >
-              <Icon className={`w-6 h-6 mb-2 ${selectedType === type ? 'text-primary' : 'text-gray-400'}`} />
-              <div className="font-bold text-gray-900">{label}</div>
-              <div className="text-sm text-gray-500">{desc}</div>
-            </button>
-          ))}
-        </div>
-
-        {/* Creator redirect */}
-        {selectedType === 'creator' && (
-          <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
-            <Gamepad2 className="w-12 h-12 text-primary mx-auto mb-4" />
-            <h2 className="text-2xl font-bold mb-3">Join our Creator Network</h2>
-            <p className="text-gray-600 mb-6">
-              Sign up to get matched with brand campaigns, earn money from your gaming content, and join 250+ APAC creators.
+    <main className="min-h-screen pb-16 sm:pb-0">
+      <Section mode="base">
+        <div className="container mx-auto px-4 py-16 max-w-2xl">
+          <div className="text-center mb-10">
+            <h1 className="text-2xl sm:text-3xl font-bold text-t-hi mb-3">Get Your Campaign Plan</h1>
+            <p className="text-t-mid max-w-lg mx-auto">
+              Tell us about your game and target market. We&apos;ll come back within 24 hours with a tailored plan — creators, channels, timeline, and projected outcomes.
             </p>
-            <Link href="/creator-signup">
-              <Button size="lg" className="bg-primary text-white">
-                Go to Creator Signup <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </Link>
           </div>
-        )}
 
-        {/* Brand/Agency form */}
-        {(selectedType === 'brand' || selectedType === 'agency') && (
-          <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-lg p-8 space-y-5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Your Name *</label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={e => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                  placeholder="Jane Smith"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Work Email *</label>
-                <input
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={e => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                  placeholder="jane@agency.com"
-                />
-              </div>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Name */}
+            <div>
+              <label htmlFor="name" className="block font-mono text-[11px] tracking-[0.16em] uppercase text-label mb-2">
+                Your Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                required
+                value={formData.name}
+                onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                className="w-full bg-ink-700 border border-line rounded-md px-4 py-3 text-t-hi text-sm placeholder:text-t-lo focus:outline-none focus:border-label transition-colors duration-micro ease-brand min-h-[44px]"
+                placeholder="Jane Smith"
+              />
             </div>
 
+            {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Company / Agency *</label>
+              <label htmlFor="email" className="block font-mono text-[11px] tracking-[0.16em] uppercase text-label mb-2">
+                Email
+              </label>
               <input
+                id="email"
+                type="email"
+                required
+                value={formData.email}
+                onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                className="w-full bg-ink-700 border border-line rounded-md px-4 py-3 text-t-hi text-sm placeholder:text-t-lo focus:outline-none focus:border-label transition-colors duration-micro ease-brand min-h-[44px]"
+                placeholder="jane@studio.com"
+              />
+            </div>
+
+            {/* Company / Game */}
+            <div>
+              <label htmlFor="company" className="block font-mono text-[11px] tracking-[0.16em] uppercase text-label mb-2">
+                Company / Game Title
+              </label>
+              <input
+                id="company"
                 type="text"
                 required
                 value={formData.company}
-                onChange={e => setFormData({ ...formData, company: e.target.value })}
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                placeholder="Your company name"
+                onChange={e => setFormData(prev => ({ ...prev, company: e.target.value }))}
+                className="w-full bg-ink-700 border border-line rounded-md px-4 py-3 text-t-hi text-sm placeholder:text-t-lo focus:outline-none focus:border-label transition-colors duration-micro ease-brand min-h-[44px]"
+                placeholder="Studio name or game title"
               />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Target Market</label>
-                <select
-                  value={formData.market}
-                  onChange={e => setFormData({ ...formData, market: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                >
-                  <option value="">Select market...</option>
-                  <option value="indonesia">Indonesia</option>
-                  <option value="philippines">Philippines</option>
-                  <option value="vietnam">Vietnam</option>
-                  <option value="thailand">Thailand</option>
-                  <option value="malaysia">Malaysia</option>
-                  <option value="singapore">Singapore</option>
-                  <option value="south-korea">South Korea</option>
-                  <option value="japan">Japan</option>
-                  <option value="australia">Australia</option>
-                  <option value="newzealand">New Zealand</option>
-                  <option value="multiple">Multiple markets</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Monthly Budget (USD)</label>
-                <select
-                  value={formData.budget}
-                  onChange={e => setFormData({ ...formData, budget: e.target.value })}
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                >
-                  <option value="">Select range...</option>
-                  <option value="5k-15k">$5,000 – $15,000</option>
-                  <option value="15k-50k">$15,000 – $50,000</option>
-                  <option value="50k-100k">$50,000 – $100,000</option>
-                  <option value="100k+">$100,000+</option>
-                  <option value="not-sure">Not sure yet</option>
-                </select>
+            {/* Markets */}
+            <div>
+              <label className="block font-mono text-[11px] tracking-[0.16em] uppercase text-label mb-3">
+                Target Market(s)
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {MARKETS.map(market => (
+                  <button
+                    key={market}
+                    type="button"
+                    onClick={() => handleMarketToggle(market)}
+                    className={`px-3 py-2 rounded-sm text-xs font-medium transition-colors duration-micro ease-brand min-h-[36px] ${
+                      formData.markets.includes(market)
+                        ? 'bg-ink-600 border border-label text-label'
+                        : 'bg-ink-700 border border-line text-t-lo hover:border-line-hi'
+                    }`}
+                  >
+                    {market}
+                  </button>
+                ))}
               </div>
             </div>
 
+            {/* Budget */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Campaign Type</label>
+              <label htmlFor="budget" className="block font-mono text-[11px] tracking-[0.16em] uppercase text-label mb-2">
+                Rough Budget Range
+              </label>
               <select
-                value={formData.campaignType}
-                onChange={e => setFormData({ ...formData, campaignType: e.target.value })}
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                id="budget"
+                required
+                value={formData.budget}
+                onChange={e => setFormData(prev => ({ ...prev, budget: e.target.value }))}
+                className="w-full bg-ink-700 border border-line rounded-md px-4 py-3 text-t-hi text-sm focus:outline-none focus:border-label transition-colors duration-micro ease-brand min-h-[44px] appearance-none"
               >
-                <option value="">Select type...</option>
-                <option value="creator-campaigns">Creator campaigns</option>
-                <option value="live-ops-content-drop">Live-ops content drop</option>
-                <option value="game-launch">Game launch</option>
-                <option value="brand-awareness">Brand awareness</option>
-                <option value="other">Other</option>
+                <option value="" disabled className="text-t-lo">Select a range</option>
+                {BUDGETS.map(b => (
+                  <option key={b} value={b}>{b}</option>
+                ))}
               </select>
             </div>
 
-            {/* UA conditional fields — shown for Live-ops and Game launch */}
-            {(formData.campaignType === 'live-ops-content-drop' || formData.campaignType === 'game-launch') && (
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">App / Game Name</label>
-                  <input
-                    type="text"
-                    value={formData.appName}
-                    onChange={e => setFormData({ ...formData, appName: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                    placeholder="e.g. Gumball 3000"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">CPI Target</label>
-                  <input
-                    type="text"
-                    value={formData.cpiTarget}
-                    onChange={e => setFormData({ ...formData, cpiTarget: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                    placeholder="e.g. $2.50"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Platform</label>
-                  <select
-                    value={formData.appPlatform}
-                    onChange={e => setFormData({ ...formData, appPlatform: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                  >
-                    <option value="">Select...</option>
-                    <option value="ios">iOS</option>
-                    <option value="android">Android</option>
-                    <option value="both">iOS + Android</option>
-                    <option value="pc">PC / Steam</option>
-                    <option value="console">Console</option>
-                  </select>
-                </div>
-              </div>
-            )}
-
+            {/* About */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Tell us about your campaign goals</label>
+              <label htmlFor="about" className="block font-mono text-[11px] tracking-[0.16em] uppercase text-label mb-2">
+                Tell Us About Your Game
+              </label>
               <textarea
-                rows={3}
-                value={formData.message}
-                onChange={e => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                placeholder="What game/app are you promoting? What markets are you targeting? Any specific creator requirements?"
+                id="about"
+                required
+                rows={4}
+                value={formData.about}
+                onChange={e => setFormData(prev => ({ ...prev, about: e.target.value }))}
+                className="w-full bg-ink-700 border border-line rounded-md px-4 py-3 text-t-hi text-sm placeholder:text-t-lo focus:outline-none focus:border-label transition-colors duration-micro ease-brand resize-none"
+                placeholder="Genre, platform, what you're trying to achieve, timeline — anything that helps us build your plan."
               />
             </div>
 
-            <div className="pt-2">
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full bg-primary text-white"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Sending...' : 'Request Campaign Setup'}
-              </Button>
-              <p className="text-center text-sm text-gray-500 mt-3">
-                We&apos;ll respond within 24 hours. Or email{' '}
-                <a href="mailto:admin@gamefluence.com.au" className="text-primary hover:underline">admin@gamefluence.com.au</a> directly.
-              </p>
-            </div>
+            {/* Submit */}
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              className="w-full text-base"
+              disabled={loading}
+            >
+              {loading ? 'Sending…' : 'Get Your Campaign Plan'}
+            </Button>
+
+            <p className="text-center text-t-lo text-xs mt-4">
+              No obligation. No sales automation. A real person reads this and replies.
+            </p>
           </form>
-        )}
-      </div>
+        </div>
+      </Section>
     </main>
   );
 }

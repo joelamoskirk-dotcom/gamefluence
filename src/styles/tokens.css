@@ -1,0 +1,65 @@
+/*
+ * Gamefluence Design Tokens
+ * ─────────────────────────
+ * This is the ONLY file permitted to contain hex colour values.
+ * All components must reference these CSS custom properties.
+ * If a colour is not here, ask before inventing one.
+ */
+
+:root {
+  /* ── Surfaces ── purple-tinted, never neutral grey/black */
+  --ink-950: #0D0418;
+  --ink-900: #120725;
+  --ink-850: #170A2D;
+  --ink-800: #1C0C33;
+  --ink-700: #241141;
+  --ink-600: #2C1650;
+  --line:    #3A2266;
+  --line-hi: #4A2E80;
+
+  /* ── Accent ramp ── indigo to pink */
+  --indigo-600: #5B2FD6;
+  --indigo:     #6D3EE8;
+  --violet:     #8B45E8;
+  --magenta:    #B845C4;
+  --pink:       #E0518C;
+  --rose:       #F06AA0;
+
+  /* ── Text tiers ── */
+  --t-hi:    #FFFFFF;
+  --t-mid:   #C9BBE8;
+  --t-lo:    #9885C4;
+  --t-dim:   #6F5D96;
+  --label:   #B18CFF;
+
+  /* ── Action colour ── the only blue in the system */
+  --action:        #4257F5;
+  --action-hover:  #5568FF;
+  --action-active: #3646D8;
+
+  /* ── Gradient ── */
+  --gradient: linear-gradient(120deg, #5B2FD6 0%, #B845C4 55%, #E0518C 100%);
+
+  /* ── Spacing scale (px) ── */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-24: 96px;
+
+  /* ── Radius scale ── */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-full: 9999px;
+
+  /* ── Motion ── */
+  --ease: cubic-bezier(.2, .85, .3, 1);
+  --dur-micro: 180ms;
+  --dur-transition: 300ms;
+  --dur-hero: 900ms;
+}

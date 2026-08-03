@@ -1,0 +1,142 @@
+/*
+ * Gamefluence Base Styles
+ * ─────────────────────────
+ * Reset, typography, focus states, reduced-motion.
+ * Depends on tokens.css being loaded first.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--t-mid);
+  background-color: var(--ink-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Type scale ── */
+.type-display {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 46px;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--t-hi);
+}
+
+.type-h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 34px;
+  line-height: 1.10;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--t-hi);
+}
+
+.type-h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 23px;
+  line-height: 1.20;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--t-hi);
+}
+
+.type-h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--t-hi);
+}
+
+.type-body-l {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  line-height: 1.60;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.type-body {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.type-small {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12.5px;
+  line-height: 1.60;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.type-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--label);
+}
+
+/* ── Body copy max line length ── */
+p, .body-copy {
+  max-width: 68ch;
+}
+
+/* ── Focus states ── */
+:focus-visible {
+  outline: 2px solid var(--label);
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Links ── */
+a {
+  color: var(--label);
+  text-decoration: none;
+  transition: color var(--dur-micro) var(--ease);
+}
+
+a:hover {
+  color: var(--t-hi);
+}
+
+/* ── Headings default ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--t-hi);
+}

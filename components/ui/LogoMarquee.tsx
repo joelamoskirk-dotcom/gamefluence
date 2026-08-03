@@ -17,13 +17,13 @@ const LOGOS = [
 export default function LogoMarquee() {
   return (
     <div className="w-full overflow-hidden py-4">
-      <p className="text-center text-[10px] uppercase tracking-[0.2em] text-white/30 mb-5">
+      <p className="text-center font-mono text-[11px] uppercase tracking-[0.16em] text-t-lo mb-5">
         Founded by 20 years across
       </p>
       <div className="relative">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-[#0D0D0D] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-[#0D0D0D] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-ink-900 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-ink-900 to-transparent z-10 pointer-events-none" />
 
         {/* Scrolling track */}
         <div className="flex marquee-track">

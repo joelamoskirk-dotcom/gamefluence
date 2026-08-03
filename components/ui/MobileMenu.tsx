@@ -3,15 +3,14 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
 
 const NAV_ITEMS = [
   { label: 'Home', href: '/' },
-  { label: 'How It Works', href: '/creators' },
-  { label: 'For Brands', href: '/get-started' },
+  { label: 'Services', href: '/#services' },
   { label: 'About', href: '/about' },
   { label: 'News', href: '/news' },
   { label: 'Creator Signup', href: '/creator-signup' },
-  { label: 'Login', href: '/founder' },
 ];
 
 export default function MobileMenu() {
@@ -21,27 +20,30 @@ export default function MobileMenu() {
     <div className="md:hidden">
       <button
         onClick={() => setOpen(!open)}
-        className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+        className="p-2 rounded-md hover:bg-ink-700 transition-colors duration-micro ease-brand min-w-[44px] min-h-[44px] flex items-center justify-center"
         aria-label={open ? 'Close menu' : 'Open menu'}
       >
-        {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        {open ? <X className="w-6 h-6 text-t-hi" /> : <Menu className="w-6 h-6 text-t-hi" />}
       </button>
 
       {open && (
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black/40 z-40"
+            className="fixed inset-0 bg-ink-950/80 z-40"
             onClick={() => setOpen(false)}
           />
           {/* Slide-in panel */}
-          <nav className="fixed top-0 right-0 h-full w-72 bg-white shadow-2xl z-50 overflow-y-auto animate-slide-in">
-            <div className="flex items-center justify-between p-4 border-b">
-              <span className="font-bold text-lg gaming-gradient bg-clip-text text-transparent notranslate">
+          <nav className="fixed top-0 right-0 h-full w-72 bg-ink-900 border-l border-line shadow-2xl z-50 overflow-y-auto animate-slide-in">
+            <div className="flex items-center justify-between p-4 border-b border-line">
+              <span className="font-bold text-lg text-t-hi notranslate" spellCheck={false}>
                 Gamefluence
               </span>
-              <button onClick={() => setOpen(false)} className="p-1 rounded hover:bg-gray-100">
-                <X className="w-5 h-5" />
+              <button
+                onClick={() => setOpen(false)}
+                className="p-2 rounded-md hover:bg-ink-700 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              >
+                <X className="w-5 h-5 text-t-hi" />
               </button>
             </div>
 
@@ -51,19 +53,16 @@ export default function MobileMenu() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block px-4 py-3 rounded-lg text-sm font-medium transition-colors text-gray-700 hover:bg-gray-50"
+                  className="block px-4 py-3 rounded-md text-sm font-medium text-t-mid hover:text-t-hi hover:bg-ink-700 transition-colors duration-micro ease-brand"
                 >
                   {item.label}
                 </Link>
               ))}
             </div>
 
-            <div className="p-4 border-t space-y-2">
+            <div className="p-4 border-t border-line space-y-3">
               <Link href="/get-started" onClick={() => setOpen(false)}>
-                <button className="w-full btn-primary text-sm">Get Started</button>
-              </Link>
-              <Link href="/creator-signup" onClick={() => setOpen(false)}>
-                <button className="w-full btn-secondary text-sm">Join as Creator</button>
+                <Button variant="primary" className="w-full text-sm">Get Your Campaign Plan</Button>
               </Link>
             </div>
           </nav>
